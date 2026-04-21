@@ -4,6 +4,6 @@
 # SOON
 
 # CURRENT
-- [ ] Fill out `rules.md`
+- [ ] Create Milestones
 
 # CLOSED
