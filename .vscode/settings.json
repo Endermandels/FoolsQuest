@@ -1,0 +1,8 @@
+{
+    "folder-path-color.folders": [
+        { "path": "scripts", "color": "magenta", "symbol": "GD", "tooltip": "Scripts" },
+        { "path": "scenes", "color": "yellow", "symbol": "SC", "tooltip": "Scenes" },
+        { "path": "resources", "color": "red", "symbol": "RE", "tooltip": "Resources" },
+        { "path": "docs", "color": "cyan", "symbol": "DC", "tooltip": "Documents" },
+    ]
+}
