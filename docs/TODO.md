@@ -4,6 +4,7 @@
 # SOON
 
 # CURRENT
+- [ ] Create Design Documents
 
 # CLOSED
 - [x] Create Milestones
