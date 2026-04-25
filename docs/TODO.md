@@ -1,5 +1,5 @@
 # LATER
-- [ ] README project description first draft
+- [ ] README project description first draft (after game is finished)
 
 # SOON
 
