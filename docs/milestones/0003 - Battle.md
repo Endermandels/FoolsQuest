@@ -3,7 +3,7 @@ Simulate a battle that feels fun (mix of meaningful choices, randomness, and str
 
 # Deliverables
 - [ ] Create Console interface.
-- [ ] Create State Machine.
+- [ ] Create State Machine (executes battle rules).
 - [ ] Create Unit resource/runtime.
 - [ ] Create Passive resource/runtime.
 - [ ] Create Special resource/runtime.
