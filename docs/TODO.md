@@ -4,6 +4,6 @@
 # SOON
 
 # CURRENT
-- [ ] Create Milestones
 
 # CLOSED
+- [x] Create Milestones

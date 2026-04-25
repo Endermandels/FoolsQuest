@@ -2,7 +2,7 @@
 Establish the documentation procedures to make this game become a reality in a clear, directed manner.
 
 # Deliverables
-- [ ] Create Milestones for entire project's development.
+- [x] Create Milestones for entire project's development. (4/25/26)
 - [ ] Create Design Documents to describe the functionality of the game.
 
 # Projected Completion By
