@@ -4,7 +4,8 @@
 # SOON
 
 # CURRENT
-- [ ] Create Design Documents
+- [ ] Create Design Documents for Battle vertical slice
 
 # CLOSED
 - [x] Create Milestones
+- BUG Move bugs to TODO.md

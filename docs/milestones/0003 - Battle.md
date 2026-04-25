@@ -7,7 +7,6 @@ Simulate a battle that feels fun (mix of meaningful choices, randomness, and str
 - [ ] Create Unit resource/runtime.
 - [ ] Create Passive resource/runtime.
 - [ ] Create Special resource/runtime.
-- [ ] Create Status Effect resource/runtime.
 - [ ] Create Effect resource/runtime.
 - [ ] Create player and all animals (including boss).
 - [ ] Meaningful choice 1: Attack or Special.
