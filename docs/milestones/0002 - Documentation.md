@@ -1,5 +1,5 @@
 # Description
-This milestone aims to establish the documentation procedures to make this game become a reality in a clear, directed manner.
+Establish the documentation procedures to make this game become a reality in a clear, directed manner.
 
 # Deliverables
 - [ ] Create Milestones for entire project's development.
