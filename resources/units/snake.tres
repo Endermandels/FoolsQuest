@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="UnitRes" load_steps=4 format=3 uid="uid://1ouydqp2bqdg"]
+
+[ext_resource type="Script" uid="uid://b1pdjtytsqqqv" path="res://scripts/resources/passive_res.gd" id="1_3nts6"]
+[ext_resource type="Script" uid="uid://btu6s2dkuilpu" path="res://scripts/resources/unit_res.gd" id="2_0mbmv"]
+[ext_resource type="Resource" uid="uid://bhepds6rc5fio" path="res://resources/passives/venomous_fangs.tres" id="2_klhou"]
+
+[resource]
+script = ExtResource("2_0mbmv")
+name_id = "Snake"
+base_mp = 3
+base_atk = 1
+passives = Array[ExtResource("1_3nts6")]([ExtResource("2_klhou")])
+metadata/_custom_type_script = "uid://btu6s2dkuilpu"

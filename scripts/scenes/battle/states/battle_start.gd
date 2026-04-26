@@ -4,6 +4,7 @@ extends State
 #region # TODO: DELETE
 const PLAYER = preload("res://resources/units/player.tres")
 const WOLF = preload("res://resources/units/wolf.tres")
+const SNAKE = preload("res://resources/units/snake.tres")
 #endregion
 
 @export var turn_start_burn: State
@@ -12,7 +13,7 @@ func step(data: BattleStateData) -> State:
 	print("* Step Battle Start")
 	#region # TODO: CHANGE
 	var player: UnitRun = UnitRun.new(PLAYER.duplicate(), true)
-	var enemy: UnitRun = UnitRun.new(WOLF.duplicate())
+	var enemy: UnitRun = UnitRun.new(SNAKE.duplicate())
 	data.units.append(player)
 	data.units.append(enemy)
 	#endregion

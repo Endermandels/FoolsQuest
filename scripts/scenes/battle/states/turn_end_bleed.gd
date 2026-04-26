@@ -12,7 +12,7 @@ func step(data: BattleStateData) -> State:
 	if cur_unit.is_bleeding:
 		assert(cur_unit.bleed_turns_left > 0)
 
-		Console.print_line("* [%s] is hurt by bleed DMG" % cur_unit)
+		Console.print_line("* [%s] is hurt by blood loss" % cur_unit)
 
 		var dmg_res: DMGRes = DMGRes.new()
 		dmg_res.dmg = data.status_effects_res.bleed_dmg
@@ -25,6 +25,9 @@ func step(data: BattleStateData) -> State:
 			state = battle_end
 			
 		cur_unit.bleed_turns_left -= 1
+
+		if not cur_unit.is_bleeding:
+			Console.print_line("* [%s] has stopped bleeding" % cur_unit)
 		
 	return state
 
