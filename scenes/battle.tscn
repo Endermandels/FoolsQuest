@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://q08qti5wvyrc"]
+[gd_scene load_steps=9 format=3 uid="uid://q08qti5wvyrc"]
 
 [ext_resource type="Script" uid="uid://c24wy4prp7eyo" path="res://scripts/scenes/battle/battle.gd" id="1_dn72j"]
 [ext_resource type="Script" uid="uid://dixbtf3xhn414" path="res://scripts/scenes/battle/battle_handler.gd" id="2_6vh42"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://bxaqisyb2lls8" path="res://scripts/scenes/battle/states/battle_start.gd" id="3_p1qf1"]
 [ext_resource type="Script" uid="uid://d0hy0tar3um41" path="res://scripts/scenes/battle/states/turn_start_burn.gd" id="4_a12nh"]
 [ext_resource type="Script" uid="uid://opr72b5l4vaa" path="res://scripts/scenes/battle/states/action_input.gd" id="5_lpir7"]
+[ext_resource type="Script" uid="uid://m7lnwppqajcf" path="res://scripts/scenes/battle/states/attack.gd" id="7_f4pi3"]
+[ext_resource type="Script" uid="uid://b5676yt14tjfq" path="res://scripts/scenes/battle/states/special.gd" id="8_yahae"]
 
 [node name="Battle" type="Node2D" node_paths=PackedStringArray("battle_handler")]
 script = ExtResource("1_dn72j")
@@ -27,5 +29,13 @@ turn_start_burn = NodePath("../TurnStartBurn")
 script = ExtResource("4_a12nh")
 action_input = NodePath("../ActionInput")
 
-[node name="ActionInput" type="Node" parent="BattleHandler/StateMachine"]
+[node name="ActionInput" type="Node" parent="BattleHandler/StateMachine" node_paths=PackedStringArray("attack", "special")]
 script = ExtResource("5_lpir7")
+attack = NodePath("../Attack")
+special = NodePath("../Special")
+
+[node name="Attack" type="Node" parent="BattleHandler/StateMachine"]
+script = ExtResource("7_f4pi3")
+
+[node name="Special" type="Node" parent="BattleHandler/StateMachine"]
+script = ExtResource("8_yahae")

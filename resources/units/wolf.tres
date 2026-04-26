@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_7lw6w")
+name_id = "Wolf"
 base_hp = 15
 base_mp = 1
 base_atk = 3

@@ -16,5 +16,7 @@ func step(data: BattleStateData) -> State:
 	
 	return state
 
-func enter(_data: BattleStateData) -> void:
-	Console.print_line("# Turn Start #", Color.GREEN)
+func enter(data: BattleStateData) -> void:
+	var cur_unit: UnitRun = data.units[data.turn_idx]
+
+	Console.print_line("# [%s] Turn Start #" % cur_unit, Color.GREEN)

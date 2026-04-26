@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 Console="*res://scenes/components/console.tscn"
 
+[debug]
+
+gdscript/warnings/shadowed_variable=0
+gdscript/warnings/shadowed_variable_base_class=0
+
 [gui]
 
 theme/custom_font="uid://b8vmmaso7gt3x"

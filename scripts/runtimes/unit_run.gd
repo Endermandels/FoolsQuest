@@ -1,7 +1,7 @@
 extends RefCounted
 class_name UnitRun
 
-var nameid: String
+var name_id: String
 var is_player: bool = false
 
 # Base Stats
@@ -30,7 +30,7 @@ var bleed_turns_left: int = 0
 var chance_to_miss_attack: float = 0.0
 
 func _init(res: UnitRes, is_player: bool = false) -> void:
-	self.nameid = res.nameid
+	self.name_id = res.name_id
 	self.is_player = is_player
 
 	# Base Stats
@@ -46,3 +46,6 @@ func _init(res: UnitRes, is_player: bool = false) -> void:
 	self.atk = base_atk
 	self.def = base_def
 	self.spd = base_spd
+
+func _to_string() -> String:
+	return name_id
