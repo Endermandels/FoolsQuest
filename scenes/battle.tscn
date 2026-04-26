@@ -1,3 +1,16 @@
-[gd_scene format=3 uid="uid://q08qti5wvyrc"]
+[gd_scene load_steps=4 format=3 uid="uid://q08qti5wvyrc"]
 
-[node name="Battle" type="Node2D"]
+[ext_resource type="Script" uid="uid://c24wy4prp7eyo" path="res://scripts/scenes/battle/battle.gd" id="1_dn72j"]
+[ext_resource type="Script" uid="uid://cehneggjpuen7" path="res://scripts/scenes/battle/battle_state_machine.gd" id="2_th188"]
+[ext_resource type="Script" uid="uid://bxaqisyb2lls8" path="res://scripts/scenes/battle/states/battle_start.gd" id="3_p1qf1"]
+
+[node name="Battle" type="Node2D" node_paths=PackedStringArray("state_machine")]
+script = ExtResource("1_dn72j")
+state_machine = NodePath("StateMachine")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("cur_state")]
+script = ExtResource("2_th188")
+cur_state = NodePath("BattleStart")
+
+[node name="BattleStart" type="Node" parent="StateMachine"]
+script = ExtResource("3_p1qf1")

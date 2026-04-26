@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="UnitRes" load_steps=2 format=3 uid="uid://b5tnm7nb28rqb"]
+
+[ext_resource type="Script" uid="uid://btu6s2dkuilpu" path="res://scripts/resources/unit_res.gd" id="1_hm0gi"]
+
+[resource]
+script = ExtResource("1_hm0gi")
+base_hp = 20
+base_mp = 3
+base_atk = 1
+metadata/_custom_type_script = "uid://btu6s2dkuilpu"

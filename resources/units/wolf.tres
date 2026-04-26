@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="UnitRes" load_steps=2 format=3 uid="uid://bipa5g4xglunp"]
+
+[ext_resource type="Script" uid="uid://btu6s2dkuilpu" path="res://scripts/resources/unit_res.gd" id="1_7lw6w"]
+
+[resource]
+script = ExtResource("1_7lw6w")
+base_hp = 15
+base_mp = 1
+base_atk = 3
+base_spd = 2
+metadata/_custom_type_script = "uid://btu6s2dkuilpu"

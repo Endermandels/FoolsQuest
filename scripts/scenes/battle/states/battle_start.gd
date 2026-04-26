@@ -1,12 +1,22 @@
 extends State
 
 # TODO: Get initialized units from Location Selection choice
+#region # TODO: DELETE
+const PLAYER = preload("res://resources/units/player.tres")
+const WOLF = preload("res://resources/units/wolf.tres")
+#endregion
 
-func step(data: BattleStateData) -> State:
-	return null
+@export var turn_start_burn: State = null
 
-func enter(data) -> void:
-	pass
+func step(_data: BattleStateData) -> State:
+	return turn_start_burn
 
-func exit(data) -> void:
-	pass
+func enter(data: BattleStateData) -> void:
+	#region # TODO: CHANGE
+	var player: UnitRun = UnitRun.new(PLAYER.duplicate())
+	var enemy: UnitRun = UnitRun.new(WOLF.duplicate())
+	data.units.append(player)
+	data.units.append(enemy)
+	print("* Initialized units")
+	#endregion
+	Console.print_line("# Battle Start #", Color.GREEN)

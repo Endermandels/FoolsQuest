@@ -1,6 +1,8 @@
 extends RefCounted
 class_name UnitRun
 
+var nameid: String
+
 # Base Stats
 var base_hp: int
 var base_mp: int
@@ -27,6 +29,8 @@ var bleed_turns_left: int = 0
 var chance_to_miss_attack: float = 0.0
 
 func _init(res: UnitRes) -> void:
+	nameid = res.nameid
+
 	# Base Stats
 	base_hp = res.base_hp
 	base_mp = res.base_mp
