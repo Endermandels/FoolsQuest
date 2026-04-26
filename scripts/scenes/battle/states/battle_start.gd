@@ -6,7 +6,7 @@ const PLAYER = preload("res://resources/units/player.tres")
 const WOLF = preload("res://resources/units/wolf.tres")
 #endregion
 
-@export var turn_start_burn: State = null
+@export var turn_start_burn: State
 
 func step(_data: BattleStateData) -> State:
 	return turn_start_burn
