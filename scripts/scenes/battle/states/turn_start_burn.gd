@@ -7,7 +7,7 @@ func step(data: BattleStateData) -> State:
 	var state: State = action_input
 	var cur_unit: UnitRun = data.units[data.turn_idx]
 
-	# TODO: Current unit takes burn damage
+	print("TODO: burn damage")
 	
 	if cur_unit.is_stunned:
 		Console.print_line("* [%s] is stunned")
