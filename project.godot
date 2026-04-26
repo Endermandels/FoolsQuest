@@ -11,5 +11,10 @@ config_version=5
 [application]
 
 config/name="Fools Quest"
+run/main_scene="uid://q08qti5wvyrc"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Console="*res://scenes/components/console.tscn"
