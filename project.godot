@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 Console="*res://scenes/components/console.tscn"
 
+[gui]
+
+theme/custom_font="uid://b8vmmaso7gt3x"
+
 [input]
 
 toggle_console={

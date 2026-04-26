@@ -8,15 +8,15 @@ const WOLF = preload("res://resources/units/wolf.tres")
 
 @export var turn_start_burn: State
 
-func step(_data: BattleStateData) -> State:
-	return turn_start_burn
-
-func enter(data: BattleStateData) -> void:
+func step(data: BattleStateData) -> State:
 	#region # TODO: CHANGE
-	var player: UnitRun = UnitRun.new(PLAYER.duplicate())
+	var player: UnitRun = UnitRun.new(PLAYER.duplicate(), true)
 	var enemy: UnitRun = UnitRun.new(WOLF.duplicate())
 	data.units.append(player)
 	data.units.append(enemy)
 	print("* Initialized units")
 	#endregion
+	return turn_start_burn
+
+func enter(_data: BattleStateData) -> void:
 	Console.print_line("# Battle Start #", Color.GREEN)

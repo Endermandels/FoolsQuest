@@ -3,10 +3,14 @@ class_name Battle
 
 const COMMANDS = {
 	"quit": ["quit", "exit"],
-	"step": ["step", "s"]
+	"step": ["step", "s"],
+	"left": ["left", "l"],
+	"right": ["right", "r"],
+	"confirm": ["confirm", "c"],
+	"clear": ["clear"]
 }
 
-@export var state_machine: BattleStateMachine
+@export var battle_handler: BattleHandler
 
 func _process(_delta: float) -> void:
 	var curcmd: String = ""
@@ -19,5 +23,13 @@ func _process(_delta: float) -> void:
 
 		if curcmd in COMMANDS.quit:
 			get_tree().quit()
+		elif curcmd in COMMANDS.clear:
+			Console.clear()
 		elif curcmd in COMMANDS.step:
-			state_machine.step()
+			battle_handler.step()
+		elif curcmd in COMMANDS.left:
+			battle_handler.left()
+		elif curcmd in COMMANDS.right:
+			battle_handler.right()
+		elif curcmd in COMMANDS.confirm:
+			battle_handler.confirm()

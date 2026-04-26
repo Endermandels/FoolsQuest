@@ -6,7 +6,7 @@ extends State
 func step(data: BattleStateData) -> State:
 	var state: State = action_input
 	var cur_unit: UnitRun = data.units[data.turn_idx]
-	
+
 	# TODO: Current unit takes burn damage
 	
 	if cur_unit.is_stunned:
@@ -16,5 +16,5 @@ func step(data: BattleStateData) -> State:
 	
 	return state
 
-func enter(data) -> void:
+func enter(_data: BattleStateData) -> void:
 	Console.print_line("# Turn Start #", Color.GREEN)

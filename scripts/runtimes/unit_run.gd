@@ -2,6 +2,7 @@ extends RefCounted
 class_name UnitRun
 
 var nameid: String
+var is_player: bool = false
 
 # Base Stats
 var base_hp: int
@@ -28,19 +29,20 @@ var burn_turns_left: int = 0
 var bleed_turns_left: int = 0
 var chance_to_miss_attack: float = 0.0
 
-func _init(res: UnitRes) -> void:
-	nameid = res.nameid
+func _init(res: UnitRes, is_player: bool = false) -> void:
+	self.nameid = res.nameid
+	self.is_player = is_player
 
 	# Base Stats
-	base_hp = res.base_hp
-	base_mp = res.base_mp
-	base_atk = res.base_atk
-	base_def = res.base_def
-	base_spd = res.base_spd
+	self.base_hp = res.base_hp
+	self.base_mp = res.base_mp
+	self.base_atk = res.base_atk
+	self.base_def = res.base_def
+	self.base_spd = res.base_spd
 
 	# Variable Stats
-	hp = base_hp
-	mp = base_mp
-	atk = base_atk
-	def = base_def
-	spd = base_spd
+	self.hp = base_hp
+	self.mp = base_mp
+	self.atk = base_atk
+	self.def = base_def
+	self.spd = base_spd

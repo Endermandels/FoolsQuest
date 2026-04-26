@@ -4,6 +4,10 @@ class_name BattleStateData
 #region Variables
 var units: Array[UnitRun] = []
 var turn_idx: int = 0
+
+var is_attack_action: bool = false ## Whether to go to Attack or Special state from Action Input state
+# TODO: Implement selected_special
+var player_confirm: bool = false ## Whether the player has confirmed their selection
 #endregion
 
 #region Functions
