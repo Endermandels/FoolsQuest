@@ -6,6 +6,7 @@ func step(data: BattleStateData) -> State:
 	var state: State = turn_end_bleed
 	var cur_unit: UnitRun = data.units[data.turn_idx]
 	
+	print("* Step Special")
 	print("TODO: Do special")
 
 	return state

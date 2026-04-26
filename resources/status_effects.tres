@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="StatusEffectsRes" load_steps=2 format=3 uid="uid://4uycvfhipb2h"]
+
+[ext_resource type="Script" uid="uid://dryvju7bjlfkr" path="res://scripts/resources/status_effects_res.gd" id="1_l2dwh"]
+
+[resource]
+script = ExtResource("1_l2dwh")
+bleed_dmg = 2

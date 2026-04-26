@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Console="*res://scenes/components/console.tscn"
+Enums="*res://scripts/globals/enums.gd"
 
 [debug]
 

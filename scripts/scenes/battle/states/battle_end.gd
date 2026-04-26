@@ -1,6 +1,7 @@
 extends State
 
 func step(data: BattleStateData) -> State:
+	print("* Step Battle End")
 	for u in data.units:
 		if u.is_player:
 			if u.is_alive:

@@ -7,6 +7,7 @@ func step(data: BattleStateData) -> State:
 	var state: State = null
 	var cur_unit: UnitRun = data.units[data.turn_idx]
 
+	print("* Step Action Input")
 	if cur_unit.is_player:
 		if not data.player_confirm:
 			Console.print_line(

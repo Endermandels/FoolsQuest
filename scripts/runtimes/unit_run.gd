@@ -5,6 +5,9 @@ var name_id: String
 var is_player: bool = false
 var is_alive: bool = false
 
+# Abilities
+var passives: Array[PassiveRes]
+
 # Base Stats
 var base_hp: int
 var base_mp: int
@@ -29,8 +32,14 @@ var is_bleeding: bool = false
 var is_stunned: bool = false
 var is_blind: bool = false
 
-var burn_turns_left: int = 0
-var bleed_turns_left: int = 0
+var burn_turns_left: int = 0:
+	set(val):
+		burn_turns_left = val
+		is_bleeding = burn_turns_left > 0
+var bleed_turns_left: int = 0:
+	set(val):
+		bleed_turns_left = val
+		is_bleeding = bleed_turns_left > 0
 var chance_to_miss_attack: float = 0.0
 
 func _init(res: UnitRes, is_player: bool = false) -> void:
@@ -50,6 +59,9 @@ func _init(res: UnitRes, is_player: bool = false) -> void:
 	self.atk = base_atk
 	self.def = base_def
 	self.spd = base_spd
+
+	# Abilities
+	self.passives = res.passives
 
 func _to_string() -> String:
 	return name_id

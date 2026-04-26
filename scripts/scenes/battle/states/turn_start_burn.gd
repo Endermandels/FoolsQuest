@@ -7,6 +7,7 @@ func step(data: BattleStateData) -> State:
 	var state: State = action_input
 	var cur_unit: UnitRun = data.units[data.turn_idx]
 
+	print("* Step Turn Start Burn")
 	print("TODO: burn damage")
 	
 	if cur_unit.is_stunned:
