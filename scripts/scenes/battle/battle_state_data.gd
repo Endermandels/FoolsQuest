@@ -15,4 +15,7 @@ func next_unit() -> void:
 	turn_idx += 1
 	if turn_idx >= units.size():
 		turn_idx = 0
+
+func has_death_occurred() -> bool:
+	return units.any(func (x: UnitRun): return not x.is_alive)
 #endregion

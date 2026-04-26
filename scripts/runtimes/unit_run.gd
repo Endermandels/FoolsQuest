@@ -3,6 +3,7 @@ class_name UnitRun
 
 var name_id: String
 var is_player: bool = false
+var is_alive: bool = false
 
 # Base Stats
 var base_hp: int
@@ -12,7 +13,10 @@ var base_def: int
 var base_spd: int
 
 # Variable Stats
-var hp: int
+var hp: int:
+	set(val):
+		hp = max(0, val)
+		is_alive = hp > 0
 var mp: int
 var atk: int
 var def: int

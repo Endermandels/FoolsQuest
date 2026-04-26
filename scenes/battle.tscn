@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://q08qti5wvyrc"]
+[gd_scene load_steps=12 format=3 uid="uid://q08qti5wvyrc"]
 
 [ext_resource type="Script" uid="uid://c24wy4prp7eyo" path="res://scripts/scenes/battle/battle.gd" id="1_dn72j"]
 [ext_resource type="Script" uid="uid://dixbtf3xhn414" path="res://scripts/scenes/battle/battle_handler.gd" id="2_6vh42"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://b5676yt14tjfq" path="res://scripts/scenes/battle/states/special.gd" id="8_yahae"]
 [ext_resource type="Script" uid="uid://1iuco1i60fjy" path="res://scripts/scenes/battle/states/turn_end_bleed.gd" id="9_v7i3o"]
 [ext_resource type="Script" uid="uid://dbhqdaatq436d" path="res://scripts/scenes/battle/states/turn_end_poison.gd" id="10_66ngm"]
+[ext_resource type="Script" uid="uid://ddw7phufv7exq" path="res://scripts/scenes/battle/states/battle_end.gd" id="11_66ngm"]
 
 [node name="Battle" type="Node2D" node_paths=PackedStringArray("battle_handler")]
 script = ExtResource("1_dn72j")
@@ -37,9 +38,10 @@ script = ExtResource("5_lpir7")
 attack = NodePath("../Attack")
 special = NodePath("../Special")
 
-[node name="Attack" type="Node" parent="BattleHandler/StateMachine" node_paths=PackedStringArray("turn_end_bleed")]
+[node name="Attack" type="Node" parent="BattleHandler/StateMachine" node_paths=PackedStringArray("turn_end_bleed", "battle_end")]
 script = ExtResource("7_f4pi3")
 turn_end_bleed = NodePath("../TurnEndBleed")
+battle_end = NodePath("../BattleEnd")
 
 [node name="Special" type="Node" parent="BattleHandler/StateMachine" node_paths=PackedStringArray("turn_end_bleed")]
 script = ExtResource("8_yahae")
@@ -52,3 +54,6 @@ turn_end_poison = NodePath("../TurnEndPoison")
 [node name="TurnEndPoison" type="Node" parent="BattleHandler/StateMachine" node_paths=PackedStringArray("turn_start_burn")]
 script = ExtResource("10_66ngm")
 turn_start_burn = NodePath("../TurnStartBurn")
+
+[node name="BattleEnd" type="Node" parent="BattleHandler/StateMachine"]
+script = ExtResource("11_66ngm")
