@@ -8,13 +8,13 @@ const status_effects_res: StatusEffectsRes = preload("res://resources/status_eff
 #region Variables
 var units: Array[UnitRun] = []
 var turn_idx: int = 0
-
-var is_attack_action: bool = false ## Whether to go to Attack or Special state from Action Input state
-# TODO: Implement selected_special
-var player_confirm: bool = false ## Whether the player has confirmed their selection
+var input_data: BattleInputData
 #endregion
 
 #region Functions
+func _init(input_data: BattleInputData) -> void:
+	self.input_data = input_data
+
 func next_unit() -> void:
 	turn_idx += 1
 	if turn_idx >= units.size():

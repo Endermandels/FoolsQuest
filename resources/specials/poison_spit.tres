@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SpecialRes" load_steps=5 format=3 uid="uid://cysg2blltb08w"]
+
+[ext_resource type="Script" uid="uid://c0wbcrlg6ht3b" path="res://scripts/resources/effect_res.gd" id="1_4jh47"]
+[ext_resource type="Script" uid="uid://bq81dohj7lbqw" path="res://scripts/resources/special_res.gd" id="2_bjyyy"]
+[ext_resource type="Script" uid="uid://7d572upjx1lu" path="res://scripts/resources/effects/poison_res.gd" id="2_jkyv6"]
+
+[sub_resource type="Resource" id="Resource_2mcj5"]
+script = ExtResource("2_jkyv6")
+metadata/_custom_type_script = "uid://7d572upjx1lu"
+
+[resource]
+script = ExtResource("2_bjyyy")
+name_id = "Poison Spit"
+effects = Array[ExtResource("1_4jh47")]([SubResource("Resource_2mcj5")])
+metadata/_custom_type_script = "uid://bq81dohj7lbqw"

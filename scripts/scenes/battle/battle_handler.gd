@@ -1,24 +1,18 @@
 extends Node
 class_name BattleHandler
 
-@export var state_machine: BattleStateMachine
+@export var battle_state_machine: StateMachine
 
-var data: BattleStateData
+var input_data: BattleInputData
 
 func _ready() -> void:
-	data = BattleStateData.new()
-	state_machine.init(data)
+	input_data = BattleInputData.new()
+	battle_state_machine.data = BattleStateData.new(input_data)
 
-func left() -> void:
-	data.is_attack_action = not data.is_attack_action
-	step()
-
-func right() -> void:
-	left()
-
-func confirm() -> void:
-	data.player_confirm = true
+func input_signal(type: BattleInputData.InputType) -> void:
+	if input_data.allow_inputs:
+		input_data.inputs[type] = true
 	step()
 
 func step() -> void:
-	state_machine.step()
+	battle_state_machine.step()

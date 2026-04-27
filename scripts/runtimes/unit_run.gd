@@ -7,6 +7,7 @@ var is_alive: bool = false
 
 # Abilities
 var passives: Array[PassiveRes]
+var specials: Array[SpecialRes]
 
 # Base Stats
 var base_hp: int
@@ -62,6 +63,7 @@ func _init(res: UnitRes, is_player: bool = false) -> void:
 
 	# Abilities
 	self.passives = res.passives
+	self.specials = res.specials
 
 func _to_string() -> String:
 	return name_id

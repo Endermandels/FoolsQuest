@@ -10,5 +10,4 @@ class_name UnitRes
 @export_range(0, 20) var base_spd: int = 0
 @export_group("Abilities")
 @export var passives: Array[PassiveRes] = []
-# TODO: Implement the following:
-# @export var specials: Array = []
+@export var specials: Array[SpecialRes] = []

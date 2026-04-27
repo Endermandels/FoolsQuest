@@ -6,7 +6,8 @@ const COMMANDS = {
 	"step": ["step", "s"],
 	"left": ["left", "l"],
 	"right": ["right", "r"],
-	"confirm": ["confirm", "c"],
+	"select": ["select", "sl"],
+	"back": ["back", "b" ],
 	"clear": ["clear"]
 }
 
@@ -28,8 +29,10 @@ func _process(_delta: float) -> void:
 		elif curcmd in COMMANDS.step:
 			battle_handler.step()
 		elif curcmd in COMMANDS.left:
-			battle_handler.left()
+			battle_handler.input_signal(BattleInputData.InputType.LEFT)
 		elif curcmd in COMMANDS.right:
-			battle_handler.right()
-		elif curcmd in COMMANDS.confirm:
-			battle_handler.confirm()
+			battle_handler.input_signal(BattleInputData.InputType.RIGHT)
+		elif curcmd in COMMANDS.select:
+			battle_handler.input_signal(BattleInputData.InputType.CONFIRM)
+		elif curcmd in COMMANDS.back:
+			battle_handler.input_signal(BattleInputData.InputType.BACK)

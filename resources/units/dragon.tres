@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="UnitRes" load_steps=3 format=3 uid="uid://bxpdr13q0h756"]
+
+[ext_resource type="Script" uid="uid://b1pdjtytsqqqv" path="res://scripts/resources/passive_res.gd" id="1_oqbk3"]
+[ext_resource type="Script" uid="uid://btu6s2dkuilpu" path="res://scripts/resources/unit_res.gd" id="2_e71d4"]
+
+[resource]
+script = ExtResource("2_e71d4")
+metadata/_custom_type_script = "uid://btu6s2dkuilpu"

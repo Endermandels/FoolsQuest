@@ -2,59 +2,60 @@
 
 [ext_resource type="Script" uid="uid://c24wy4prp7eyo" path="res://scripts/scenes/battle/battle.gd" id="1_dn72j"]
 [ext_resource type="Script" uid="uid://dixbtf3xhn414" path="res://scripts/scenes/battle/battle_handler.gd" id="2_6vh42"]
-[ext_resource type="Script" uid="uid://cehneggjpuen7" path="res://scripts/scenes/battle/battle_state_machine.gd" id="2_th188"]
-[ext_resource type="Script" uid="uid://bxaqisyb2lls8" path="res://scripts/scenes/battle/states/battle_start.gd" id="3_p1qf1"]
-[ext_resource type="Script" uid="uid://d0hy0tar3um41" path="res://scripts/scenes/battle/states/turn_start_burn.gd" id="4_a12nh"]
-[ext_resource type="Script" uid="uid://opr72b5l4vaa" path="res://scripts/scenes/battle/states/action_input.gd" id="5_lpir7"]
-[ext_resource type="Script" uid="uid://m7lnwppqajcf" path="res://scripts/scenes/battle/states/attack.gd" id="7_f4pi3"]
-[ext_resource type="Script" uid="uid://b5676yt14tjfq" path="res://scripts/scenes/battle/states/special.gd" id="8_yahae"]
-[ext_resource type="Script" uid="uid://1iuco1i60fjy" path="res://scripts/scenes/battle/states/turn_end_bleed.gd" id="9_v7i3o"]
-[ext_resource type="Script" uid="uid://dbhqdaatq436d" path="res://scripts/scenes/battle/states/turn_end_poison.gd" id="10_66ngm"]
-[ext_resource type="Script" uid="uid://ddw7phufv7exq" path="res://scripts/scenes/battle/states/battle_end.gd" id="11_66ngm"]
+[ext_resource type="Script" uid="uid://dujl485xclh1b" path="res://scripts/components/state_machine.gd" id="3_66ngm"]
+[ext_resource type="Script" uid="uid://bxaqisyb2lls8" path="res://scripts/scenes/battle/battle_states/battle_start.gd" id="3_p1qf1"]
+[ext_resource type="Script" uid="uid://d0hy0tar3um41" path="res://scripts/scenes/battle/battle_states/turn_start_burn.gd" id="4_a12nh"]
+[ext_resource type="Script" uid="uid://opr72b5l4vaa" path="res://scripts/scenes/battle/battle_states/action_input.gd" id="5_lpir7"]
+[ext_resource type="Script" uid="uid://m7lnwppqajcf" path="res://scripts/scenes/battle/battle_states/attack.gd" id="7_f4pi3"]
+[ext_resource type="Script" uid="uid://b5676yt14tjfq" path="res://scripts/scenes/battle/battle_states/special.gd" id="8_yahae"]
+[ext_resource type="Script" uid="uid://1iuco1i60fjy" path="res://scripts/scenes/battle/battle_states/turn_end_bleed.gd" id="9_v7i3o"]
+[ext_resource type="Script" uid="uid://dbhqdaatq436d" path="res://scripts/scenes/battle/battle_states/turn_end_poison.gd" id="10_66ngm"]
+[ext_resource type="Script" uid="uid://ddw7phufv7exq" path="res://scripts/scenes/battle/battle_states/battle_end.gd" id="11_66ngm"]
 
 [node name="Battle" type="Node2D" node_paths=PackedStringArray("battle_handler")]
 script = ExtResource("1_dn72j")
 battle_handler = NodePath("BattleHandler")
 
-[node name="BattleHandler" type="Node" parent="." node_paths=PackedStringArray("state_machine")]
+[node name="BattleHandler" type="Node" parent="." node_paths=PackedStringArray("battle_state_machine")]
 script = ExtResource("2_6vh42")
-state_machine = NodePath("StateMachine")
+battle_state_machine = NodePath("BattleStateMachine")
 
-[node name="StateMachine" type="Node" parent="BattleHandler" node_paths=PackedStringArray("cur_state")]
-script = ExtResource("2_th188")
+[node name="BattleStateMachine" type="Node" parent="BattleHandler" node_paths=PackedStringArray("cur_state")]
+script = ExtResource("3_66ngm")
 cur_state = NodePath("BattleStart")
 
-[node name="BattleStart" type="Node" parent="BattleHandler/StateMachine" node_paths=PackedStringArray("turn_start_burn")]
+[node name="BattleStart" type="Node" parent="BattleHandler/BattleStateMachine" node_paths=PackedStringArray("turn_start_burn")]
 script = ExtResource("3_p1qf1")
 turn_start_burn = NodePath("../TurnStartBurn")
 
-[node name="TurnStartBurn" type="Node" parent="BattleHandler/StateMachine" node_paths=PackedStringArray("turn_end_bleed", "action_input")]
+[node name="TurnStartBurn" type="Node" parent="BattleHandler/BattleStateMachine" node_paths=PackedStringArray("turn_end_bleed", "action_input")]
 script = ExtResource("4_a12nh")
 turn_end_bleed = NodePath("../TurnEndBleed")
 action_input = NodePath("../ActionInput")
 
-[node name="ActionInput" type="Node" parent="BattleHandler/StateMachine" node_paths=PackedStringArray("attack", "special")]
+[node name="ActionInput" type="Node" parent="BattleHandler/BattleStateMachine" node_paths=PackedStringArray("attack", "special")]
 script = ExtResource("5_lpir7")
 attack = NodePath("../Attack")
 special = NodePath("../Special")
 
-[node name="Attack" type="Node" parent="BattleHandler/StateMachine" node_paths=PackedStringArray("turn_end_bleed", "battle_end")]
+[node name="Attack" type="Node" parent="BattleHandler/BattleStateMachine" node_paths=PackedStringArray("turn_end_bleed", "battle_end")]
 script = ExtResource("7_f4pi3")
 turn_end_bleed = NodePath("../TurnEndBleed")
 battle_end = NodePath("../BattleEnd")
 
-[node name="Special" type="Node" parent="BattleHandler/StateMachine" node_paths=PackedStringArray("turn_end_bleed")]
+[node name="Special" type="Node" parent="BattleHandler/BattleStateMachine" node_paths=PackedStringArray("turn_end_bleed")]
 script = ExtResource("8_yahae")
 turn_end_bleed = NodePath("../TurnEndBleed")
 
-[node name="TurnEndBleed" type="Node" parent="BattleHandler/StateMachine" node_paths=PackedStringArray("turn_end_poison", "battle_end")]
+[node name="TurnEndBleed" type="Node" parent="BattleHandler/BattleStateMachine" node_paths=PackedStringArray("turn_end_poison", "battle_end")]
 script = ExtResource("9_v7i3o")
 turn_end_poison = NodePath("../TurnEndPoison")
 battle_end = NodePath("../BattleEnd")
 
-[node name="TurnEndPoison" type="Node" parent="BattleHandler/StateMachine" node_paths=PackedStringArray("turn_start_burn")]
+[node name="TurnEndPoison" type="Node" parent="BattleHandler/BattleStateMachine" node_paths=PackedStringArray("turn_start_burn", "battle_end")]
 script = ExtResource("10_66ngm")
 turn_start_burn = NodePath("../TurnStartBurn")
+battle_end = NodePath("../BattleEnd")
 
-[node name="BattleEnd" type="Node" parent="BattleHandler/StateMachine"]
+[node name="BattleEnd" type="Node" parent="BattleHandler/BattleStateMachine"]
 script = ExtResource("11_66ngm")

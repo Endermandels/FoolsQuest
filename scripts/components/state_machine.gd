@@ -5,8 +5,6 @@ class_name StateMachine
 
 var data: StateData = null ## Data that can be modified by the states (optional)
 
-# ! Note: Use _init to initialize data, if desired
-
 func _ready() -> void:
 	cur_state.enter(data)
 
