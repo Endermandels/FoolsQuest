@@ -36,7 +36,7 @@ var is_blind: bool = false
 var burn_turns_left: int = 0:
 	set(val):
 		burn_turns_left = val
-		is_bleeding = burn_turns_left > 0
+		is_burning = burn_turns_left > 0
 var bleed_turns_left: int = 0:
 	set(val):
 		bleed_turns_left = val

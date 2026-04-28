@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="UnitRes" load_steps=5 format=3 uid="uid://b5tnm7nb28rqb"]
+[gd_resource type="Resource" script_class="UnitRes" load_steps=6 format=3 uid="uid://b5tnm7nb28rqb"]
 
 [ext_resource type="Script" uid="uid://btu6s2dkuilpu" path="res://scripts/resources/unit_res.gd" id="1_hm0gi"]
 [ext_resource type="Script" uid="uid://b1pdjtytsqqqv" path="res://scripts/resources/passive_res.gd" id="1_l51o6"]
 [ext_resource type="Script" uid="uid://bq81dohj7lbqw" path="res://scripts/resources/special_res.gd" id="3_ax28j"]
 [ext_resource type="Resource" uid="uid://cysg2blltb08w" path="res://resources/specials/poison_spit.tres" id="4_wxi1o"]
+[ext_resource type="Resource" uid="uid://c64317p4mml2x" path="res://resources/specials/flame_breath.tres" id="5_ax28j"]
 
 [resource]
 script = ExtResource("1_hm0gi")
@@ -11,5 +12,5 @@ name_id = "Player"
 base_hp = 5
 base_mp = 3
 base_atk = 1
-specials = Array[ExtResource("3_ax28j")]([ExtResource("4_wxi1o")])
+specials = Array[ExtResource("3_ax28j")]([ExtResource("4_wxi1o"), ExtResource("5_ax28j")])
 metadata/_custom_type_script = "uid://btu6s2dkuilpu"

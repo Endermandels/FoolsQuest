@@ -28,10 +28,11 @@ cur_state = NodePath("BattleStart")
 script = ExtResource("3_p1qf1")
 turn_start_burn = NodePath("../TurnStartBurn")
 
-[node name="TurnStartBurn" type="Node" parent="BattleHandler/BattleStateMachine" node_paths=PackedStringArray("turn_end_bleed", "action_input")]
+[node name="TurnStartBurn" type="Node" parent="BattleHandler/BattleStateMachine" node_paths=PackedStringArray("turn_end_bleed", "action_input", "battle_end")]
 script = ExtResource("4_a12nh")
 turn_end_bleed = NodePath("../TurnEndBleed")
 action_input = NodePath("../ActionInput")
+battle_end = NodePath("../BattleEnd")
 
 [node name="ActionInput" type="Node" parent="BattleHandler/BattleStateMachine" node_paths=PackedStringArray("attack", "special")]
 script = ExtResource("5_lpir7")
@@ -43,9 +44,10 @@ script = ExtResource("7_f4pi3")
 turn_end_bleed = NodePath("../TurnEndBleed")
 battle_end = NodePath("../BattleEnd")
 
-[node name="Special" type="Node" parent="BattleHandler/BattleStateMachine" node_paths=PackedStringArray("turn_end_bleed")]
+[node name="Special" type="Node" parent="BattleHandler/BattleStateMachine" node_paths=PackedStringArray("turn_end_bleed", "battle_end")]
 script = ExtResource("8_yahae")
 turn_end_bleed = NodePath("../TurnEndBleed")
+battle_end = NodePath("../BattleEnd")
 
 [node name="TurnEndBleed" type="Node" parent="BattleHandler/BattleStateMachine" node_paths=PackedStringArray("turn_end_poison", "battle_end")]
 script = ExtResource("9_v7i3o")

@@ -10,6 +10,8 @@ static func from_resource(res: EffectRes) -> EffectRun:
 		return BleedRun.new(res)
 	elif res is PoisonRes:
 		return PoisonRun.new(res)
+	elif res is BurnRes:
+		return BurnRun.new(res)
 	push_warning("Unknown EffectRes: %s" % res.get_class())
 	return EffectRun.new(res)
 
