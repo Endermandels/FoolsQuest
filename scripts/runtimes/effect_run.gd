@@ -22,18 +22,26 @@ func init(res) -> void:
 	pass
 
 ## Apply an effect given the [source] of the effect and [source]'s [opponent] using the preestablished targeting rule.
-func apply(source: UnitRun, opponent: UnitRun = null) -> void:
+## Returns whether the effect was successful.
+func apply(source: UnitRun, opponent: UnitRun = null) -> bool:
+	var res: bool = false
 	var targets: Array[UnitRun] = []
+
 	if targeting == Enums.EffectTargeting.SELF:
-		_apply(source, source)
+		res = _apply(source, source)
 	elif targeting == Enums.EffectTargeting.OPPONENT:
-		_apply(source, opponent)
+		res = _apply(source, opponent)
 	elif targeting == Enums.EffectTargeting.BOTH:
-		_apply(source, opponent)
-		_apply(source, source)
+		var temp: bool = false
+		res = _apply(source, opponent)
+		temp = _apply(source, source)
+		res = temp and res
 	else:
 		push_error("Unknown targeting rule: %s" % targeting)
 
+	return res	
+
 ## Implemented by subclass.
-func _apply(source: UnitRun, target: UnitRun) -> void:
-	pass
+## Returns whether the effect was successful.
+func _apply(source: UnitRun, target: UnitRun) -> bool:
+	return false

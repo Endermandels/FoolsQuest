@@ -8,6 +8,7 @@ const status_effects_res: StatusEffectsRes = preload("res://resources/status_eff
 #region Variables
 var units: Array[UnitRun] = []
 var turn_idx: int = 0
+var selected_special_idx: int = 0
 var input_data: BattleInputData
 #endregion
 

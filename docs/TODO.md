@@ -9,6 +9,7 @@
 
 # SOON
 - [ ] Design healing system like TF2 Medic
+- [ ] Add chance exports to effects
 
 # CURRENT
 - [ ] Implement [0003](milestones/0003%20-%20Battle.md)

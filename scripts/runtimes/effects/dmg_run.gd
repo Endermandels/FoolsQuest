@@ -8,7 +8,9 @@ func init(res: DMGRes) -> void:
 	self.is_pure = res.is_pure
 	self.dmg = res.dmg
 
-func _apply(_source: UnitRun, target: UnitRun) -> void:
+func _apply(_source: UnitRun, target: UnitRun) -> bool:
+	var res: bool = false
+
 	assert(target.is_alive)
 
 	var dmg_adj = dmg
@@ -18,3 +20,7 @@ func _apply(_source: UnitRun, target: UnitRun) -> void:
 	
 	target.hp -= dmg_adj
 	Console.print_line("* [%s] took [%d] DMG" % [target, dmg])
+
+	res = true
+
+	return res
