@@ -8,13 +8,13 @@
 - [ ] Implement [0004](milestones/0004%20-%20Loop.md)
 
 # SOON
-- [ ] Design healing system like TF2 Medic
 - [ ] Add chance exports to effects
 
 # CURRENT
 - [ ] Implement [0003](milestones/0003%20-%20Battle.md)
 
 # CLOSED
+- [x] Design healing system like TF2 Medic
 - [x] Create Design Documents for Battle vertical slice
 - [x] Create Milestones
 - BUG Move bugs to TODO.md

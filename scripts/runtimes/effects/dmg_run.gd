@@ -13,14 +13,17 @@ func _apply(_source: UnitRun, target: UnitRun) -> bool:
 
 	assert(target.is_alive)
 
-	var dmg_adj = dmg
+	var hp_lost = dmg
 
 	if not is_pure:
-		dmg_adj -= target.def
+		hp_lost -= target.def
 	
-	target.hp -= dmg_adj
-	Console.print_line("* [%s] took [%d] DMG" % [target, dmg])
+	hp_lost = max(hp_lost, 0)
+	
+	if hp_lost > 0:
+		target.hp -= hp_lost
+		Console.print_line("* [%s] lost [%d] HP" % [target, hp_lost])
 
-	res = true
+		res = true
 
 	return res

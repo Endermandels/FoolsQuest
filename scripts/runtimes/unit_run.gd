@@ -19,9 +19,11 @@ var base_spd: int
 # Variable Stats
 var hp: int:
 	set(val):
-		hp = max(0, val)
+		hp = clampi(val, 0, base_hp)
 		is_alive = hp > 0
-var mp: int
+var mp: int:
+	set(val):
+		mp = clampi(val, 0, base_mp)
 var atk: int
 var def: int
 var spd: int

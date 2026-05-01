@@ -3,11 +3,11 @@ Simulate a battle that feels fun (mix of meaningful choices, randomness, and str
 
 # Deliverables
 - [x] Create Console interface. (4/25/26)
-- [x] Create State Machine (executes battle rules). (4/27/26)
-- [x] Create Unit resource/runtime. (4/27/26)
-- [x] Create Passive resource. (4/27/26)
-- [x] Create Special resource. (4/27/26)
-- [x] Create Effect resource/runtime. (4/27/26)
+- [ ] Create State Machine (executes battle rules).
+- [ ] Create Unit resource/runtime.
+- [ ] Create Passive resource.
+- [ ] Create Special resource.
+- [ ] Create Effect resource/runtime.
 - [ ] Create player and all animals (including boss).
 - [ ] Meaningful choice 1: Attack or Special.
 - [ ] Meaningful choice 2: Which Special.

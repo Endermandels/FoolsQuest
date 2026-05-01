@@ -12,6 +12,8 @@ static func from_resource(res: EffectRes) -> EffectRun:
 		return PoisonRun.new(res)
 	elif res is BurnRes:
 		return BurnRun.new(res)
+	elif res is LifeStealRes:
+		return LifeStealRun.new(res)
 	push_warning("Unknown EffectRes: %s" % res.get_class())
 	return EffectRun.new(res)
 
@@ -20,14 +22,13 @@ func _init(res: EffectRes) -> void:
 	init(res)
 
 ## Implemented by subclass. Called on _init.
-func init(res) -> void:
+func init(_res) -> void:
 	pass
 
 ## Apply an effect given the [source] of the effect and [source]'s [opponent] using the preestablished targeting rule.
 ## Returns whether the effect was successful.
 func apply(source: UnitRun, opponent: UnitRun = null) -> bool:
 	var res: bool = false
-	var targets: Array[UnitRun] = []
 
 	if targeting == Enums.EffectTargeting.SELF:
 		res = _apply(source, source)
@@ -45,5 +46,5 @@ func apply(source: UnitRun, opponent: UnitRun = null) -> bool:
 
 ## Implemented by subclass.
 ## Returns whether the effect was successful.
-func _apply(source: UnitRun, target: UnitRun) -> bool:
+func _apply(_source: UnitRun, _target: UnitRun) -> bool:
 	return false
