@@ -39,16 +39,25 @@ func step(data: BattleStateData) -> State:
 		var dmg_res: DMGRes = DMGRes.new()
 		dmg_res.dmg = cur_unit.atk
 		var dmg_run: DMGRun = EffectRun.from_resource(dmg_res)
+		var dmg_successful = dmg_run.apply(cur_unit, defender) # Make sure the player actually did DMG to the defender's HP
 
-		dmg_run.apply(cur_unit, defender)
-		if data.has_death_occurred():
-			state = battle_end
-		else:
-			if _trigger_passives(cur_unit, defender, Enums.PassiveType.POST_DEFENSE):
+		if dmg_successful:
+			if data.has_death_occurred():
 				state = battle_end
-			
-			elif _trigger_passives(cur_unit, defender, Enums.PassiveType.POST_ATTACK):
-				state = battle_end
+			else:
+				# Gain MP
+				var mp_gained = cur_unit.mp < cur_unit.base_mp
+				cur_unit.mp += 1
+				
+				if mp_gained:
+					Console.print_line("* [%s] restored 1 MP" % cur_unit)
+
+				# Trigger Passives
+				if _trigger_passives(cur_unit, defender, Enums.PassiveType.POST_DEFENSE):
+					state = battle_end
+				
+				elif _trigger_passives(cur_unit, defender, Enums.PassiveType.POST_ATTACK):
+					state = battle_end
 
 	return state
 
