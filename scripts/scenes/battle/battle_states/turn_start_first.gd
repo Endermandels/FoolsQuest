@@ -18,7 +18,7 @@ func step(data: BattleStateData) -> State:
 		Console.print_line("* [%s] is susceptible to blindness again" % cur_unit)
 	
 	if cur_unit.is_immune_to_burn and cur_unit.burn_immunity_turns_left == 1:
-		Console.print_line("* [%s] is susceptibel to burning again" % cur_unit)
+		Console.print_line("* [%s] is susceptible to burning again" % cur_unit)
 
 	if cur_unit.is_immune_to_stun and cur_unit.stun_immunity_turns_left == 1:
 		Console.print_line("* [%s] is susceptible to stun again" % cur_unit)

@@ -17,11 +17,11 @@ func _print_special_prompt(cur_unit: UnitRun, data: BattleStateData) -> void:
 	Console.print_line("> Choose a Special:", Color.ORANGE)
 	for i in range(cur_unit.specials.size()):
 		var special: SpecialRes = cur_unit.specials[i]
-		Console.print_line("%d. %s (%d MP)" % [i + 1, special, special.mp_cost], Color.ORANGE)
+		Console.print_line("%d. %s (%d/%d MP)" % [i + 1, special, cur_unit.mp, special.mp_cost], Color.ORANGE)
 	Console.print_line("* Currently selecting [%s]" % cur_unit.specials[data.selected_special_idx])
 
 ## Returns whether to Special (true) or Attack (false). Cannot use Special if there are no valid specials available.
-func _get_ai_action(cur_unit: UnitRun, data: BattleStateData) -> bool:
+func _get_ai_action(cur_unit: UnitRun, _data: BattleStateData) -> bool:
 	var res: bool = false
 	var ai: AIRes = cur_unit.ai
 	var special_valid: bool = cur_unit.specials.any(func (x: SpecialRes): return x.mp_cost <= cur_unit.mp)
