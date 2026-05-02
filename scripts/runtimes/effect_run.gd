@@ -2,6 +2,7 @@ extends RefCounted
 class_name EffectRun
 
 var targeting: Enums.EffectTargeting
+var always_accurate: bool
 var accuracy_percent: int:
 	set(val):
 		accuracy_percent = clampi(val, 0, 100)
@@ -26,6 +27,7 @@ static func from_resource(res: EffectRes) -> EffectRun:
 
 func _init(res: EffectRes) -> void:
 	self.targeting = res.targeting
+	self.always_accurate = res.always_accurate
 	self.accuracy_percent = res.accuracy_percent
 	init(res)
 
@@ -37,7 +39,7 @@ func init(_res) -> void:
 ## Returns whether the effect was successful.
 func apply(source: UnitRun, opponent: UnitRun = null) -> bool:
 	var res: bool = false
-	var accuracy_succeeded: bool = Helper.rnd_succeeded(accuracy_percent)
+	var accuracy_succeeded: bool = always_accurate or Helper.rnd_succeeded(accuracy_percent)
 
 	if accuracy_succeeded:
 		if targeting == Enums.EffectTargeting.SELF:

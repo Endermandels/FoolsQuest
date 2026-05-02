@@ -6,6 +6,7 @@
 
 [sub_resource type="Resource" id="Resource_fk8dh"]
 script = ExtResource("2_8oxgj")
+always_accurate = true
 metadata/_custom_type_script = "uid://7d572upjx1lu"
 
 [resource]

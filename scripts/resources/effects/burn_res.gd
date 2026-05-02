@@ -1,3 +1,4 @@
+@tool
 extends EffectRes
 class_name BurnRes
 
