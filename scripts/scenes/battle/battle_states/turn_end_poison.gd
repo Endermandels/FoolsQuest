@@ -1,10 +1,10 @@
 extends State
 
-@export var turn_start_burn: State
+@export var turn_end_last: State
 @export var battle_end: State
 
 func step(data: BattleStateData) -> State:
-	var state: State = turn_start_burn
+	var state: State = turn_end_last
 	var cur_unit: UnitRun = data.units[data.turn_idx]
 
 	print("* Step Turn End Poison")
@@ -23,6 +23,3 @@ func step(data: BattleStateData) -> State:
 			state = battle_end
 
 	return state
-
-func exit(data: BattleStateData) -> void:
-	data.next_turn()

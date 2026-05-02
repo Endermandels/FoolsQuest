@@ -19,6 +19,8 @@ static func from_resource(res: EffectRes) -> EffectRun:
 		return LifeStealRun.new(res)
 	elif res is BlindRes:
 		return BlindRun.new(res)
+	elif res is ImmunityRes:
+		return ImmunityRun.new(res)
 	push_warning("Unknown EffectRes: %s" % res.get_class())
 	return EffectRun.new(res)
 

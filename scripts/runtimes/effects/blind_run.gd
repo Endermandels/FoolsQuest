@@ -12,11 +12,13 @@ func _apply(_source: UnitRun, target: UnitRun) -> bool:
 
 	assert(target.is_alive)
 
-	# Can't blind an already blind unit
-	if not target.is_blind:
-		target.blind_turns_left += duration
-		Console.print_line("* [%s] %s" % [target, description])
-		
-		res = true
+	if not target.is_immune_to_blindness:
+		# Can't blind an already blind unit
+		if not target.is_blind:
+			target.blind_turns_left += duration
+			Console.print_line("* [%s] %s" % [target, description])
+			res = true
+	else:
+		Console.print_line("* [%s] cannot be blinded" % target)
 
 	return res

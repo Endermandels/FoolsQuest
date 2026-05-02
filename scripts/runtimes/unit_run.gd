@@ -46,16 +46,54 @@ var is_blind: bool = false
 
 var burn_turns_left: int = 0:
 	set(val):
-		burn_turns_left = val
+		burn_turns_left = max(val, 0)
 		is_burning = burn_turns_left > 0
 var bleed_turns_left: int = 0:
 	set(val):
-		bleed_turns_left = val
+		bleed_turns_left = max(val, 0)
 		is_bleeding = bleed_turns_left > 0
 var blind_turns_left: int = 0:
 	set(val):
-		blind_turns_left = val
+		blind_turns_left = max(val, 0)
 		is_blind = blind_turns_left > 0
+
+# Immunities
+var is_immune_to_poison: bool = false
+var is_immune_to_burn: bool = false
+var is_immune_to_bleed: bool = false
+var is_immune_to_stun: bool = false
+var is_immune_to_blindness: bool = false
+
+var poison_immunity_turns_left: int = 0:
+	set(val):
+		poison_immunity_turns_left = max(val, 0)
+		is_immune_to_poison = poison_immunity_turns_left > 0
+		if is_immune_to_poison:
+			is_poisoned = false
+var burn_immunity_turns_left: int = 0:
+	set(val):
+		burn_immunity_turns_left = max(val, 0)
+		is_immune_to_burn = burn_immunity_turns_left > 0
+		if is_immune_to_burn:
+			burn_turns_left = 0
+var bleed_immunity_turns_left: int = 0:
+	set(val):
+		bleed_immunity_turns_left = max(val, 0)
+		is_immune_to_bleed = bleed_immunity_turns_left > 0
+		if is_immune_to_bleed:
+			bleed_turns_left = 0
+var stun_immunity_turns_left: int = 0:
+	set(val):
+		stun_immunity_turns_left = max(val, 0)
+		is_immune_to_stun = stun_immunity_turns_left > 0
+		if is_immune_to_stun:
+			is_stunned = false
+var blindness_immunity_turns_left: int = 0:
+	set(val):
+		blindness_immunity_turns_left = max(val, 0)
+		is_immune_to_blindness = blindness_immunity_turns_left > 0
+		if is_immune_to_blindness:
+			blind_turns_left = 0
 
 func _init(res: UnitRes, is_player: bool = false) -> void:
 	self.name_id = res.name_id

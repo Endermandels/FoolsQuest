@@ -9,7 +9,8 @@
 [resource]
 script = ExtResource("2_0mbmv")
 name_id = "Snake"
-base_mp = 3
+base_hp = 5
+base_mp = 2
 base_atk = 1
 passives = Array[ExtResource("1_3nts6")]([ExtResource("2_klhou")])
 specials = Array[ExtResource("4_klhou")]([ExtResource("5_pi6e2")])

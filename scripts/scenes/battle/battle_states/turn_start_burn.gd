@@ -35,8 +35,3 @@ func step(data: BattleStateData) -> State:
 				cur_unit.is_stunned = false
 	
 	return state
-
-func enter(data: BattleStateData) -> void:
-	var cur_unit: UnitRun = data.units[data.turn_idx]
-
-	Console.print_line("# [%s] Turn Start #" % cur_unit, Color.GREEN)

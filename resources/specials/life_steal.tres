@@ -7,6 +7,7 @@
 [sub_resource type="Resource" id="Resource_65n5x"]
 script = ExtResource("2_uxkit")
 dmg = 2
+mp_restored = 99
 metadata/_custom_type_script = "uid://2p0tggntn4g3"
 
 [resource]

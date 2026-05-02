@@ -11,5 +11,13 @@ enum PassiveType {
 enum EffectTargeting {
 	SELF,
 	OPPONENT,
-	BOTH
+	BOTH,
+}
+
+enum Immunity {
+	POISON,
+	BURN,
+	BLEED,
+	BLIND,
+	STUN,
 }

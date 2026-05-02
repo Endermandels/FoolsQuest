@@ -1,21 +1,22 @@
 [gd_resource type="Resource" script_class="SpecialRes" load_steps=7 format=3 uid="uid://cjpbrn3r7njre"]
 
-[ext_resource type="Script" uid="uid://c0wbcrlg6ht3b" path="res://scripts/resources/effect_res.gd" id="1_bqwi8"]
-[ext_resource type="Script" uid="uid://bq81dohj7lbqw" path="res://scripts/resources/special_res.gd" id="2_amhbn"]
-[ext_resource type="Script" uid="uid://7d572upjx1lu" path="res://scripts/resources/effects/poison_res.gd" id="2_ciugh"]
-[ext_resource type="Script" uid="uid://cr3p1bey1nyld" path="res://scripts/resources/effects/blind_res.gd" id="3_ciugh"]
+[ext_resource type="Script" uid="uid://c0wbcrlg6ht3b" path="res://scripts/resources/effect_res.gd" id="1_b7kqj"]
+[ext_resource type="Script" uid="uid://7d572upjx1lu" path="res://scripts/resources/effects/poison_res.gd" id="2_2ugee"]
+[ext_resource type="Script" uid="uid://cr3p1bey1nyld" path="res://scripts/resources/effects/blind_res.gd" id="3_lp35d"]
+[ext_resource type="Script" uid="uid://bq81dohj7lbqw" path="res://scripts/resources/special_res.gd" id="4_eek3d"]
 
 [sub_resource type="Resource" id="Resource_hb3wm"]
-script = ExtResource("2_ciugh")
+script = ExtResource("2_2ugee")
 metadata/_custom_type_script = "uid://7d572upjx1lu"
 
 [sub_resource type="Resource" id="Resource_nkd1l"]
-script = ExtResource("3_ciugh")
+script = ExtResource("3_lp35d")
 duration = 2
 accuracy_percent = 70
 metadata/_custom_type_script = "uid://cr3p1bey1nyld"
 
 [resource]
-script = ExtResource("2_amhbn")
-effects = Array[ExtResource("1_bqwi8")]([SubResource("Resource_hb3wm"), SubResource("Resource_nkd1l")])
+script = ExtResource("4_eek3d")
+name_id = "Venom Spit"
+effects = Array[ExtResource("1_b7kqj")]([SubResource("Resource_hb3wm"), SubResource("Resource_nkd1l")])
 metadata/_custom_type_script = "uid://bq81dohj7lbqw"

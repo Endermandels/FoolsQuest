@@ -1,7 +1,6 @@
 # Description
 This state shall:
-- Initialize array of units (should only be two units).
-- Initialize current index variable to 0.
+- Switch the turn index.
 - Transition to Turn Start First.
 
 # Milestones

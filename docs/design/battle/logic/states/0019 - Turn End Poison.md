@@ -2,7 +2,7 @@
 This state shall:
 - If the current unit is poisoned, deal X pure DMG.
 - If the current unit dies, transition to Battle End.
-- Switch the turn index and Transition to Turn Start Burn.
+- Otherwise, transition to Turn End Last
 
 Note: Poison is permanent.
 

@@ -9,7 +9,7 @@ const SNAKE = preload("res://resources/units/snake.tres")
 
 const VOWELS = ["a", "e", "i", "o", "u"]
 
-@export var turn_start_burn: State
+@export var turn_start_first: State
 
 func step(data: BattleStateData) -> State:
 	print("* Step Battle Start")
@@ -22,7 +22,7 @@ func step(data: BattleStateData) -> State:
 	data.units.sort_custom(func (x: UnitRun, y: UnitRun): return x.spd > y.spd) # Sort by SPD
 	print("* Initialized units")
 	Console.print_line("* [%s] encountered a%s [%s] [%s]" % [player, "n" if enemy.ai.name_id[0].to_lower() in VOWELS else "", enemy.ai, enemy])
-	return turn_start_burn
+	return turn_start_first
 
 func enter(_data: BattleStateData) -> void:
 	Console.print_line("# Battle Start #", Color.GREEN)
