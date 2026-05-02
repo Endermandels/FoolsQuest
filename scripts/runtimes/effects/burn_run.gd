@@ -8,13 +8,12 @@ func init(res: BurnRes) -> void:
 
 func _apply(_source: UnitRun, target: UnitRun) -> bool:
 	var res: bool = false
-	var description: String = "caught on fire" if not target.is_burning else "endured a flury of flames"
 
 	assert(target.is_alive)
 
 	if not target.is_immune_to_burn:
 		target.burn_turns_left += duration
-		Console.print_line("* [%s] %s" % [target, description])
+		Console.print_line("* [%s] gained [%d] Burn" % [target, duration])
 		res = true
 	else:
 		Console.print_line("* [%s] is inflammable" % target)

@@ -11,6 +11,9 @@ func enter(data: BattleStateData) -> void:
 		u.def = u.base_def
 		u.spd = u.base_spd
 
+		# Reset Temporary Passives
+		u.temp_passives.clear()
+
 		# Report Win/Loss
 		if u.is_player:
 			if u.is_alive:

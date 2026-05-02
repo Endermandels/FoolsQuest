@@ -16,15 +16,19 @@ func _print_action_prompt() -> void:
 func _print_special_prompt(cur_unit: UnitRun, data: BattleStateData) -> void:
 	Console.print_line("> Choose a Special:", Color.ORANGE)
 	for i in range(cur_unit.specials.size()):
-		var special: SpecialRes = cur_unit.specials[i]
-		Console.print_line("%d. %s (%d/%d MP)" % [i + 1, special, cur_unit.mp, special.mp_cost], Color.ORANGE)
+		var special: SpecialRun = cur_unit.specials[i]
+		var valid_special: bool = _valid_special(cur_unit, cur_unit.specials[i])
+		Console.print_line("%d. %s (%d/%d MP)" % [i + 1, special, cur_unit.mp, special.mp_cost], Color.ORANGE if valid_special else Color.RED)
 	Console.print_line("* Currently selecting [%s]" % cur_unit.specials[data.selected_special_idx])
+
+func _valid_special(cur_unit: UnitRun, special: SpecialRun) -> bool:
+	return (special.mp_cost <= cur_unit.mp) and (not special.once_per_battle or not special.used)
 
 ## Returns whether to Special (true) or Attack (false). Cannot use Special if there are no valid specials available.
 func _get_ai_action(cur_unit: UnitRun, _data: BattleStateData) -> bool:
 	var res: bool = false
 	var ai: AIRes = cur_unit.ai
-	var special_valid: bool = cur_unit.specials.any(func (x: SpecialRes): return x.mp_cost <= cur_unit.mp)
+	var special_valid: bool = cur_unit.specials.any(func (x: SpecialRun): return _valid_special(cur_unit, x))
 
 	if cur_unit.first_turn_action and ai.act_on_first_turn:
 		# First Turn
@@ -88,10 +92,10 @@ func step(data: BattleStateData) -> State:
 			
 			elif data.input_data.inputs[BattleInputData.InputType.CONFIRM]:
 				data.input_data.clear_inputs()
-				if cur_unit.mp >= cur_unit.specials[data.selected_special_idx].mp_cost:
+				if _valid_special(cur_unit, cur_unit.specials[data.selected_special_idx]):
 					state = special
 				else:
-					Console.print_line("! [%s] insufficient MP (%d/%d)" % [cur_unit, cur_unit.mp, cur_unit.specials[data.selected_special_idx].mp_cost], Color.RED)
+					Console.print_line("! Invalid selection", Color.RED)
 
 		player_special_idx_save = data.selected_special_idx	
 	else:

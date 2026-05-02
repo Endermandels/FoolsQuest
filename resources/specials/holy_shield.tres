@@ -30,5 +30,6 @@ metadata/_custom_type_script = "uid://uww3xqxw83g1"
 [resource]
 script = ExtResource("2_13j6d")
 name_id = "Holy Shield"
+once_per_battle = true
 effects = Array[ExtResource("1_t0m4s")]([SubResource("Resource_r0mjx"), SubResource("Resource_702yf"), SubResource("Resource_uuoep")])
 metadata/_custom_type_script = "uid://bq81dohj7lbqw"

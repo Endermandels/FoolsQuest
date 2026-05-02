@@ -5,5 +5,7 @@
 [resource]
 script = ExtResource("1_eyud1")
 name_id = "Aggressive"
+act_on_first_turn = true
+first_turn_is_special = false
 attack_percent = 80
 metadata/_custom_type_script = "uid://dhsffrd18ws8p"

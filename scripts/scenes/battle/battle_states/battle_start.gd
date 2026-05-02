@@ -15,7 +15,7 @@ func step(data: BattleStateData) -> State:
 	print("* Step Battle Start")
 	#region # TODO: CHANGE
 	var player: UnitRun = UnitRun.new(PLAYER.duplicate_deep(), true)
-	var enemy: UnitRun = UnitRun.new(SNAKE.duplicate_deep())
+	var enemy: UnitRun = UnitRun.new(WOLF.duplicate_deep())
 	data.units.append(player)
 	data.units.append(enemy)
 	#endregion

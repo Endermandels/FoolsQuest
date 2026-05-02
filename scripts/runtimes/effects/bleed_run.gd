@@ -8,13 +8,12 @@ func init(res: BleedRes) -> void:
 
 func _apply(_source: UnitRun, target: UnitRun) -> bool:
 	var res: bool = false
-	var description: String = "started bleeding" if not target.is_bleeding else "gashes deepened"
 
 	assert(target.is_alive)
 
 	if not target.is_immune_to_bleed:
 		target.bleed_turns_left += duration
-		Console.print_line("* [%s] %s" % [target, description])
+		Console.print_line("* [%s] gained [%d] Bleed" % [target, duration])
 		res = true
 	else:
 		Console.print_line("* [%s] wounds closed up instantly" % target)

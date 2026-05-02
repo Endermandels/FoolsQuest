@@ -16,7 +16,8 @@ var first_turn_action: bool = true
 
 # Abilities
 var passives: Array[PassiveRes]
-var specials: Array[SpecialRes]
+var temp_passives: Array[PassiveRes]
+var specials: Array[SpecialRun]
 
 # Base Stats
 var base_hp: int
@@ -124,7 +125,10 @@ func _init(res: UnitRes, is_player: bool = false) -> void:
 
 	# Abilities
 	self.passives = res.passives.duplicate_deep()
-	self.specials = res.specials.duplicate_deep()
+
+	for s_res: SpecialRes in res.specials:
+		var s_run: SpecialRun = SpecialRun.new(s_res)
+		self.specials.append(s_run)
 
 func _to_string() -> String:
 	return name_id

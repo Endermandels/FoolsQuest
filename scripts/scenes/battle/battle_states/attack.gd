@@ -6,8 +6,9 @@ extends State
 ## Returns whether a death has occurred.
 func _trigger_passives(cur_unit: UnitRun, defender: UnitRun, ptype: Enums.PassiveType) -> bool:
 	var has_death_occurred: bool = false
+	var all_passives: Array[PassiveRes] = cur_unit.passives + cur_unit.temp_passives
 
-	for p: PassiveRes in cur_unit.passives:
+	for p: PassiveRes in all_passives:
 		if p.type == ptype:
 			for e_res: EffectRes in p.effects:
 				var e_run = EffectRun.from_resource(e_res)

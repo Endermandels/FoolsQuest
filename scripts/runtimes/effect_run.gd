@@ -22,7 +22,9 @@ static func from_resource(res: EffectRes) -> EffectRun:
 		return BlindRun.new(res)
 	elif res is ImmunityRes:
 		return ImmunityRun.new(res)
-	push_warning("Unknown EffectRes: %s" % res.get_class())
+	elif res is BloodLustRes:
+		return BloodLustRun.new(res)
+	push_error("Unknown EffectRes: %s" % res.get_class())
 	return EffectRun.new(res)
 
 func _init(res: EffectRes) -> void:

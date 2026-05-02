@@ -8,6 +8,7 @@
 - [ ] Implement [0004](milestones/0004%20-%20Loop.md)
 
 # SOON
+- [ ] Make BloodLust cost HP?
 
 # CURRENT
 - [ ] Implement [0003](milestones/0003%20-%20Battle.md)

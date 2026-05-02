@@ -8,7 +8,6 @@ func init(res: BlindRes) -> void:
 
 func _apply(_source: UnitRun, target: UnitRun) -> bool:
 	var res: bool = false
-	var description: String = "vision dimmed"
 
 	assert(target.is_alive)
 
@@ -16,7 +15,7 @@ func _apply(_source: UnitRun, target: UnitRun) -> bool:
 		# Can't blind an already blind unit
 		if not target.is_blind:
 			target.blind_turns_left += duration
-			Console.print_line("* [%s] %s" % [target, description])
+			Console.print_line("* [%s] gained [%d] Blindness" % [target, duration])
 			res = true
 	else:
 		Console.print_line("* [%s] cannot be blinded" % target)
