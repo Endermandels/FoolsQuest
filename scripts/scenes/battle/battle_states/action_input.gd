@@ -98,7 +98,15 @@ func step(data: BattleStateData) -> State:
 		player_special_idx_save = data.selected_special_idx	
 	else:
 		if _get_ai_action(cur_unit, data):
+			var valid_special_idxs: Array[int] = []
+
+			# Filter for valid specials
+			for i: int in range(cur_unit.specials.size()):
+				if cur_unit.specials[i].mp_cost <= cur_unit.mp:
+					valid_special_idxs.append(i)
+			
 			state = special
+			data.selected_special_idx = valid_special_idxs.pick_random()
 		else:
 			state = attack
 	
