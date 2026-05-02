@@ -17,6 +17,6 @@ func _apply(_source: UnitRun, target: UnitRun) -> bool:
 		Console.print_line("* [%s] %s" % [target, description])
 		res = true
 	else:
-		Console.print_line("* [%s] is inflammable")
+		Console.print_line("* [%s] is inflammable" % target)
 
 	return res

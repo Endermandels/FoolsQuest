@@ -13,7 +13,7 @@ func step(data: BattleStateData) -> State:
 	if cur_unit.is_burning:
 		assert(cur_unit.burn_turns_left > 0)
 
-		Console.print_line("* [%s] is on fire" % cur_unit)
+		Console.print_line("* [%s] suffered burn DMG" % cur_unit)
 
 		var dmg_res: DMGRes = DMGRes.new()
 		dmg_res.dmg = data.status_effects_res.burn_dmg
@@ -27,11 +27,11 @@ func step(data: BattleStateData) -> State:
 			cur_unit.burn_turns_left -= 1
 
 			if not cur_unit.is_burning:
-				Console.print_line("* [%s] is no longer on fire" % cur_unit)
+				Console.print_line("* [%s] put out their flames" % cur_unit)
 	
-			if cur_unit.is_stunned:
-				Console.print_line("* [%s] is stunned")
-				state = turn_end_bleed
-				cur_unit.is_stunned = false
+	if state != battle_end and cur_unit.is_stunned:
+		Console.print_line("* [%s] is stunned" % cur_unit)
+		state = turn_end_bleed
+		cur_unit.is_stunned = false
 	
 	return state

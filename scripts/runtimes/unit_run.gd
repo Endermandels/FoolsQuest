@@ -12,6 +12,7 @@ var is_player: bool = false
 var is_alive: bool = false
 var is_near_death: bool = false
 var ai: AIRes
+var first_turn_action: bool = true
 
 # Abilities
 var passives: Array[PassiveRes]
@@ -33,9 +34,15 @@ var hp: int:
 var mp: int:
 	set(val):
 		mp = clampi(val, 0, base_mp)
-var atk: int
-var def: int
-var spd: int
+var atk: int:
+	set(val):
+		atk = max(val, 0) # Allow ATK to exceed Base ATK
+var def: int:
+	set(val):
+		def = max(val, 0) # Allow DEF to exceed Base DEF
+var spd: int:
+	set(val):
+		spd = max(val, 0) # Allow SPD to exceed Base SPD
 
 # Status Effects
 var is_poisoned: bool = false
@@ -116,8 +123,8 @@ func _init(res: UnitRes, is_player: bool = false) -> void:
 	self.spd = base_spd
 
 	# Abilities
-	self.passives = res.passives
-	self.specials = res.specials
+	self.passives = res.passives.duplicate_deep()
+	self.specials = res.specials.duplicate_deep()
 
 func _to_string() -> String:
 	return name_id

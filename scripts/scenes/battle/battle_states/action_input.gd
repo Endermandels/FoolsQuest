@@ -26,7 +26,7 @@ func _get_ai_action(cur_unit: UnitRun, data: BattleStateData) -> bool:
 	var ai: AIRes = cur_unit.ai
 	var special_valid: bool = cur_unit.specials.any(func (x: SpecialRes): return x.mp_cost <= cur_unit.mp)
 
-	if data.turns < 2 and ai.act_on_first_turn:
+	if cur_unit.first_turn_action and ai.act_on_first_turn:
 		# First Turn
 		res = ai.first_turn_is_special
 	elif cur_unit.is_near_death and ai.special_near_death:
@@ -118,5 +118,8 @@ func enter(data: BattleStateData) -> void:
 		_print_action_prompt()
 
 func exit(data: BattleStateData) -> void:
+	var cur_unit: UnitRun = data.units[data.turn_idx]
+	
 	data.input_data.allow_inputs = false
 	choosing_attack_or_special = true # Should always choose between Attack or Special first
+	cur_unit.first_turn_action = false

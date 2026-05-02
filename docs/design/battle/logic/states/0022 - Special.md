@@ -1,7 +1,7 @@
 # Description
 This state shall:
 - Pay X MP where X is the cost of the selected special.
-- Apply the special's effects.
+- Apply the special's effects, reducing each effect's accuracy if the current unit is blind.
 - After each effect, if either unit is dead, transition to Battle End.
 - Transition to Turn End Bleed.
 

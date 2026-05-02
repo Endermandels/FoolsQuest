@@ -46,11 +46,6 @@ func apply(source: UnitRun, opponent: UnitRun = null) -> bool:
 			res = _apply(source, source)
 		elif targeting == Enums.EffectTargeting.OPPONENT:
 			res = _apply(source, opponent)
-		elif targeting == Enums.EffectTargeting.BOTH:
-			var temp: bool = false
-			res = _apply(source, opponent)
-			temp = _apply(source, source)
-			res = temp and res
 		else:
 			push_error("Unknown targeting rule: %s" % targeting)
 

@@ -23,11 +23,11 @@ func step(data: BattleStateData) -> State:
 		dmg_run.apply(cur_unit)
 		if data.has_death_occurred():
 			state = battle_end
-			
-		cur_unit.bleed_turns_left -= 1
+		else:
+			cur_unit.bleed_turns_left -= 1
 
-		if not cur_unit.is_bleeding:
-			Console.print_line("* [%s] has stopped bleeding" % cur_unit)
+			if not cur_unit.is_bleeding:
+				Console.print_line("* [%s] has stopped bleeding" % cur_unit)
 		
 	return state
 

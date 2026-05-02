@@ -1,5 +1,6 @@
 # Description
 This state shall:
+- Set unit's ATK, DEF and SPD stats back to base values.
 - Report who won.
 - If the player won:
   - Increase the player stats according to the defeated unit's Loot.
