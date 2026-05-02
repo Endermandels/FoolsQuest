@@ -1,28 +1,20 @@
-[gd_resource type="Resource" script_class="SpecialRes" load_steps=7 format=3 uid="uid://bcqf5qfcgbawr"]
+[gd_resource type="Resource" script_class="SpecialRes" load_steps=6 format=3 uid="uid://bcqf5qfcgbawr"]
 
 [ext_resource type="Script" uid="uid://c0wbcrlg6ht3b" path="res://scripts/resources/effect_res.gd" id="1_t0m4s"]
-[ext_resource type="Script" uid="uid://uww3xqxw83g1" path="res://scripts/resources/effects/immunity_res.gd" id="2_6s0uw"]
+[ext_resource type="Script" uid="uid://uww3xqxw83g1" path="res://scripts/resources/effects/resistance_res.gd" id="2_6s0uw"]
 [ext_resource type="Script" uid="uid://bq81dohj7lbqw" path="res://scripts/resources/special_res.gd" id="2_13j6d"]
 
 [sub_resource type="Resource" id="Resource_r0mjx"]
 script = ExtResource("2_6s0uw")
-duration = 3
+duration = 2
 targeting = 0
 always_accurate = true
 metadata/_custom_type_script = "uid://uww3xqxw83g1"
 
 [sub_resource type="Resource" id="Resource_702yf"]
 script = ExtResource("2_6s0uw")
-immunity = 2
-duration = 3
-targeting = 0
-always_accurate = true
-metadata/_custom_type_script = "uid://uww3xqxw83g1"
-
-[sub_resource type="Resource" id="Resource_uuoep"]
-script = ExtResource("2_6s0uw")
-immunity = 3
-duration = 3
+type = 2
+duration = 2
 targeting = 0
 always_accurate = true
 metadata/_custom_type_script = "uid://uww3xqxw83g1"
@@ -31,5 +23,5 @@ metadata/_custom_type_script = "uid://uww3xqxw83g1"
 script = ExtResource("2_13j6d")
 name_id = "Holy Shield"
 once_per_battle = true
-effects = Array[ExtResource("1_t0m4s")]([SubResource("Resource_r0mjx"), SubResource("Resource_702yf"), SubResource("Resource_uuoep")])
+effects = Array[ExtResource("1_t0m4s")]([SubResource("Resource_r0mjx"), SubResource("Resource_702yf")])
 metadata/_custom_type_script = "uid://bq81dohj7lbqw"

@@ -13,7 +13,7 @@ enum EffectTargeting {
 	OPPONENT,
 }
 
-enum Immunity {
+enum StatusEffect {
 	POISON,
 	BURN,
 	BLEED,

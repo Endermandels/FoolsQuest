@@ -1,0 +1,56 @@
+[gd_resource type="Resource" script_class="SpecialRes" load_steps=11 format=3 uid="uid://c1aawiw6jbcdd"]
+
+[ext_resource type="Script" uid="uid://c0wbcrlg6ht3b" path="res://scripts/resources/effect_res.gd" id="1_otere"]
+[ext_resource type="Script" uid="uid://dhbto5p0ngko0" path="res://scripts/resources/effects/heal_res.gd" id="2_lc066"]
+[ext_resource type="Script" uid="uid://bq81dohj7lbqw" path="res://scripts/resources/special_res.gd" id="2_pppom"]
+[ext_resource type="Script" uid="uid://p2tpdcmkkm7a" path="res://scripts/resources/effects/cleanse_res.gd" id="3_lc066"]
+
+[sub_resource type="Resource" id="Resource_bdqeu"]
+script = ExtResource("3_lc066")
+targeting = 0
+source_near_death_only = true
+always_accurate = true
+metadata/_custom_type_script = "uid://p2tpdcmkkm7a"
+
+[sub_resource type="Resource" id="Resource_501ij"]
+script = ExtResource("3_lc066")
+type = 2
+targeting = 0
+source_near_death_only = true
+always_accurate = true
+metadata/_custom_type_script = "uid://p2tpdcmkkm7a"
+
+[sub_resource type="Resource" id="Resource_aur72"]
+script = ExtResource("3_lc066")
+targeting = 0
+accuracy_percent = 70
+metadata/_custom_type_script = "uid://p2tpdcmkkm7a"
+
+[sub_resource type="Resource" id="Resource_of7gs"]
+script = ExtResource("3_lc066")
+type = 2
+targeting = 0
+accuracy_percent = 70
+metadata/_custom_type_script = "uid://p2tpdcmkkm7a"
+
+[sub_resource type="Resource" id="Resource_afqdg"]
+script = ExtResource("2_lc066")
+amount = 2
+targeting = 0
+source_near_death_only = true
+always_accurate = true
+metadata/_custom_type_script = "uid://dhbto5p0ngko0"
+
+[sub_resource type="Resource" id="Resource_ujra4"]
+script = ExtResource("2_lc066")
+amount = 3
+targeting = 0
+always_accurate = true
+metadata/_custom_type_script = "uid://dhbto5p0ngko0"
+
+[resource]
+script = ExtResource("2_pppom")
+name_id = "Prayer"
+mp_cost = 2
+effects = Array[ExtResource("1_otere")]([SubResource("Resource_bdqeu"), SubResource("Resource_501ij"), SubResource("Resource_aur72"), SubResource("Resource_of7gs"), SubResource("Resource_afqdg"), SubResource("Resource_ujra4")])
+metadata/_custom_type_script = "uid://bq81dohj7lbqw"

@@ -2,6 +2,7 @@ extends RefCounted
 class_name EffectRun
 
 var targeting: Enums.EffectTargeting
+var near_death_only: bool
 var always_accurate: bool
 var accuracy_percent: int:
 	set(val):
@@ -16,19 +17,22 @@ static func from_resource(res: EffectRes) -> EffectRun:
 		return PoisonRun.new(res)
 	elif res is BurnRes:
 		return BurnRun.new(res)
-	elif res is LifeStealRes:
-		return LifeStealRun.new(res)
+	elif res is HealRes:
+		return HealRun.new(res)
 	elif res is BlindRes:
 		return BlindRun.new(res)
-	elif res is ImmunityRes:
-		return ImmunityRun.new(res)
+	elif res is ResistanceRes:
+		return ResistanceRun.new(res)
 	elif res is BloodLustRes:
 		return BloodLustRun.new(res)
-	push_error("Unknown EffectRes: %s" % res.get_class())
+	elif res is CleanseRes:
+		return CleanseRun.new(res)
+	push_error("Unknown EffectRes")
 	return EffectRun.new(res)
 
 func _init(res: EffectRes) -> void:
 	self.targeting = res.targeting
+	self.near_death_only = res.source_near_death_only
 	self.always_accurate = res.always_accurate
 	self.accuracy_percent = res.accuracy_percent
 	init(res)
@@ -41,7 +45,8 @@ func init(_res) -> void:
 ## Returns whether the effect was successful.
 func apply(source: UnitRun, opponent: UnitRun = null) -> bool:
 	var res: bool = false
-	var accuracy_succeeded: bool = always_accurate or Helper.rnd_succeeded(accuracy_percent)
+	var near_death: bool = source != null and source.is_near_death
+	var accuracy_succeeded: bool = (always_accurate or Helper.rnd_succeeded(accuracy_percent)) and (not near_death_only or near_death)
 
 	if accuracy_succeeded:
 		if targeting == Enums.EffectTargeting.SELF:

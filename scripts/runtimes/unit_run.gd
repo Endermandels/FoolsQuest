@@ -31,7 +31,7 @@ var hp: int:
 	set(val):
 		hp = clampi(val, 0, base_hp)
 		is_alive = hp > 0
-		is_near_death = (float(hp) / float(base_hp)) < (1.0 / 5.0) # Near death at 1/5 Base HP
+		is_near_death = (float(hp) / float(base_hp)) < (1.0 / 3.0) # Near death at 1/3 Base HP
 var mp: int:
 	set(val):
 		mp = clampi(val, 0, base_mp)
@@ -66,42 +66,32 @@ var blind_turns_left: int = 0:
 		is_blind = blind_turns_left > 0
 
 # Immunities
-var is_immune_to_poison: bool = false
-var is_immune_to_burn: bool = false
-var is_immune_to_bleed: bool = false
-var is_immune_to_stun: bool = false
-var is_immune_to_blindness: bool = false
+var resists_poison: bool = false
+var resists_burn: bool = false
+var resists_bleed: bool = false
+var resists_stun: bool = false
+var resists_blindness: bool = false
 
-var poison_immunity_turns_left: int = 0:
+var poison_resistance_turns_left: int = 0:
 	set(val):
-		poison_immunity_turns_left = max(val, 0)
-		is_immune_to_poison = poison_immunity_turns_left > 0
-		if is_immune_to_poison:
-			is_poisoned = false
-var burn_immunity_turns_left: int = 0:
+		poison_resistance_turns_left = max(val, 0)
+		resists_poison = poison_resistance_turns_left > 0
+var burn_resistance_turns_left: int = 0:
 	set(val):
-		burn_immunity_turns_left = max(val, 0)
-		is_immune_to_burn = burn_immunity_turns_left > 0
-		if is_immune_to_burn:
-			burn_turns_left = 0
-var bleed_immunity_turns_left: int = 0:
+		burn_resistance_turns_left = max(val, 0)
+		resists_burn = burn_resistance_turns_left > 0
+var bleed_resistance_turns_left: int = 0:
 	set(val):
-		bleed_immunity_turns_left = max(val, 0)
-		is_immune_to_bleed = bleed_immunity_turns_left > 0
-		if is_immune_to_bleed:
-			bleed_turns_left = 0
-var stun_immunity_turns_left: int = 0:
+		bleed_resistance_turns_left = max(val, 0)
+		resists_bleed = bleed_resistance_turns_left > 0
+var stun_resistance_turns_left: int = 0:
 	set(val):
-		stun_immunity_turns_left = max(val, 0)
-		is_immune_to_stun = stun_immunity_turns_left > 0
-		if is_immune_to_stun:
-			is_stunned = false
-var blindness_immunity_turns_left: int = 0:
+		stun_resistance_turns_left = max(val, 0)
+		resists_stun = stun_resistance_turns_left > 0
+var blindness_resistance_turns_left: int = 0:
 	set(val):
-		blindness_immunity_turns_left = max(val, 0)
-		is_immune_to_blindness = blindness_immunity_turns_left > 0
-		if is_immune_to_blindness:
-			blind_turns_left = 0
+		blindness_resistance_turns_left = max(val, 0)
+		resists_blindness = blindness_resistance_turns_left > 0
 
 func _init(res: UnitRes, is_player: bool = false) -> void:
 	self.name_id = res.name_id

@@ -4,12 +4,12 @@
 [ext_resource type="Script" uid="uid://b1pdjtytsqqqv" path="res://scripts/resources/passive_res.gd" id="1_l51o6"]
 [ext_resource type="Script" uid="uid://bq81dohj7lbqw" path="res://scripts/resources/special_res.gd" id="3_ax28j"]
 [ext_resource type="Resource" uid="uid://bcqf5qfcgbawr" path="res://resources/specials/holy_shield.tres" id="4_ax28j"]
-[ext_resource type="Resource" uid="uid://dfl0r18tiq7y0" path="res://resources/specials/life_steal.tres" id="4_w4j48"]
+[ext_resource type="Resource" uid="uid://c1aawiw6jbcdd" path="res://resources/specials/prayer.tres" id="5_ax28j"]
 
 [resource]
 script = ExtResource("1_hm0gi")
 name_id = "Player"
 base_mp = 3
 base_atk = 1
-specials = Array[ExtResource("3_ax28j")]([ExtResource("4_ax28j"), ExtResource("4_w4j48")])
+specials = Array[ExtResource("3_ax28j")]([ExtResource("4_ax28j"), ExtResource("5_ax28j")])
 metadata/_custom_type_script = "uid://btu6s2dkuilpu"

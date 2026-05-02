@@ -3,6 +3,7 @@ extends Resource
 class_name EffectRes
 
 @export var targeting: Enums.EffectTargeting = Enums.EffectTargeting.OPPONENT ## Who this effect targets
+@export var source_near_death_only: bool = false ## Whether the effect only triggers when the source is near death
 @export var always_accurate: bool = false: ## Whether the effect always triggers
 	set(val):
 		always_accurate = val

@@ -11,11 +11,11 @@ func _apply(_source: UnitRun, target: UnitRun) -> bool:
 
 	assert(target.is_alive)
 
-	if not target.is_immune_to_burn:
+	if not target.resists_burn:
 		target.burn_turns_left += duration
 		Console.print_line("* [%s] gained [%d] Burn" % [target, duration])
 		res = true
 	else:
-		Console.print_line("* [%s] is inflammable" % target)
+		Console.print_line("* [%s] resists Burn" % target)
 
 	return res

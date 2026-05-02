@@ -11,11 +11,11 @@ func _apply(_source: UnitRun, target: UnitRun) -> bool:
 
 	assert(target.is_alive)
 
-	if not target.is_immune_to_bleed:
+	if not target.resists_bleed:
 		target.bleed_turns_left += duration
 		Console.print_line("* [%s] gained [%d] Bleed" % [target, duration])
 		res = true
 	else:
-		Console.print_line("* [%s] wounds closed up instantly" % target)
+		Console.print_line("* [%s] resists Bleed" % target)
 
 	return res
