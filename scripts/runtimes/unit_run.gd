@@ -52,7 +52,10 @@ var bleed_turns_left: int = 0:
 	set(val):
 		bleed_turns_left = val
 		is_bleeding = bleed_turns_left > 0
-var chance_to_miss_attack: float = 0.0
+var blind_turns_left: int = 0:
+	set(val):
+		blind_turns_left = val
+		is_blind = blind_turns_left > 0
 
 func _init(res: UnitRes, is_player: bool = false) -> void:
 	self.name_id = res.name_id

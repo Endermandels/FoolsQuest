@@ -2,6 +2,9 @@ extends RefCounted
 class_name EffectRun
 
 var targeting: Enums.EffectTargeting
+var accuracy_percent: int:
+	set(val):
+		accuracy_percent = clampi(val, 0, 100)
 
 static func from_resource(res: EffectRes) -> EffectRun:
 	if res is DMGRes:
@@ -14,11 +17,14 @@ static func from_resource(res: EffectRes) -> EffectRun:
 		return BurnRun.new(res)
 	elif res is LifeStealRes:
 		return LifeStealRun.new(res)
+	elif res is BlindRes:
+		return BlindRun.new(res)
 	push_warning("Unknown EffectRes: %s" % res.get_class())
 	return EffectRun.new(res)
 
 func _init(res: EffectRes) -> void:
 	self.targeting = res.targeting
+	self.accuracy_percent = res.accuracy_percent
 	init(res)
 
 ## Implemented by subclass. Called on _init.
@@ -29,18 +35,20 @@ func init(_res) -> void:
 ## Returns whether the effect was successful.
 func apply(source: UnitRun, opponent: UnitRun = null) -> bool:
 	var res: bool = false
+	var accuracy_succeeded: bool = Helper.rnd_succeeded(accuracy_percent)
 
-	if targeting == Enums.EffectTargeting.SELF:
-		res = _apply(source, source)
-	elif targeting == Enums.EffectTargeting.OPPONENT:
-		res = _apply(source, opponent)
-	elif targeting == Enums.EffectTargeting.BOTH:
-		var temp: bool = false
-		res = _apply(source, opponent)
-		temp = _apply(source, source)
-		res = temp and res
-	else:
-		push_error("Unknown targeting rule: %s" % targeting)
+	if accuracy_succeeded:
+		if targeting == Enums.EffectTargeting.SELF:
+			res = _apply(source, source)
+		elif targeting == Enums.EffectTargeting.OPPONENT:
+			res = _apply(source, opponent)
+		elif targeting == Enums.EffectTargeting.BOTH:
+			var temp: bool = false
+			res = _apply(source, opponent)
+			temp = _apply(source, source)
+			res = temp and res
+		else:
+			push_error("Unknown targeting rule: %s" % targeting)
 
 	return res	
 

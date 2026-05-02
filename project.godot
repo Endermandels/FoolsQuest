@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Console="*res://scenes/components/console.tscn"
 Enums="*res://scripts/globals/enums.gd"
+Helper="*res://scripts/globals/helper.gd"
 
 [debug]
 

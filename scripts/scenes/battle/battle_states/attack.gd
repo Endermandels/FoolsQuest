@@ -36,28 +36,40 @@ func step(data: BattleStateData) -> State:
 		state = battle_end
 	
 	else:
-		var dmg_res: DMGRes = DMGRes.new()
-		dmg_res.dmg = cur_unit.atk
-		var dmg_run: DMGRun = EffectRun.from_resource(dmg_res)
-		var dmg_successful = dmg_run.apply(cur_unit, defender) # Make sure the player actually did DMG to the defender's HP
+		var miss: bool = false
+		
+		# Blind miss chance
+		if cur_unit.is_blind:
+			miss = Helper.rnd_succeeded(data.status_effects_res.miss_chance)
+			Console.print_line("* [%s] flailed blindly and %s" % [cur_unit, "missed" if miss else "hit"])
+			cur_unit.blind_turns_left -= 1
+			if not cur_unit.is_blind:
+				Console.print_line("* [%s] sight returned" % cur_unit)
+		
+		if not miss:
+			var dmg_res: DMGRes = DMGRes.new()
+			dmg_res.dmg = cur_unit.atk
+			var dmg_run: DMGRun = EffectRun.from_resource(dmg_res)
+			
+			var dmg_successful = dmg_run.apply(cur_unit, defender) # Make sure the player actually did DMG to the defender's HP
 
-		if dmg_successful:
-			if data.has_death_occurred():
-				state = battle_end
-			else:
-				# Gain MP
-				var mp_gained: bool = cur_unit.mp < cur_unit.base_mp
-				cur_unit.mp += 1
-				
-				if mp_gained:
-					Console.print_line("* [%s] restored 1 MP" % cur_unit)
+			if dmg_successful:
+				if data.has_death_occurred():
+					state = battle_end
+				else:
+					# Gain MP
+					var mp_gained: bool = cur_unit.mp < cur_unit.base_mp
+					cur_unit.mp += 1
+					
+					if mp_gained:
+						Console.print_line("* [%s] restored 1 MP" % cur_unit)
 
-				# Trigger Passives
-				if _trigger_passives(cur_unit, defender, Enums.PassiveType.POST_DEFENSE):
-					state = battle_end
-				
-				elif _trigger_passives(cur_unit, defender, Enums.PassiveType.POST_ATTACK):
-					state = battle_end
+					# Trigger Passives
+					if _trigger_passives(cur_unit, defender, Enums.PassiveType.POST_DEFENSE):
+						state = battle_end
+					
+					elif _trigger_passives(cur_unit, defender, Enums.PassiveType.POST_ATTACK):
+						state = battle_end
 
 	return state
 

@@ -18,9 +18,17 @@ func step(data: BattleStateData) -> State:
 	cur_unit.mp -= special.mp_cost
 	Console.print_line("* [%s] channeled [%d] MP" % [cur_unit, special.mp_cost])
 	
+	if cur_unit.is_blind:
+		Console.print_line("* [%s] aimed blindly" % cur_unit)
+	
 	# Apply Ability Effects
 	for e_res: EffectRes in special.effects:
 		var e_run: EffectRun = EffectRun.from_resource(e_res)
+
+		# Blind accuracy penalty
+		if cur_unit.is_blind:
+			e_run.accuracy_percent -= data.status_effects_res.miss_chance
+		
 		var temp: bool = e_run.apply(cur_unit, defender)
 
 		successful = successful or temp
@@ -28,6 +36,11 @@ func step(data: BattleStateData) -> State:
 			state = battle_end
 			break
 	
+	if cur_unit.is_blind:
+		cur_unit.blind_turns_left -= 1
+		if not cur_unit.is_blind:
+			Console.print_line("* [%s] sight returned" % cur_unit)
+
 	if not successful:
 		Console.print_line("* It did nothing")
 

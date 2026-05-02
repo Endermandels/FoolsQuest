@@ -16,9 +16,10 @@
 script = ExtResource("1_dn72j")
 battle_handler = NodePath("BattleHandler")
 
-[node name="BattleHandler" type="Node" parent="." node_paths=PackedStringArray("battle_state_machine")]
+[node name="BattleHandler" type="Node" parent="." node_paths=PackedStringArray("battle_state_machine", "auto_step_timer")]
 script = ExtResource("2_6vh42")
 battle_state_machine = NodePath("BattleStateMachine")
+auto_step_timer = NodePath("AutoStepTimer")
 
 [node name="BattleStateMachine" type="Node" parent="BattleHandler" node_paths=PackedStringArray("cur_state")]
 script = ExtResource("3_66ngm")
@@ -61,3 +62,6 @@ battle_end = NodePath("../BattleEnd")
 
 [node name="BattleEnd" type="Node" parent="BattleHandler/BattleStateMachine"]
 script = ExtResource("11_66ngm")
+
+[node name="AutoStepTimer" type="Timer" parent="BattleHandler"]
+wait_time = 0.4

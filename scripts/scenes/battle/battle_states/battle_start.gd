@@ -7,6 +7,8 @@ const WOLF = preload("res://resources/units/wolf.tres")
 const SNAKE = preload("res://resources/units/snake.tres")
 #endregion
 
+const VOWELS = ["a", "e", "i", "o", "u"]
+
 @export var turn_start_burn: State
 
 func step(data: BattleStateData) -> State:
@@ -19,7 +21,7 @@ func step(data: BattleStateData) -> State:
 	#endregion
 	data.units.sort_custom(func (x: UnitRun, y: UnitRun): return x.spd > y.spd) # Sort by SPD
 	print("* Initialized units")
-	Console.print_line("* [%s] encountered a [%s] [%s]" % [player, enemy.ai, enemy])
+	Console.print_line("* [%s] encountered a%s [%s] [%s]" % [player, "n" if enemy.ai.name_id[0].to_lower() in VOWELS else "", enemy.ai, enemy])
 	return turn_start_burn
 
 func enter(_data: BattleStateData) -> void:

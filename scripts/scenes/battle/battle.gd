@@ -8,24 +8,33 @@ const COMMANDS = {
 	"right": ["right", "r"],
 	"confirm": ["confirm", "c"],
 	"back": ["back", "b" ],
+	"auto": ["auto", "a"],
 	"clear": ["clear"]
 }
 
 @export var battle_handler: BattleHandler
 
 func _process(_delta: float) -> void:
+	var cmd_prms: PackedStringArray = []
 	var curcmd: String = ""
 	
 	if Input.is_action_just_pressed("toggle_console"):
 		Console.toggle()
 	
 	if Console.visible:
-		curcmd = Console.get_command().to_lower()
+		curcmd = Console.get_command().strip_edges().to_lower()
+		cmd_prms = curcmd.split(" ")
+		curcmd = cmd_prms[0]
 
 		if curcmd in COMMANDS.quit:
 			get_tree().quit()
 		elif curcmd in COMMANDS.clear:
 			Console.clear()
+		elif curcmd in COMMANDS.auto:
+			if cmd_prms.size() > 1:
+				battle_handler.auto(int(cmd_prms[1]))
+			else:
+				battle_handler.auto()
 		elif curcmd in COMMANDS.step:
 			battle_handler.step()
 		elif curcmd in COMMANDS.left:

@@ -34,9 +34,7 @@ func _get_ai_action(cur_unit: UnitRun, data: BattleStateData) -> bool:
 		res = true
 	else:
 		# Random Chance
-		var rnd = randf()
-
-		res = not (rnd <= float(ai.attack_percent) / 100.0) # true when Special, false when Attack
+		res = not Helper.rnd_succeeded(ai.attack_percent)
 
 	return special_valid and res
 
