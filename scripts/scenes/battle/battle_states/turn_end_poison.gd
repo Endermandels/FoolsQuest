@@ -25,4 +25,4 @@ func step(data: BattleStateData) -> State:
 	return state
 
 func exit(data: BattleStateData) -> void:
-	data.next_unit()
+	data.next_turn()

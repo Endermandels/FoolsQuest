@@ -9,6 +9,7 @@ Simulate a battle that feels fun (mix of meaningful choices, randomness, and str
 - [ ] Create Special resource.
 - [ ] Create Effect resource/runtime.
 - [ ] Create player and all animals (including boss).
+- [ ] Create Enemy AIs
 - [ ] Meaningful choice 1: Attack or Special.
 - [ ] Meaningful choice 2: Which Special.
 - [ ] Ensure battles take around 2-5 minutes.

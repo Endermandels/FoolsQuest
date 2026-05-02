@@ -7,6 +7,7 @@ const status_effects_res: StatusEffectsRes = preload("res://resources/status_eff
 
 #region Variables
 var units: Array[UnitRun] = []
+var turns: int = 0
 var turn_idx: int = 0
 var selected_special_idx: int = 0
 var input_data: BattleInputData
@@ -16,7 +17,8 @@ var input_data: BattleInputData
 func _init(input_data: BattleInputData) -> void:
 	self.input_data = input_data
 
-func next_unit() -> void:
+func next_turn() -> void:
+	turns += 1
 	turn_idx += 1
 	if turn_idx >= units.size():
 		turn_idx = 0

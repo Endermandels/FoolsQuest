@@ -8,7 +8,8 @@ This state shall:
     - If the player selects a valid Special, store the selected special and transition to Special.
   - If the player selects Attack, transition to Attack
 - Otherwise:
-  - If out of the current unit's valid specials (i.e. MP >= Cost), store a randomly selected special and transition to Special.
+  - Check the current unit's ai given the current state to see whether to attack or use a special
+  - If special is selected, store a randomly selected valid special and transition to Special.
   - Otherwise, transition to Attack.
 
 # Milestones

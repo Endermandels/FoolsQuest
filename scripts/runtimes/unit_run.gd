@@ -1,9 +1,17 @@
 extends RefCounted
 class_name UnitRun
 
+const AI_RESOURCES = [
+	preload("res://resources/ai/aggressive.tres"),
+	preload("res://resources/ai/cautious.tres"),
+	preload("res://resources/ai/mischievous.tres"),
+]
+
 var name_id: String
 var is_player: bool = false
 var is_alive: bool = false
+var is_near_death: bool = false
+var ai: AIRes
 
 # Abilities
 var passives: Array[PassiveRes]
@@ -21,6 +29,7 @@ var hp: int:
 	set(val):
 		hp = clampi(val, 0, base_hp)
 		is_alive = hp > 0
+		is_near_death = (float(hp) / float(base_hp)) < (1.0 / 5.0) # Near death at 1/5 Base HP
 var mp: int:
 	set(val):
 		mp = clampi(val, 0, base_mp)
@@ -48,6 +57,8 @@ var chance_to_miss_attack: float = 0.0
 func _init(res: UnitRes, is_player: bool = false) -> void:
 	self.name_id = res.name_id
 	self.is_player = is_player
+	if not is_player:
+		self.ai = AI_RESOURCES.pick_random()
 
 	# Base Stats
 	self.base_hp = res.base_hp

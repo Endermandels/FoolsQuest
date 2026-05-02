@@ -19,6 +19,7 @@ func step(data: BattleStateData) -> State:
 	#endregion
 	data.units.sort_custom(func (x: UnitRun, y: UnitRun): return x.spd > y.spd) # Sort by SPD
 	print("* Initialized units")
+	Console.print_line("* [%s] encountered a [%s] [%s]" % [player, enemy.ai, enemy])
 	return turn_start_burn
 
 func enter(_data: BattleStateData) -> void:

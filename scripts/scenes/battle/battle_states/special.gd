@@ -15,6 +15,7 @@ func step(data: BattleStateData) -> State:
 	Console.print_line("* [%s] used [%s]" % [cur_unit, special])
 
 	cur_unit.mp -= special.mp_cost # Pay cost
+	Console.print_line("* [%s] channeled 1 MP" % cur_unit)
 	
 	for e_res: EffectRes in special.effects:
 		var e_run: EffectRun = EffectRun.from_resource(e_res)

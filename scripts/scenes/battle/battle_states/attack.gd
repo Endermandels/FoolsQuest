@@ -46,7 +46,7 @@ func step(data: BattleStateData) -> State:
 				state = battle_end
 			else:
 				# Gain MP
-				var mp_gained = cur_unit.mp < cur_unit.base_mp
+				var mp_gained: bool = cur_unit.mp < cur_unit.base_mp
 				cur_unit.mp += 1
 				
 				if mp_gained:

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AIRes" load_steps=2 format=3 uid="uid://b5w7xsm7uaov1"]
+
+[ext_resource type="Script" uid="uid://dhsffrd18ws8p" path="res://scripts/resources/ai_res.gd" id="1_wht7k"]
+
+[resource]
+script = ExtResource("1_wht7k")
+name_id = "Mischievous"
+attack_percent = 0
+metadata/_custom_type_script = "uid://dhsffrd18ws8p"
