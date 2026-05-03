@@ -14,11 +14,7 @@ func step(data: BattleStateData) -> State:
 
 		Console.print_line("* [%s] is hurt by blood loss" % cur_unit)
 
-		var dmg_res: DMGRes = DMGRes.new()
-		dmg_res.dmg = cur_unit.bleed_turns_left
-		dmg_res.is_pure = true
-		dmg_res.targeting = Enums.EffectTargeting.SELF
-		var dmg_run: DMGRun = EffectRun.from_resource(dmg_res)
+		var dmg_run: DMGRun = EffectRun.from_resource(data.status_effects_res.bleed_dmg_res)
 
 		dmg_run.apply(cur_unit)
 		if data.has_death_occurred():

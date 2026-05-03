@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource("1_7lw6w")
 name_id = "Wolf"
-base_hp = 6
+base_hp = 4
 base_mp = 1
 base_atk = 2
 base_spd = 2

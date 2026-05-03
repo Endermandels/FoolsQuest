@@ -30,7 +30,7 @@ func step(data: BattleStateData) -> State:
 
 		# Blind accuracy penalty
 		if cur_unit.is_blind:
-			e_run.accuracy_percent -= data.status_effects_res.miss_chance
+			e_run.accuracy_percent -= data.status_effects_res.blind_miss_chance
 		
 		var temp: bool = e_run.apply(cur_unit, defender)
 

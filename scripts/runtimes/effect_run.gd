@@ -25,6 +25,10 @@ static func from_resource(res: EffectRes) -> EffectRun:
 		return ResistanceRun.new(res)
 	elif res is BloodLustRes:
 		return BloodLustRun.new(res)
+	elif res is RandomRes:
+		return RandomRun.new(res)
+	elif res is AllRes:
+		return AllRun.new(res)
 	elif res is CleanseRes:
 		return CleanseRun.new(res)
 	push_error("Unknown EffectRes")

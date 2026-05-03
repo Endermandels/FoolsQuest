@@ -15,10 +15,7 @@ func step(data: BattleStateData) -> State:
 
 		Console.print_line("* [%s] suffered burn DMG" % cur_unit)
 
-		var dmg_res: DMGRes = DMGRes.new()
-		dmg_res.dmg = data.status_effects_res.burn_dmg
-		dmg_res.targeting = Enums.EffectTargeting.SELF
-		var dmg_run: DMGRun = EffectRun.from_resource(dmg_res)
+		var dmg_run: DMGRun = EffectRun.from_resource(data.status_effects_res.burn_dmg_res)
 
 		dmg_run.apply(cur_unit)
 		if data.has_death_occurred():

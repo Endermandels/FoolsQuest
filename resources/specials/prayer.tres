@@ -1,41 +1,70 @@
-[gd_resource type="Resource" script_class="SpecialRes" load_steps=11 format=3 uid="uid://c1aawiw6jbcdd"]
+[gd_resource type="Resource" script_class="SpecialRes" load_steps=17 format=3 uid="uid://c1aawiw6jbcdd"]
 
 [ext_resource type="Script" uid="uid://c0wbcrlg6ht3b" path="res://scripts/resources/effect_res.gd" id="1_otere"]
 [ext_resource type="Script" uid="uid://dhbto5p0ngko0" path="res://scripts/resources/effects/heal_res.gd" id="2_lc066"]
 [ext_resource type="Script" uid="uid://bq81dohj7lbqw" path="res://scripts/resources/special_res.gd" id="2_pppom"]
-[ext_resource type="Script" uid="uid://p2tpdcmkkm7a" path="res://scripts/resources/effects/cleanse_res.gd" id="3_lc066"]
-
-[sub_resource type="Resource" id="Resource_bdqeu"]
-script = ExtResource("3_lc066")
-targeting = 0
-source_near_death_only = true
-always_accurate = true
-metadata/_custom_type_script = "uid://p2tpdcmkkm7a"
-
-[sub_resource type="Resource" id="Resource_501ij"]
-script = ExtResource("3_lc066")
-type = 2
-targeting = 0
-source_near_death_only = true
-always_accurate = true
-metadata/_custom_type_script = "uid://p2tpdcmkkm7a"
-
-[sub_resource type="Resource" id="Resource_aur72"]
-script = ExtResource("3_lc066")
-targeting = 0
-accuracy_percent = 70
-metadata/_custom_type_script = "uid://p2tpdcmkkm7a"
+[ext_resource type="Resource" uid="uid://tfm23n4ay6lg" path="res://resources/effects/CleanseAll.tres" id="3_aur72"]
+[ext_resource type="Script" uid="uid://uww3xqxw83g1" path="res://scripts/resources/effects/resistance_res.gd" id="4_afqdg"]
+[ext_resource type="Script" uid="uid://cityii2oyurc1" path="res://scripts/resources/effects/random_res.gd" id="5_aur72"]
+[ext_resource type="Script" uid="uid://1of1hh6yucv3" path="res://scripts/resources/effects/all_res.gd" id="5_of7gs"]
 
 [sub_resource type="Resource" id="Resource_of7gs"]
-script = ExtResource("3_lc066")
-type = 2
+script = ExtResource("5_of7gs")
+effects = Array[ExtResource("1_otere")]([ExtResource("3_aur72")])
 targeting = 0
-accuracy_percent = 70
-metadata/_custom_type_script = "uid://p2tpdcmkkm7a"
+source_near_death_only = true
+always_accurate = true
+metadata/_custom_type_script = "uid://1of1hh6yucv3"
+
+[sub_resource type="Resource" id="Resource_tgcj8"]
+script = ExtResource("4_afqdg")
+duration = 2
+targeting = 0
+always_accurate = true
+metadata/_custom_type_script = "uid://uww3xqxw83g1"
+
+[sub_resource type="Resource" id="Resource_ecfdh"]
+script = ExtResource("4_afqdg")
+type = 2
+duration = 2
+targeting = 0
+always_accurate = true
+metadata/_custom_type_script = "uid://uww3xqxw83g1"
+
+[sub_resource type="Resource" id="Resource_dqm5m"]
+script = ExtResource("4_afqdg")
+type = 3
+duration = 2
+targeting = 0
+always_accurate = true
+metadata/_custom_type_script = "uid://uww3xqxw83g1"
+
+[sub_resource type="Resource" id="Resource_ecs1j"]
+script = ExtResource("4_afqdg")
+type = 1
+duration = 2
+targeting = 0
+always_accurate = true
+metadata/_custom_type_script = "uid://uww3xqxw83g1"
+
+[sub_resource type="Resource" id="Resource_tfk0h"]
+script = ExtResource("4_afqdg")
+type = 4
+duration = 2
+targeting = 0
+always_accurate = true
+metadata/_custom_type_script = "uid://uww3xqxw83g1"
+
+[sub_resource type="Resource" id="Resource_35ejh"]
+script = ExtResource("5_aur72")
+effects = Array[ExtResource("1_otere")]([SubResource("Resource_tgcj8"), SubResource("Resource_ecfdh"), SubResource("Resource_dqm5m"), SubResource("Resource_ecs1j"), SubResource("Resource_tfk0h"), ExtResource("3_aur72")])
+targeting = 0
+accuracy_percent = 90
+metadata/_custom_type_script = "uid://cityii2oyurc1"
 
 [sub_resource type="Resource" id="Resource_afqdg"]
 script = ExtResource("2_lc066")
-amount = 2
+amount = 4
 targeting = 0
 source_near_death_only = true
 always_accurate = true
@@ -43,7 +72,7 @@ metadata/_custom_type_script = "uid://dhbto5p0ngko0"
 
 [sub_resource type="Resource" id="Resource_ujra4"]
 script = ExtResource("2_lc066")
-amount = 3
+amount = 4
 targeting = 0
 always_accurate = true
 metadata/_custom_type_script = "uid://dhbto5p0ngko0"
@@ -52,5 +81,5 @@ metadata/_custom_type_script = "uid://dhbto5p0ngko0"
 script = ExtResource("2_pppom")
 name_id = "Prayer"
 mp_cost = 2
-effects = Array[ExtResource("1_otere")]([SubResource("Resource_bdqeu"), SubResource("Resource_501ij"), SubResource("Resource_aur72"), SubResource("Resource_of7gs"), SubResource("Resource_afqdg"), SubResource("Resource_ujra4")])
+effects = Array[ExtResource("1_otere")]([SubResource("Resource_of7gs"), SubResource("Resource_35ejh"), SubResource("Resource_afqdg"), SubResource("Resource_ujra4")])
 metadata/_custom_type_script = "uid://bq81dohj7lbqw"

@@ -31,7 +31,7 @@ var hp: int:
 	set(val):
 		hp = clampi(val, 0, base_hp)
 		is_alive = hp > 0
-		is_near_death = (float(hp) / float(base_hp)) < (1.0 / 3.0) # Near death at 1/3 Base HP
+		is_near_death = (float(hp) / float(base_hp)) <= (1.0 / 3.0) # Near death at 1/3 Base HP
 var mp: int:
 	set(val):
 		mp = clampi(val, 0, base_mp)
