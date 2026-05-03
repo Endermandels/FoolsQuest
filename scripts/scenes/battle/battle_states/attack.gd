@@ -49,12 +49,16 @@ func step(data: BattleStateData) -> State:
 		
 		if not miss:
 			var dmg_res: DMGRes = DMGRes.new()
+			dmg_res.is_pure = cur_unit.attack_is_pure
 			dmg_res.dmg = cur_unit.atk
 			dmg_res.targeting = Enums.EffectTargeting.OPPONENT
 			dmg_res.always_accurate = true
 			var dmg_run: DMGRun = EffectRun.from_resource(dmg_res)
 			
 			var dmg_successful = dmg_run.apply(cur_unit, defender) # Make sure the player actually did DMG to the defender's HP
+
+			# Reset attack is pure
+			cur_unit.attack_is_pure = false
 
 			if dmg_successful:
 				if data.has_death_occurred():
@@ -73,6 +77,8 @@ func step(data: BattleStateData) -> State:
 					
 					elif _trigger_passives(cur_unit, defender, Enums.PassiveType.POST_ATTACK):
 						state = battle_end
+			else:
+				Console.print_line("* [%s] was unable to harm [%s]" % [cur_unit, defender])
 
 	return state
 

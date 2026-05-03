@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PassiveRes" load_steps=5 format=3 uid="uid://bhdqf2nq4fhrl"]
+
+[ext_resource type="Script" uid="uid://c0wbcrlg6ht3b" path="res://scripts/resources/effect_res.gd" id="1_tku01"]
+[ext_resource type="Script" uid="uid://b1pdjtytsqqqv" path="res://scripts/resources/passive_res.gd" id="2_47k58"]
+[ext_resource type="Script" uid="uid://86kdhh6attyi" path="res://scripts/resources/effects/pure_attack_res.gd" id="2_ok0dd"]
+
+[sub_resource type="Resource" id="Resource_60sij"]
+script = ExtResource("2_ok0dd")
+targeting = 0
+always_accurate = true
+accuracy_percent = 30
+metadata/_custom_type_script = "uid://86kdhh6attyi"
+
+[resource]
+script = ExtResource("2_47k58")
+name_id = "Shell Smash"
+effects = Array[ExtResource("1_tku01")]([SubResource("Resource_60sij")])
+metadata/_custom_type_script = "uid://b1pdjtytsqqqv"

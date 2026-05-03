@@ -13,6 +13,7 @@ metadata/_custom_type_script = "uid://bly3vgt1aneef"
 [sub_resource type="Resource" id="Resource_ltpjl"]
 script = ExtResource("3_633qg")
 duration = 2
+accuracy_percent = 85
 metadata/_custom_type_script = "uid://kco57uacsunt"
 
 [resource]

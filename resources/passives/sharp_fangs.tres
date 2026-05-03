@@ -6,11 +6,11 @@
 
 [sub_resource type="Resource" id="Resource_3e2wg"]
 script = ExtResource("2_8m6y3")
-accuracy_percent = 95
+accuracy_percent = 85
 metadata/_custom_type_script = "uid://dxt106tkohnic"
 
 [resource]
 script = ExtResource("2_niuec")
-type = 2
+name_id = "Sharp Fangs"
 effects = Array[ExtResource("1_n118b")]([SubResource("Resource_3e2wg")])
 metadata/_custom_type_script = "uid://b1pdjtytsqqqv"

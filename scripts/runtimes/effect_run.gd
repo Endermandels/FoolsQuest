@@ -31,6 +31,8 @@ static func from_resource(res: EffectRes) -> EffectRun:
 		return AllRun.new(res)
 	elif res is CleanseRes:
 		return CleanseRun.new(res)
+	elif res is PureAttackRes:
+		return PureAttackRun.new(res)
 	push_error("Unknown EffectRes")
 	return EffectRun.new(res)
 

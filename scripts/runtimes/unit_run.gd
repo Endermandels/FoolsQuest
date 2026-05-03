@@ -13,6 +13,7 @@ var is_alive: bool = false
 var is_near_death: bool = false
 var ai: AIRes
 var first_turn_action: bool = true
+var attack_is_pure: bool = false
 
 # Abilities
 var passives: Array[PassiveRes]

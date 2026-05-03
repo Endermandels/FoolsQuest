@@ -104,7 +104,7 @@ func step(data: BattleStateData) -> State:
 
 			# Filter for valid specials
 			for i: int in range(cur_unit.specials.size()):
-				if cur_unit.specials[i].mp_cost <= cur_unit.mp:
+				if _valid_special(cur_unit, cur_unit.specials[i]):
 					valid_special_idxs.append(i)
 			
 			state = special
