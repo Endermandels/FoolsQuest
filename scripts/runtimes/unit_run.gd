@@ -5,6 +5,7 @@ const AI_RESOURCES = [
 	preload("res://resources/ai/aggressive.tres"),
 	preload("res://resources/ai/cautious.tres"),
 	preload("res://resources/ai/mischievous.tres"),
+	preload("res://resources/ai/feral.tres"),
 ]
 
 var name_id: String

@@ -7,12 +7,12 @@
 [sub_resource type="Resource" id="Resource_60sij"]
 script = ExtResource("2_ok0dd")
 targeting = 0
-always_accurate = true
 accuracy_percent = 30
 metadata/_custom_type_script = "uid://86kdhh6attyi"
 
 [resource]
 script = ExtResource("2_47k58")
 name_id = "Shell Smash"
+type = 0
 effects = Array[ExtResource("1_tku01")]([SubResource("Resource_60sij")])
 metadata/_custom_type_script = "uid://b1pdjtytsqqqv"

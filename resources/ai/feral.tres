@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AIRes" load_steps=2 format=3 uid="uid://ich6y0x7rwo2"]
+
+[ext_resource type="Script" uid="uid://dhsffrd18ws8p" path="res://scripts/resources/ai_res.gd" id="1_no0e0"]
+
+[resource]
+script = ExtResource("1_no0e0")
+name_id = "Feral"
+special_near_death = true
+attack_percent = 100
+metadata/_custom_type_script = "uid://dhsffrd18ws8p"

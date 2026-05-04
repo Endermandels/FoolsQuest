@@ -57,28 +57,26 @@ func step(data: BattleStateData) -> State:
 			
 			var dmg_successful = dmg_run.apply(cur_unit, defender) # Make sure the player actually did DMG to the defender's HP
 
-			# Reset attack is pure
-			cur_unit.attack_is_pure = false
-
-			if dmg_successful:
-				if data.has_death_occurred():
-					state = battle_end
-				else:
-					# Gain MP
-					var mp_gained: bool = cur_unit.mp < cur_unit.base_mp
-					cur_unit.mp += 1
-					
-					if mp_gained:
-						Console.print_line("* [%s] restored 1 MP" % cur_unit)
-
-					# Trigger Passives
-					if _trigger_passives(cur_unit, defender, Enums.PassiveType.POST_DEFENSE):
-						state = battle_end
-					
-					elif _trigger_passives(cur_unit, defender, Enums.PassiveType.POST_ATTACK):
-						state = battle_end
+			if data.has_death_occurred():
+				state = battle_end
 			else:
-				Console.print_line("* [%s] was unable to harm [%s]" % [cur_unit, defender])
+				# Reset attack is pure
+				cur_unit.attack_is_pure = false
+
+				if dmg_successful:
+						# Gain MP
+						var mp_gained: bool = cur_unit.mp < cur_unit.base_mp
+						cur_unit.mp += 1
+						
+						if mp_gained:
+							Console.print_line("* [%s] restored 1 MP" % cur_unit)
+
+						# Trigger Passives
+						if _trigger_passives(cur_unit, defender, Enums.PassiveType.POST_DEFENSE):
+							state = battle_end
+						
+						elif _trigger_passives(cur_unit, defender, Enums.PassiveType.POST_ATTACK):
+							state = battle_end
 
 	return state
 

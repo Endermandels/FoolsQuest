@@ -3,6 +3,7 @@ class_name EffectRun
 
 var targeting: Enums.EffectTargeting
 var near_death_only: bool
+var first_action_only: bool
 var always_accurate: bool
 var accuracy_percent: int:
 	set(val):
@@ -33,12 +34,15 @@ static func from_resource(res: EffectRes) -> EffectRun:
 		return CleanseRun.new(res)
 	elif res is PureAttackRes:
 		return PureAttackRun.new(res)
+	elif res is StunRes:
+		return StunRun.new(res)
 	push_error("Unknown EffectRes")
 	return EffectRun.new(res)
 
 func _init(res: EffectRes) -> void:
 	self.targeting = res.targeting
 	self.near_death_only = res.source_near_death_only
+	self.first_action_only = res.first_action_only
 	self.always_accurate = res.always_accurate
 	self.accuracy_percent = res.accuracy_percent
 	init(res)
@@ -52,7 +56,10 @@ func init(_res) -> void:
 func apply(source: UnitRun, opponent: UnitRun = null) -> bool:
 	var res: bool = false
 	var near_death: bool = source != null and source.is_near_death
-	var accuracy_succeeded: bool = (always_accurate or Helper.rnd_succeeded(accuracy_percent)) and (not near_death_only or near_death)
+	var first_action: bool = source != null and source.first_turn_action
+	var accuracy_succeeded: bool = ((always_accurate or Helper.rnd_succeeded(accuracy_percent)) and 
+										(not near_death_only or near_death) and 
+										(not first_action_only or first_action))
 
 	if accuracy_succeeded:
 		if targeting == Enums.EffectTargeting.SELF:

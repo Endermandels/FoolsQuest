@@ -10,4 +10,7 @@ func step(_data: BattleStateData) -> State:
 	return state
 
 func exit(data: BattleStateData) -> void:
+	var cur_unit: UnitRun = data.units[data.turn_idx]
+	
+	cur_unit.first_turn_action = false
 	data.next_turn()

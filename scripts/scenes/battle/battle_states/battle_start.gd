@@ -6,6 +6,7 @@ const PLAYER = preload("res://resources/units/player.tres")
 const WOLF = preload("res://resources/units/wolf.tres")
 const SNAKE = preload("res://resources/units/snake.tres")
 const DRAGON = preload("res://resources/units/dragon.tres")
+const BEAR = preload("res://resources/units/bear.tres")
 #endregion
 
 const VOWELS = ["a", "e", "i", "o", "u"]
@@ -16,7 +17,7 @@ func step(data: BattleStateData) -> State:
 	print("* Step Battle Start")
 	#region # TODO: CHANGE
 	var player: UnitRun = UnitRun.new(PLAYER.duplicate_deep(), true)
-	var enemy: UnitRun = UnitRun.new(DRAGON.duplicate_deep())
+	var enemy: UnitRun = UnitRun.new(BEAR.duplicate_deep())
 	data.units.append(player)
 	data.units.append(enemy)
 	#endregion

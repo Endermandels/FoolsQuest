@@ -34,7 +34,7 @@ func step(data: BattleStateData) -> State:
 		
 		var temp: bool = e_run.apply(cur_unit, defender)
 
-		successful = successful or temp
+		successful = successful or temp or e_run is DMGRun # DMGRun always inflicts damage but only reports success if it damages over the DEF threshold
 		if data.has_death_occurred():
 			state = battle_end
 			break

@@ -22,8 +22,11 @@ func _apply(_source: UnitRun, target: UnitRun) -> bool:
 	
 	if hp_lost > 0:
 		target.hp -= hp_lost
-		Console.print_line("* [%s] lost [%d] HP" % [target, hp_lost])
-
 		res = true
+	else:
+		Console.print_line("* [%s] defended most of the damage" % target)
+		hp_lost = 1
+		target.hp -= hp_lost
+	Console.print_line("* [%s] lost [%d] HP" % [target, hp_lost])
 
 	return res
