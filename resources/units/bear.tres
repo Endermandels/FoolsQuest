@@ -10,7 +10,7 @@
 script = ExtResource("2_1kkgy")
 name_id = "Bear"
 base_hp = 12
-base_mp = 1
+base_mp = 2
 base_atk = 2
 base_def = 1
 passives = Array[ExtResource("1_5qgqi")]([ExtResource("2_vg8rj")])

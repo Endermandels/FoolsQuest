@@ -80,6 +80,6 @@ metadata/_custom_type_script = "uid://dhbto5p0ngko0"
 [resource]
 script = ExtResource("2_pppom")
 name_id = "Prayer"
-mp_cost = 2
+mp_cost = 3
 effects = Array[ExtResource("1_otere")]([SubResource("Resource_of7gs"), SubResource("Resource_35ejh"), SubResource("Resource_afqdg"), SubResource("Resource_ujra4")])
 metadata/_custom_type_script = "uid://bq81dohj7lbqw"

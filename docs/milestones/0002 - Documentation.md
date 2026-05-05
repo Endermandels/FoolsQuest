@@ -4,6 +4,8 @@ Establish the documentation procedures to make this game become a reality in a c
 # Deliverables
 - [x] Create Milestones for entire project's development. (4/25/26)
 - [ ] Create Design Documents to describe the functionality of the game.
+- [ ] Create Design Documents to describe the story of the game.
+- [ ] Create Design Documents to describe the look and feel of the game.
 
 # Projected Completion By
 May 2nd, 2026

@@ -38,5 +38,6 @@ metadata/_custom_type_script = "uid://uww3xqxw83g1"
 script = ExtResource("2_x5vd4")
 name_id = "Hibernate"
 once_per_battle = true
+mp_cost = 2
 effects = Array[ExtResource("1_f243s")]([SubResource("Resource_44on4"), SubResource("Resource_rujei"), SubResource("Resource_buf2n"), SubResource("Resource_ipt8b")])
 metadata/_custom_type_script = "uid://bq81dohj7lbqw"
