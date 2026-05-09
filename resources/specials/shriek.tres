@@ -1,8 +1,24 @@
-[gd_resource type="Resource" script_class="SpecialRes" load_steps=3 format=3 uid="uid://b6rv03qgsp5wo"]
+[gd_resource type="Resource" script_class="SpecialRes" load_steps=7 format=3 uid="uid://b6rv03qgsp5wo"]
 
 [ext_resource type="Script" uid="uid://c0wbcrlg6ht3b" path="res://scripts/resources/effect_res.gd" id="1_np2er"]
+[ext_resource type="Script" uid="uid://dluhb2gvc4gif" path="res://scripts/resources/effects/stun_res.gd" id="2_l6pev"]
 [ext_resource type="Script" uid="uid://bq81dohj7lbqw" path="res://scripts/resources/special_res.gd" id="2_pyk2e"]
+[ext_resource type="Script" uid="uid://bryxtb4tgoe40" path="res://scripts/resources/effects/stat_down_res.gd" id="3_0r3j2"]
+
+[sub_resource type="Resource" id="Resource_mp0lp"]
+script = ExtResource("2_l6pev")
+always_accurate = true
+accuracy_percent = 70
+metadata/_custom_type_script = "uid://dluhb2gvc4gif"
+
+[sub_resource type="Resource" id="Resource_711p4"]
+script = ExtResource("3_0r3j2")
+stat_type = 2
+accuracy_percent = 30
+metadata/_custom_type_script = "uid://bryxtb4tgoe40"
 
 [resource]
 script = ExtResource("2_pyk2e")
+name_id = "Shriek"
+effects = Array[ExtResource("1_np2er")]([SubResource("Resource_mp0lp"), SubResource("Resource_711p4")])
 metadata/_custom_type_script = "uid://bq81dohj7lbqw"

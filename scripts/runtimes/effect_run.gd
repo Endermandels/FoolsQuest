@@ -22,8 +22,6 @@ static func from_resource(res: EffectRes) -> EffectRun:
 		return BlindRun.new(res)
 	elif res is ResistanceRes:
 		return ResistanceRun.new(res)
-	elif res is BloodLustRes:
-		return BloodLustRun.new(res)
 	elif res is RandomRes:
 		return RandomRun.new(res)
 	elif res is AllRes:
@@ -34,6 +32,8 @@ static func from_resource(res: EffectRes) -> EffectRun:
 		return PureAttackRun.new(res)
 	elif res is StunRes:
 		return StunRun.new(res)
+	elif res is GainPassiveRes:
+		return GainPassiveRun.new(res)
 	elif res is ConvertStatsRes:
 		return ConvertStatsRun.new(res)
 	elif res is StatUpRes:

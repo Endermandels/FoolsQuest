@@ -1,9 +1,19 @@
-[gd_resource type="Resource" script_class="UnitRes" load_steps=4 format=3 uid="uid://o8xhn5vrj8t7"]
+[gd_resource type="Resource" script_class="UnitRes" load_steps=7 format=3 uid="uid://o8xhn5vrj8t7"]
 
 [ext_resource type="Script" uid="uid://b1pdjtytsqqqv" path="res://scripts/resources/passive_res.gd" id="1_yvnu3"]
 [ext_resource type="Script" uid="uid://btu6s2dkuilpu" path="res://scripts/resources/unit_res.gd" id="2_5el80"]
+[ext_resource type="Resource" uid="uid://dc4sonyklwefi" path="res://resources/passives/echolocation.tres" id="2_51sdh"]
 [ext_resource type="Script" uid="uid://bq81dohj7lbqw" path="res://scripts/resources/special_res.gd" id="3_ibk3r"]
+[ext_resource type="Resource" uid="uid://cxhc2el0r3sng" path="res://resources/passives/life_steal.tres" id="3_ltdao"]
+[ext_resource type="Resource" uid="uid://b6rv03qgsp5wo" path="res://resources/specials/shriek.tres" id="6_31qir"]
 
 [resource]
 script = ExtResource("2_5el80")
+name_id = "Bat"
+base_hp = 2
+base_mp = 2
+base_atk = 1
+base_spd = 1
+passives = Array[ExtResource("1_yvnu3")]([ExtResource("2_51sdh"), ExtResource("3_ltdao")])
+specials = Array[ExtResource("3_ibk3r")]([ExtResource("6_31qir")])
 metadata/_custom_type_script = "uid://btu6s2dkuilpu"
