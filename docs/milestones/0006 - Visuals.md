@@ -11,6 +11,7 @@ Create the visual representation of the game.
 - [ ] Create Intro depictions.
 - [ ] Create Defeat depictions.
 - [ ] Create Victory depictions.
+- [ ] Create Player Name prompt.
 - [ ] Create Main Menu.
 - [ ] Create Pause Menu.
 
