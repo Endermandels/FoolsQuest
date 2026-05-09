@@ -6,6 +6,7 @@
 
 [sub_resource type="Resource" id="Resource_m1kem"]
 script = ExtResource("2_ejnp5")
+always_accurate = true
 accuracy_percent = 15
 metadata/_custom_type_script = "uid://dluhb2gvc4gif"
 

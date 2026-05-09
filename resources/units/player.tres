@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="UnitRes" load_steps=5 format=3 uid="uid://b5tnm7nb28rqb"]
+[gd_resource type="Resource" script_class="UnitRes" load_steps=6 format=3 uid="uid://b5tnm7nb28rqb"]
 
 [ext_resource type="Script" uid="uid://btu6s2dkuilpu" path="res://scripts/resources/unit_res.gd" id="1_hm0gi"]
 [ext_resource type="Script" uid="uid://b1pdjtytsqqqv" path="res://scripts/resources/passive_res.gd" id="1_l51o6"]
+[ext_resource type="Resource" uid="uid://bfqlpqcdva043" path="res://resources/passives/brute_force.tres" id="2_ax28j"]
 [ext_resource type="Script" uid="uid://bq81dohj7lbqw" path="res://scripts/resources/special_res.gd" id="3_ax28j"]
 [ext_resource type="Resource" uid="uid://c1aawiw6jbcdd" path="res://resources/specials/prayer.tres" id="5_ax28j"]
 
@@ -10,6 +11,7 @@ script = ExtResource("1_hm0gi")
 name_id = "Player"
 base_hp = 12
 base_mp = 4
-base_atk = 1
+base_atk = 5
+passives = Array[ExtResource("1_l51o6")]([ExtResource("2_ax28j")])
 specials = Array[ExtResource("3_ax28j")]([ExtResource("5_ax28j")])
 metadata/_custom_type_script = "uid://btu6s2dkuilpu"

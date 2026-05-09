@@ -3,37 +3,16 @@ extends State
 @export var turn_end_bleed: State
 @export var battle_end: State
 
-## Returns whether a death has occurred.
-func _trigger_passives(cur_unit: UnitRun, defender: UnitRun, ptype: Enums.PassiveType) -> bool:
-	var has_death_occurred: bool = false
-	var all_passives: Array[PassiveRes] = cur_unit.passives + cur_unit.temp_passives
-
-	for p: PassiveRes in all_passives:
-		if p.type == ptype:
-			for e_res: EffectRes in p.effects:
-				var e_run = EffectRun.from_resource(e_res)
-
-				if ptype == Enums.PassiveType.PRE_ATTACK || ptype == Enums.PassiveType.POST_ATTACK:
-					e_run.apply(cur_unit, defender)
-				else:
-					e_run.apply(defender, cur_unit)
-
-				if not cur_unit.is_alive or not defender.is_alive:
-					has_death_occurred = true
-					break
-
-	return has_death_occurred
-
 func step(data: BattleStateData) -> State:
 	var state: State = turn_end_bleed
 	var cur_unit: UnitRun = data.units[data.turn_idx]
 	var defender: UnitRun = data.units[1 - data.turn_idx]
 
 	print("* Step Attack")
-	if _trigger_passives(cur_unit, defender, Enums.PassiveType.PRE_ATTACK):
+	if data.trigger_passives(cur_unit, defender, Enums.PassiveType.PRE_ATTACK):
 		state = battle_end
 	
-	elif _trigger_passives(cur_unit, defender, Enums.PassiveType.PRE_DEFENSE):
+	elif data.trigger_passives(cur_unit, defender, Enums.PassiveType.PRE_DEFENSE):
 		state = battle_end
 	
 	else:
@@ -72,10 +51,10 @@ func step(data: BattleStateData) -> State:
 							Console.print_line("* [%s] restored 1 MP" % cur_unit)
 
 						# Trigger Passives
-						if _trigger_passives(cur_unit, defender, Enums.PassiveType.POST_DEFENSE):
+						if data.trigger_passives(cur_unit, defender, Enums.PassiveType.POST_DEFENSE):
 							state = battle_end
 						
-						elif _trigger_passives(cur_unit, defender, Enums.PassiveType.POST_ATTACK):
+						elif data.trigger_passives(cur_unit, defender, Enums.PassiveType.POST_ATTACK):
 							state = battle_end
 
 	return state
