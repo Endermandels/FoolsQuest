@@ -36,6 +36,8 @@ static func from_resource(res: EffectRes) -> EffectRun:
 		return PureAttackRun.new(res)
 	elif res is StunRes:
 		return StunRun.new(res)
+	elif res is FortifyRes:
+		return FortifyRun.new(res)
 	push_error("Unknown EffectRes")
 	return EffectRun.new(res)
 
