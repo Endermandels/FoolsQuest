@@ -1,5 +1,6 @@
 @tool
 extends EffectRes
-class_name FortifyRes
+class_name StatUpRes
 
+@export var stat_type: Enums.StatType
 @export_range(1, 100) var amount: int = 1

@@ -42,5 +42,6 @@ metadata/_custom_type_script = "uid://p2tpdcmkkm7a"
 script = ExtResource("3_sw5io")
 effects = Array[ExtResource("1_2cveb")]([SubResource("Resource_wy6u8"), SubResource("Resource_77g7j"), SubResource("Resource_78rna"), SubResource("Resource_sr1j0"), SubResource("Resource_y3fyx")])
 targeting = 0
+source_near_death_only = true
 always_accurate = true
 metadata/_custom_type_script = "uid://1of1hh6yucv3"

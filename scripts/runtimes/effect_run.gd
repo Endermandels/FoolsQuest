@@ -18,8 +18,6 @@ static func from_resource(res: EffectRes) -> EffectRun:
 		return PoisonRun.new(res)
 	elif res is BurnRes:
 		return BurnRun.new(res)
-	elif res is HealRes:
-		return HealRun.new(res)
 	elif res is BlindRes:
 		return BlindRun.new(res)
 	elif res is ResistanceRes:
@@ -36,10 +34,10 @@ static func from_resource(res: EffectRes) -> EffectRun:
 		return PureAttackRun.new(res)
 	elif res is StunRes:
 		return StunRun.new(res)
-	elif res is FortifyRes:
-		return FortifyRun.new(res)
 	elif res is ConvertStatsRes:
 		return ConvertStatsRun.new(res)
+	elif res is StatUpRes:
+		return StatUpRun.new(res)
 	push_error("Unknown EffectRes")
 	return EffectRun.new(res)
 

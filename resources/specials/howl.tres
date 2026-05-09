@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="SpecialRes" load_steps=5 format=3 uid="uid://b6o1hyl06p104"]
+[gd_resource type="Resource" script_class="SpecialRes" load_steps=7 format=3 uid="uid://b6o1hyl06p104"]
 
 [ext_resource type="Script" uid="uid://c0wbcrlg6ht3b" path="res://scripts/resources/effect_res.gd" id="1_at3m6"]
 [ext_resource type="Script" uid="uid://eg6niisvxef7" path="res://scripts/resources/effects/blood_lust_res.gd" id="2_dhi7p"]
 [ext_resource type="Script" uid="uid://bq81dohj7lbqw" path="res://scripts/resources/special_res.gd" id="2_nm51y"]
+[ext_resource type="Script" uid="uid://irsbsf5elqey" path="res://scripts/resources/effects/stat_up_res.gd" id="3_dhi7p"]
 
 [sub_resource type="Resource" id="Resource_sioq7"]
 script = ExtResource("2_dhi7p")
@@ -10,9 +11,16 @@ targeting = 0
 always_accurate = true
 metadata/_custom_type_script = "uid://eg6niisvxef7"
 
+[sub_resource type="Resource" id="Resource_1nv5q"]
+script = ExtResource("3_dhi7p")
+stat_type = 2
+targeting = 0
+always_accurate = true
+metadata/_custom_type_script = "uid://irsbsf5elqey"
+
 [resource]
 script = ExtResource("2_nm51y")
 name_id = "Howl"
 once_per_battle = true
-effects = Array[ExtResource("1_at3m6")]([SubResource("Resource_sioq7")])
+effects = Array[ExtResource("1_at3m6")]([SubResource("Resource_sioq7"), SubResource("Resource_1nv5q")])
 metadata/_custom_type_script = "uid://bq81dohj7lbqw"

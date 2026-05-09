@@ -36,11 +36,11 @@ func trigger_passives(cur_unit: UnitRun, opponent: UnitRun, ptype: Enums.Passive
 			for e_res: EffectRes in p.effects:
 				var e_run = EffectRun.from_resource(e_res)
 
-				if ptype == Enums.PassiveType.PRE_ATTACK || ptype == Enums.PassiveType.POST_ATTACK:
+				if ptype == Enums.PassiveType.PRE_ATTACK or ptype == Enums.PassiveType.POST_ATTACK:
 					e_run.apply(cur_unit, opponent)
-				elif ptype == Enums.PassiveType.PRE_DEFENSE || ptype == Enums.PassiveType.POST_DEFENSE:
+				elif ptype == Enums.PassiveType.PRE_DEFENSE or ptype == Enums.PassiveType.POST_DEFENSE:
 					e_run.apply(opponent, cur_unit)
-				elif ptype == Enums.PassiveType.TURN_START_SELF || ptype == Enums.PassiveType.BATTLE_START_SELF:
+				elif ptype == Enums.PassiveType.TURN_START_SELF or ptype == Enums.PassiveType.BATTLE_START_SELF:
 					e_run.apply(cur_unit, cur_unit)
 				else:
 					push_error("! Unknown passive type: '%s'" % ptype)

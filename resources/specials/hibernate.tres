@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c0wbcrlg6ht3b" path="res://scripts/resources/effect_res.gd" id="1_f243s"]
 [ext_resource type="Script" uid="uid://dluhb2gvc4gif" path="res://scripts/resources/effects/stun_res.gd" id="2_mhgvc"]
 [ext_resource type="Script" uid="uid://bq81dohj7lbqw" path="res://scripts/resources/special_res.gd" id="2_x5vd4"]
-[ext_resource type="Script" uid="uid://dhbto5p0ngko0" path="res://scripts/resources/effects/heal_res.gd" id="3_hsuvd"]
+[ext_resource type="Script" uid="uid://irsbsf5elqey" path="res://scripts/resources/effects/stat_up_res.gd" id="3_hsuvd"]
 [ext_resource type="Script" uid="uid://uww3xqxw83g1" path="res://scripts/resources/effects/resistance_res.gd" id="4_hsuvd"]
 
 [sub_resource type="Resource" id="Resource_44on4"]
@@ -14,10 +14,10 @@ metadata/_custom_type_script = "uid://dluhb2gvc4gif"
 
 [sub_resource type="Resource" id="Resource_rujei"]
 script = ExtResource("3_hsuvd")
-amount = 6
+amount = 4
 targeting = 0
 always_accurate = true
-metadata/_custom_type_script = "uid://dhbto5p0ngko0"
+metadata/_custom_type_script = "uid://irsbsf5elqey"
 
 [sub_resource type="Resource" id="Resource_buf2n"]
 script = ExtResource("4_hsuvd")
