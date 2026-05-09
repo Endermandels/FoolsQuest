@@ -12,7 +12,7 @@ func step(data: BattleStateData) -> State:
 	if data.trigger_passives(cur_unit, defender, Enums.PassiveType.PRE_ATTACK):
 		state = battle_end
 	
-	elif data.trigger_passives(cur_unit, defender, Enums.PassiveType.PRE_DEFENSE):
+	elif data.trigger_passives(defender, cur_unit, Enums.PassiveType.PRE_DEFENSE):
 		state = battle_end
 	
 	else:
@@ -43,7 +43,7 @@ func step(data: BattleStateData) -> State:
 				cur_unit.attack_is_pure = false
 
 				# Defense passives trigger regardless of a failed attack on the player's part
-				if data.trigger_passives(cur_unit, defender, Enums.PassiveType.POST_DEFENSE):
+				if data.trigger_passives(defender, cur_unit, Enums.PassiveType.POST_DEFENSE):
 					state = battle_end
 				elif dmg_successful:
 					# Gain MP

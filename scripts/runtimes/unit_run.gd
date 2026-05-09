@@ -39,7 +39,7 @@ var mp: int:
 		mp = clampi(val, 0, base_mp)
 var atk: int:
 	set(val):
-		atk = max(val, 0) # Allow ATK to exceed Base ATK
+		atk = max(val, 1) # Allow ATK to exceed Base ATK, ATK should never drop below 1
 var def: int:
 	set(val):
 		def = max(val, 0) # Allow DEF to exceed Base DEF
