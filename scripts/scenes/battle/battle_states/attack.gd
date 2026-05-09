@@ -16,15 +16,12 @@ func step(data: BattleStateData) -> State:
 		state = battle_end
 	
 	else:
-		var miss: bool = false
-		
-		# Blind miss chance
-		if cur_unit.is_blind:
-			miss = Helper.rnd_succeeded(data.status_effects_res.blind_miss_chance)
-			Console.print_line("* [%s] flailed blindly and %s" % [cur_unit, "missed" if miss else "hit"])
-			cur_unit.blind_turns_left -= 1
-			if not cur_unit.is_blind:
-				Console.print_line("* [%s] sight returned" % cur_unit)
+		# Evasion
+		var miss: bool = Helper.rnd_succeeded(min(defender.spd * data.battle_logic_res.evasion_miss_chance_scale, data.battle_logic_res.evasion_miss_chance_max))
+
+		# Blindness
+		if not miss and cur_unit.is_blind:
+			miss = Helper.rnd_succeeded(data.battle_logic_res.blind_miss_chance)
 		
 		if not miss:
 			var dmg_res: DMGRes = DMGRes.new()
@@ -56,6 +53,16 @@ func step(data: BattleStateData) -> State:
 					# Offensive passives trigger only on successful attack
 					if data.trigger_passives(cur_unit, defender, Enums.PassiveType.POST_ATTACK):
 						state = battle_end
+		else:
+			if cur_unit.is_blind:
+				Console.print_line("* [%s] missed [%s]" % [cur_unit, defender])
+			else:
+				Console.print_line("* [%s] evaded the attack" % defender)
+
+		if state != battle_end and cur_unit.is_blind:
+			cur_unit.blind_turns_left -= 1
+			if not cur_unit.is_blind:
+				Console.print_line("* [%s] sight returned" % cur_unit)
 
 	return state
 

@@ -12,7 +12,7 @@ func step(data: BattleStateData) -> State:
 	if cur_unit.is_poisoned:
 		Console.print_line("* [%s] is hurt by poison" % cur_unit)
 
-		var dmg_run: DMGRun = EffectRun.from_resource(data.status_effects_res.poison_dmg_res)
+		var dmg_run: DMGRun = EffectRun.from_resource(data.battle_logic_res.poison_dmg_res)
 
 		dmg_run.apply(cur_unit)
 		if data.has_death_occurred():

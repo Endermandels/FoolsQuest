@@ -2,7 +2,7 @@ extends StateData
 class_name BattleStateData
 
 #region Preloads
-const status_effects_res: StatusEffectsRes = preload("res://resources/status_effects.tres")
+const battle_logic_res: BattleLogicRes = preload("res://resources/battle_logic.tres")
 #endregion
 
 #region Variables

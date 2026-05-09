@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="UnitRes" load_steps=6 format=3 uid="uid://c8712u18p6k8k"]
+[gd_resource type="Resource" script_class="UnitRes" load_steps=7 format=3 uid="uid://c8712u18p6k8k"]
 
 [ext_resource type="Script" uid="uid://b1pdjtytsqqqv" path="res://scripts/resources/passive_res.gd" id="1_8tgm2"]
 [ext_resource type="Resource" uid="uid://bi15ulqno1tw1" path="res://resources/passives/sharp_quills.tres" id="2_68p2q"]
 [ext_resource type="Script" uid="uid://btu6s2dkuilpu" path="res://scripts/resources/unit_res.gd" id="2_d7s88"]
 [ext_resource type="Script" uid="uid://bq81dohj7lbqw" path="res://scripts/resources/special_res.gd" id="3_68p2q"]
-[ext_resource type="Resource" uid="uid://bhvn0t4k7m0ru" path="res://resources/specials/foul_odor.tres" id="5_68p2q"]
+[ext_resource type="Resource" uid="uid://c8tmccgij1j6f" path="res://resources/passives/foul_odor.tres" id="3_wkw66"]
+[ext_resource type="Resource" uid="uid://dymge6eww3r5i" path="res://resources/specials/quill_growth.tres" id="6_6glkq"]
 
 [resource]
 script = ExtResource("2_d7s88")
@@ -12,6 +13,6 @@ name_id = "Porcupine"
 base_hp = 5
 base_mp = 2
 base_atk = 1
-passives = Array[ExtResource("1_8tgm2")]([ExtResource("2_68p2q")])
-specials = Array[ExtResource("3_68p2q")]([ExtResource("5_68p2q")])
+passives = Array[ExtResource("1_8tgm2")]([ExtResource("2_68p2q"), ExtResource("3_wkw66")])
+specials = Array[ExtResource("3_68p2q")]([ExtResource("6_6glkq")])
 metadata/_custom_type_script = "uid://btu6s2dkuilpu"
