@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="UnitRes" load_steps=4 format=3 uid="uid://jm0jc6mha7"]
+
+[ext_resource type="Script" uid="uid://b1pdjtytsqqqv" path="res://scripts/resources/passive_res.gd" id="1_xlobb"]
+[ext_resource type="Script" uid="uid://btu6s2dkuilpu" path="res://scripts/resources/unit_res.gd" id="2_cre2f"]
+[ext_resource type="Script" uid="uid://bq81dohj7lbqw" path="res://scripts/resources/special_res.gd" id="3_4ck2n"]
+
+[resource]
+script = ExtResource("2_cre2f")
+metadata/_custom_type_script = "uid://btu6s2dkuilpu"

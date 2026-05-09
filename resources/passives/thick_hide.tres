@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="PassiveRes" load_steps=3 format=3 uid="uid://bbj62kivh62te"]
+
+[ext_resource type="Script" uid="uid://c0wbcrlg6ht3b" path="res://scripts/resources/effect_res.gd" id="1_k3n2v"]
+[ext_resource type="Script" uid="uid://b1pdjtytsqqqv" path="res://scripts/resources/passive_res.gd" id="2_5ihau"]
+
+[resource]
+script = ExtResource("2_5ihau")
+metadata/_custom_type_script = "uid://b1pdjtytsqqqv"
