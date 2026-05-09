@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="SpecialRes" load_steps=7 format=3 uid="uid://ch1p36ce11pd"]
+
+[ext_resource type="Script" uid="uid://c0wbcrlg6ht3b" path="res://scripts/resources/effect_res.gd" id="1_0vnx1"]
+[ext_resource type="Script" uid="uid://bryxtb4tgoe40" path="res://scripts/resources/effects/stat_down_res.gd" id="2_46vxx"]
+[ext_resource type="Script" uid="uid://bq81dohj7lbqw" path="res://scripts/resources/special_res.gd" id="2_b6ugq"]
+[ext_resource type="Script" uid="uid://dluhb2gvc4gif" path="res://scripts/resources/effects/stun_res.gd" id="3_r0uru"]
+
+[sub_resource type="Resource" id="Resource_0qxgk"]
+script = ExtResource("2_46vxx")
+stat_type = 2
+always_accurate = true
+metadata/_custom_type_script = "uid://bryxtb4tgoe40"
+
+[sub_resource type="Resource" id="Resource_1br8k"]
+script = ExtResource("3_r0uru")
+accuracy_percent = 85
+metadata/_custom_type_script = "uid://dluhb2gvc4gif"
+
+[resource]
+script = ExtResource("2_b6ugq")
+name_id = "Roar"
+once_per_battle = true
+effects = Array[ExtResource("1_0vnx1")]([SubResource("Resource_0qxgk"), SubResource("Resource_1br8k")])
+metadata/_custom_type_script = "uid://bq81dohj7lbqw"

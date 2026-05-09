@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="UnitRes" load_steps=8 format=3 uid="uid://bxpdr13q0h756"]
+[gd_resource type="Resource" script_class="UnitRes" load_steps=9 format=3 uid="uid://bxpdr13q0h756"]
 
 [ext_resource type="Script" uid="uid://b1pdjtytsqqqv" path="res://scripts/resources/passive_res.gd" id="1_oqbk3"]
 [ext_resource type="Script" uid="uid://btu6s2dkuilpu" path="res://scripts/resources/unit_res.gd" id="2_e71d4"]
@@ -6,7 +6,8 @@
 [ext_resource type="Resource" uid="uid://y4qf14x1yf6x" path="res://resources/passives/sharp_fangs.tres" id="3_t7uur"]
 [ext_resource type="Script" uid="uid://bq81dohj7lbqw" path="res://scripts/resources/special_res.gd" id="3_yeuaj"]
 [ext_resource type="Resource" uid="uid://c64317p4mml2x" path="res://resources/specials/flame_breath.tres" id="4_y25qw"]
-[ext_resource type="Resource" uid="uid://b6o1hyl06p104" path="res://resources/specials/howl.tres" id="7_t7uur"]
+[ext_resource type="Resource" uid="uid://cjpbrn3r7njre" path="res://resources/specials/venom_spit.tres" id="7_i1qv5"]
+[ext_resource type="Resource" uid="uid://ch1p36ce11pd" path="res://resources/specials/roar.tres" id="8_8165m"]
 
 [resource]
 script = ExtResource("2_e71d4")
@@ -17,5 +18,5 @@ base_atk = 3
 base_def = 3
 base_spd = 1
 passives = Array[ExtResource("1_oqbk3")]([ExtResource("2_swe7g"), ExtResource("3_t7uur")])
-specials = Array[ExtResource("3_yeuaj")]([ExtResource("4_y25qw"), ExtResource("7_t7uur")])
+specials = Array[ExtResource("3_yeuaj")]([ExtResource("4_y25qw"), ExtResource("7_i1qv5"), ExtResource("8_8165m")])
 metadata/_custom_type_script = "uid://btu6s2dkuilpu"
