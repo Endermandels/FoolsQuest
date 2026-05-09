@@ -8,6 +8,7 @@ const SNAKE = preload("res://resources/units/snake.tres")
 const DRAGON = preload("res://resources/units/dragon.tres")
 const BEAR = preload("res://resources/units/bear.tres")
 const TURTLE = preload("res://resources/units/turtle.tres")
+const FALCON = preload("res://resources/units/falcon.tres")
 #endregion
 
 const VOWELS = ["a", "e", "i", "o", "u"]
@@ -22,7 +23,7 @@ func step(data: BattleStateData) -> State:
 
 	#region # TODO: CHANGE
 	var player: UnitRun = UnitRun.new(PLAYER.duplicate_deep(), true)
-	var enemy: UnitRun = UnitRun.new(TURTLE.duplicate_deep())
+	var enemy: UnitRun = UnitRun.new(FALCON.duplicate_deep())
 	data.units.append(player)
 	data.units.append(enemy)
 	#endregion

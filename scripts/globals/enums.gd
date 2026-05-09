@@ -15,6 +15,14 @@ enum EffectTargeting {
 	OPPONENT,
 }
 
+enum StatType {
+	HP,
+	MP,
+	ATK,
+	DEF,
+	SPD
+}
+
 enum StatusEffect {
 	POISON,
 	BURN,

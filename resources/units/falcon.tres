@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="UnitRes" load_steps=6 format=3 uid="uid://chjhyu3qcq16b"]
+
+[ext_resource type="Script" uid="uid://b1pdjtytsqqqv" path="res://scripts/resources/passive_res.gd" id="1_870bf"]
+[ext_resource type="Script" uid="uid://btu6s2dkuilpu" path="res://scripts/resources/unit_res.gd" id="2_7dus0"]
+[ext_resource type="Resource" uid="uid://y4qf14x1yf6x" path="res://resources/passives/sharp_fangs.tres" id="2_snsod"]
+[ext_resource type="Script" uid="uid://bq81dohj7lbqw" path="res://scripts/resources/special_res.gd" id="3_snsod"]
+[ext_resource type="Resource" uid="uid://bsfe4v1ltlqap" path="res://resources/specials/dive.tres" id="5_snsod"]
+
+[resource]
+script = ExtResource("2_7dus0")
+name_id = "Falcon"
+base_hp = 2
+base_mp = 1
+base_atk = 2
+base_spd = 3
+passives = Array[ExtResource("1_870bf")]([ExtResource("2_snsod")])
+specials = Array[ExtResource("3_snsod")]([ExtResource("5_snsod")])
+metadata/_custom_type_script = "uid://btu6s2dkuilpu"
