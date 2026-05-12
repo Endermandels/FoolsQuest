@@ -5,14 +5,14 @@
 - [ ] Implement [0007](milestones/0007%20-%20SFX.md)
 - [ ] Implement [0006](milestones/0006%20-%20Visuals.md)
 - [ ] Implement [0005](milestones/0005%20-%20Boss.md)
-- [ ] Implement [0004](milestones/0004%20-%20Loop.md)
 
 # SOON
 
 # CURRENT
-- [ ] Implement [0003](milestones/0003%20-%20Battle.md)
+- [ ] Implement [0004](milestones/0004%20-%20Loop.md)
 
 # CLOSED
+- [x] Implement [0003](milestones/0003%20-%20Battle.md)
 - [x] Add chance exports to effects
 - [x] Design healing system like TF2 Medic
 - [x] Create Design Documents for Battle vertical slice

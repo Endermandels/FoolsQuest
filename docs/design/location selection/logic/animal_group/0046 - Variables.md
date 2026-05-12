@@ -1,6 +1,6 @@
 # Description
-Each Animal Grouping shall have the following variables:
-- stat_type: The stat type characterizing the animals in this group
+Each Animal Group shall have the following variables:
+- stat_type: The unique stat type characterizing the animals in this group
 - animals: The unit resources in this group paired with the pick weight of the animal (higher weight, higher chance of being picked)
 
 # Milestones
