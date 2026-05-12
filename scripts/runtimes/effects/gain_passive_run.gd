@@ -11,7 +11,7 @@ func _apply(_source: UnitRun, target: UnitRun) -> bool:
 	
 	assert(target.is_alive)
 
-	target.passives.append(passive)
+	target.temp_passives.append(passive)
 	Console.print_line("* [%s] gained [%s]" % [target, passive])
 	res = true
 

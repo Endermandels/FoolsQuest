@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="UnitRes" load_steps=8 format=3 uid="uid://beeld3va0q3xf"]
+
+[ext_resource type="Script" uid="uid://b1pdjtytsqqqv" path="res://scripts/resources/units/passive_res.gd" id="1_ntcv2"]
+[ext_resource type="Script" uid="uid://btu6s2dkuilpu" path="res://scripts/resources/units/unit_res.gd" id="2_1vbe2"]
+[ext_resource type="Resource" uid="uid://qpc5gs6p4bu8" path="res://resources/units/passives/charge.tres" id="2_sjn7i"]
+[ext_resource type="Resource" uid="uid://d041lhq0qbbdr" path="res://resources/units/passives/steadfast.tres" id="3_ixn1y"]
+[ext_resource type="Script" uid="uid://bq81dohj7lbqw" path="res://scripts/resources/units/special_res.gd" id="3_uup12"]
+[ext_resource type="Resource" uid="uid://b808g3p010bhc" path="res://resources/units/passives/startle.tres" id="4_noekt"]
+[ext_resource type="Resource" uid="uid://jqhqpj5vv14e" path="res://resources/units/specials/sprint.tres" id="7_vn2ad"]
+
+[resource]
+script = ExtResource("2_1vbe2")
+name_id = "Deer"
+base_hp = 5
+base_mp = 2
+base_atk = 1
+base_spd = 2
+passives = Array[ExtResource("1_ntcv2")]([ExtResource("2_sjn7i"), ExtResource("3_ixn1y"), ExtResource("4_noekt")])
+specials = Array[ExtResource("3_uup12")]([ExtResource("7_vn2ad")])
+metadata/_custom_type_script = "uid://btu6s2dkuilpu"

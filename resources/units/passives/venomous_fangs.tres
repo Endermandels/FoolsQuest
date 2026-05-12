@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="PassiveRes" load_steps=5 format=3 uid="uid://bhepds6rc5fio"]
+
+[ext_resource type="Script" uid="uid://c0wbcrlg6ht3b" path="res://scripts/resources/units/effect_res.gd" id="1_iv5x3"]
+[ext_resource type="Script" uid="uid://7d572upjx1lu" path="res://scripts/resources/units/effects/poison_res.gd" id="2_8oxgj"]
+[ext_resource type="Script" uid="uid://b1pdjtytsqqqv" path="res://scripts/resources/units/passive_res.gd" id="2_15mqt"]
+
+[sub_resource type="Resource" id="Resource_fk8dh"]
+script = ExtResource("2_8oxgj")
+always_accurate = true
+accuracy_percent = 70
+metadata/_custom_type_script = "uid://7d572upjx1lu"
+
+[resource]
+script = ExtResource("2_15mqt")
+name_id = "Venomous Fangs"
+effects = Array[ExtResource("1_iv5x3")]([SubResource("Resource_fk8dh")])
+metadata/_custom_type_script = "uid://b1pdjtytsqqqv"

@@ -1,7 +1,7 @@
 extends RefCounted
 class_name EffectRun
 
-var targeting: Enums.EffectTargeting
+var targeting: Constants.EffectTargeting
 var near_death_only: bool
 var first_action_only: bool
 var always_accurate: bool
@@ -66,9 +66,9 @@ func apply(source: UnitRun, opponent: UnitRun = null) -> bool:
 										(not first_action_only or first_action))
 
 	if accuracy_succeeded:
-		if targeting == Enums.EffectTargeting.SELF:
+		if targeting == Constants.EffectTargeting.SELF:
 			res = _apply(source, source)
-		elif targeting == Enums.EffectTargeting.OPPONENT:
+		elif targeting == Constants.EffectTargeting.OPPONENT:
 			res = _apply(source, opponent)
 		else:
 			push_error("Unknown targeting rule: %s" % targeting)

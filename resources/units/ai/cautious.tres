@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AIRes" load_steps=2 format=3 uid="uid://crysga205xsue"]
+
+[ext_resource type="Script" uid="uid://dhsffrd18ws8p" path="res://scripts/resources/units/ai_res.gd" id="1_63ry5"]
+
+[resource]
+script = ExtResource("1_63ry5")
+name_id = "Cautious"
+act_on_first_turn = true
+special_near_death = true
+metadata/_custom_type_script = "uid://dhsffrd18ws8p"

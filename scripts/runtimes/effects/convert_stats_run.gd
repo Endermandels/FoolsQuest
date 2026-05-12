@@ -1,8 +1,8 @@
 extends EffectRun
 class_name ConvertStatsRun
 
-var from_stat: Enums.StatType
-var to_stat: Enums.StatType
+var from_stat: Constants.StatType
+var to_stat: Constants.StatType
 var amount: int
 
 func init(res: ConvertStatsRes) -> void:
@@ -15,8 +15,8 @@ func _apply(_source: UnitRun, target: UnitRun) -> bool:
 
 	assert(target.is_alive)
 	
-	var from_stat_str: String = Enums.StatType.find_key(from_stat).to_lower()
-	var to_stat_str: String = Enums.StatType.find_key(to_stat).to_lower()
+	var from_stat_str: String = Constants.StatType.find_key(from_stat).to_lower()
+	var to_stat_str: String = Constants.StatType.find_key(to_stat).to_lower()
 
 	if target.get(from_stat_str) >= amount:
 		target.set(from_stat_str, target.get(from_stat_str) - amount)

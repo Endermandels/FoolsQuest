@@ -1,3 +1,19 @@
-[gd_scene format=3 uid="uid://cbaswt7yp3kvn"]
+[gd_scene load_steps=5 format=3 uid="uid://cbaswt7yp3kvn"]
+
+[ext_resource type="Script" uid="uid://corlbhdv38sey" path="res://scripts/scenes/location/location.gd" id="1_j6npq"]
+[ext_resource type="Script" uid="uid://xndgis11n08s" path="res://scripts/scenes/location/location_handler.gd" id="2_nnb31"]
+[ext_resource type="Script" uid="uid://dujl485xclh1b" path="res://scripts/components/state_machine.gd" id="3_nnb31"]
+[ext_resource type="Script" uid="uid://bxrxq558l4l22" path="res://scripts/scenes/location/location_states/location_start.gd" id="4_v7tse"]
 
 [node name="Location" type="Node2D"]
+script = ExtResource("1_j6npq")
+
+[node name="LocationHandler" type="Node" parent="."]
+script = ExtResource("2_nnb31")
+
+[node name="LocationStateMachine" type="Node" parent="LocationHandler" node_paths=PackedStringArray("cur_state")]
+script = ExtResource("3_nnb31")
+cur_state = NodePath("LocationStart")
+
+[node name="LocationStart" type="Node" parent="LocationHandler/LocationStateMachine"]
+script = ExtResource("4_v7tse")

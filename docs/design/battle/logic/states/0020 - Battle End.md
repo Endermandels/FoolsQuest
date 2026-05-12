@@ -8,9 +8,11 @@ This state shall:
   - Give the player ability choices from the defeated unit's Loot, one Passive and one Special.
   - If the player has any of the listed abilities, it will be unavailable for selection.
   - If the player has both of the listed abilities, the player will not gain new abilities.
-  - Transition to Location Selection Scene
+  - Create a [Location Setup Resource](../../../location%20selection/logic/0051%20-%20Setup%20Resource.md) with all elements filled.
+  - Store the Location Setup Resource in the scene tree meta data.
+  - Transition to Location Selection Scene.
 - If the player lost:
-  - Transition to Defeat Scene
+  - Transition to Defeat Scene.
 
 # Milestones
 - [0003](../../../../milestones/0003%20-%20Battle.md)

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="UnitRes" load_steps=8 format=3 uid="uid://ccliffgxw0yw6"]
+
+[ext_resource type="Script" uid="uid://b1pdjtytsqqqv" path="res://scripts/resources/units/passive_res.gd" id="1_ayhpw"]
+[ext_resource type="Script" uid="uid://btu6s2dkuilpu" path="res://scripts/resources/units/unit_res.gd" id="2_827bf"]
+[ext_resource type="Resource" uid="uid://bhdqf2nq4fhrl" path="res://resources/units/passives/shell_smash.tres" id="2_uc3lt"]
+[ext_resource type="Resource" uid="uid://d041lhq0qbbdr" path="res://resources/units/passives/steadfast.tres" id="3_2a3wc"]
+[ext_resource type="Script" uid="uid://bq81dohj7lbqw" path="res://scripts/resources/units/special_res.gd" id="3_11seu"]
+[ext_resource type="Resource" uid="uid://qpc5gs6p4bu8" path="res://resources/units/passives/charge.tres" id="4_2a3wc"]
+[ext_resource type="Resource" uid="uid://bi6770u74epi3" path="res://resources/units/specials/rage.tres" id="6_5jelg"]
+
+[resource]
+script = ExtResource("2_827bf")
+name_id = "Boar"
+base_mp = 1
+base_atk = 2
+passives = Array[ExtResource("1_ayhpw")]([ExtResource("2_uc3lt"), ExtResource("3_2a3wc"), ExtResource("4_2a3wc")])
+specials = Array[ExtResource("3_11seu")]([ExtResource("6_5jelg")])
+metadata/_custom_type_script = "uid://btu6s2dkuilpu"

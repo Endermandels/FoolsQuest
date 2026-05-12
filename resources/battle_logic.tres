@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="BattleLogicRes" load_steps=6 format=3 uid="uid://4uycvfhipb2h"]
 
-[ext_resource type="Script" uid="uid://bly3vgt1aneef" path="res://scripts/resources/effects/dmg_res.gd" id="1_dsvxl"]
-[ext_resource type="Script" uid="uid://dryvju7bjlfkr" path="res://scripts/resources/battle_logic_res.gd" id="1_l2dwh"]
+[ext_resource type="Script" uid="uid://bly3vgt1aneef" path="res://scripts/resources/units/effects/dmg_res.gd" id="1_dsvxl"]
+[ext_resource type="Script" uid="uid://dryvju7bjlfkr" path="res://scripts/scenes/battle/resources/battle_logic_res.gd" id="1_l2dwh"]
 
 [sub_resource type="Resource" id="Resource_etdji"]
 script = ExtResource("1_dsvxl")
@@ -28,7 +28,6 @@ metadata/_custom_type_script = "uid://bly3vgt1aneef"
 [resource]
 script = ExtResource("1_l2dwh")
 evasion_miss_chance_scale = 5
-evasion_miss_chance_max = null
 burn_dmg_res = SubResource("Resource_s87ep")
 poison_dmg_res = SubResource("Resource_jlbsd")
 bleed_dmg_res = SubResource("Resource_etdji")

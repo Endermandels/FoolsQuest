@@ -2,10 +2,10 @@ extends RefCounted
 class_name UnitRun
 
 const AI_RESOURCES = [
-	preload("res://resources/ai/aggressive.tres"),
-	preload("res://resources/ai/cautious.tres"),
-	preload("res://resources/ai/mischievous.tres"),
-	preload("res://resources/ai/feral.tres"),
+	preload("res://resources/units/ai/aggressive.tres"),
+	preload("res://resources/units/ai/cautious.tres"),
+	preload("res://resources/units/ai/mischievous.tres"),
+	preload("res://resources/units/ai/feral.tres"),
 ]
 
 var name_id: String

@@ -9,7 +9,7 @@ func step(data: BattleStateData) -> State:
 
 	print("* Step Turn Start First")
 
-	if data.trigger_passives(cur_unit, null, Enums.PassiveType.TURN_START_SELF):
+	if data.trigger_passives(cur_unit, null, Constants.PassiveType.TURN_START_SELF):
 		state = battle_end
 	else:
 		if cur_unit.resists_poison and cur_unit.poison_resistance_turns_left == 1:

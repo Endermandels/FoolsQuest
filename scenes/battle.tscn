@@ -72,6 +72,7 @@ turn_start_first = NodePath("../TurnStartFirst")
 
 [node name="BattleEnd" type="Node" parent="BattleHandler/BattleStateMachine"]
 script = ExtResource("11_66ngm")
+location_scene = "res://scenes/location.tscn"
 
 [node name="AutoStepTimer" type="Timer" parent="BattleHandler"]
 wait_time = 0.4

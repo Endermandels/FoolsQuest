@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PassiveRes" load_steps=5 format=3 uid="uid://c8tmccgij1j6f"]
+
+[ext_resource type="Script" uid="uid://c0wbcrlg6ht3b" path="res://scripts/resources/units/effect_res.gd" id="1_kcwm1"]
+[ext_resource type="Script" uid="uid://b1pdjtytsqqqv" path="res://scripts/resources/units/passive_res.gd" id="2_ct4iq"]
+[ext_resource type="Script" uid="uid://bryxtb4tgoe40" path="res://scripts/resources/units/effects/stat_down_res.gd" id="2_tjan4"]
+
+[sub_resource type="Resource" id="Resource_dxf1c"]
+script = ExtResource("2_tjan4")
+stat_type = 2
+source_near_death_only = true
+always_accurate = true
+metadata/_custom_type_script = "uid://bryxtb4tgoe40"
+
+[resource]
+script = ExtResource("2_ct4iq")
+name_id = "Foul Odor"
+type = 1
+effects = Array[ExtResource("1_kcwm1")]([SubResource("Resource_dxf1c")])
+metadata/_custom_type_script = "uid://b1pdjtytsqqqv"

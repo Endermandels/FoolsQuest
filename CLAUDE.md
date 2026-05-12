@@ -38,7 +38,7 @@ Follow this pattern when implementing any new game entity.
 
 ### Effect System
 
-All abilities use a polymorphic `apply(source, target)` interface defined in `effect_run.gd`. The base class handles targeting logic (SELF / OPPONENT / BOTH from `Enums.EffectTargeting`); subclasses implement `_apply(source, target) -> bool`. `EffectRun.from_resource(res)` is the factory — it dispatches to the correct runtime subclass based on the resource type.
+All abilities use a polymorphic `apply(source, target)` interface defined in `effect_run.gd`. The base class handles targeting logic (SELF / OPPONENT / BOTH from `Constants.EffectTargeting`); subclasses implement `_apply(source, target) -> bool`. `EffectRun.from_resource(res)` is the factory — it dispatches to the correct runtime subclass based on the resource type.
 
 Effect subclasses: `DMGRun`, `BurnRun`, `BleedRun`, `PoisonRun`, `LifeStealRun`.
 

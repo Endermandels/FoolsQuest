@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UnitRes" load_steps=7 format=3 uid="uid://clvxn2e0mjpla"]
+
+[ext_resource type="Script" uid="uid://b1pdjtytsqqqv" path="res://scripts/resources/units/passive_res.gd" id="1_5qgqi"]
+[ext_resource type="Script" uid="uid://btu6s2dkuilpu" path="res://scripts/resources/units/unit_res.gd" id="2_1kkgy"]
+[ext_resource type="Resource" uid="uid://bfqlpqcdva043" path="res://resources/units/passives/brute_force.tres" id="2_vg8rj"]
+[ext_resource type="Script" uid="uid://bq81dohj7lbqw" path="res://scripts/resources/units/special_res.gd" id="3_vg8rj"]
+[ext_resource type="Resource" uid="uid://dhauc02lhjx45" path="res://resources/units/specials/hibernate.tres" id="5_vg8rj"]
+[ext_resource type="Resource" uid="uid://ch1p36ce11pd" path="res://resources/units/specials/roar.tres" id="6_ejnqk"]
+
+[resource]
+script = ExtResource("2_1kkgy")
+name_id = "Bear"
+base_hp = 12
+base_mp = 2
+base_atk = 2
+base_def = 1
+passives = Array[ExtResource("1_5qgqi")]([ExtResource("2_vg8rj")])
+specials = Array[ExtResource("3_vg8rj")]([ExtResource("5_vg8rj"), ExtResource("6_ejnqk")])
+metadata/_custom_type_script = "uid://btu6s2dkuilpu"

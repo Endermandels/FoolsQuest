@@ -1,22 +1,33 @@
 extends State
 
-func step(_data: BattleStateData) -> State:
+@export_file_path("*.tscn") var location_scene: String
+
+var is_victory: bool = false
+
+func step(data: BattleStateData) -> State:
+	if is_victory:
+		var meta: LocationSetupRes = LocationSetupRes.new()
+		meta.player = data.get_player()
+		get_tree().set_meta(LocationSetupRes.meta_id, meta)
+		get_tree().change_scene_to_file(location_scene)
+
 	return null
 
 func enter(data: BattleStateData) -> void:
 	Console.print_line("# Battle End #", Color.GREEN)
-	for u in data.units:
-		# Reset ATK, DEF and SPD
-		u.atk = u.base_atk
-		u.def = u.base_def
-		u.spd = u.base_spd
+	var player: UnitRun = data.get_player()
 
-		# Reset Temporary Passives
-		u.temp_passives.clear()
+	# Reset ATK, DEF and SPD
+	player.atk = player.base_atk
+	player.def = player.base_def
+	player.spd = player.base_spd
 
-		# Report Win/Loss
-		if u.is_player:
-			if u.is_alive:
-				Console.print_line("* Victory!")
-			else:
-				Console.print_line("* Defeat")
+	# Reset Temporary Passives
+	player.temp_passives.clear()
+
+	# Report Win/Loss
+	is_victory = player.is_alive
+	if is_victory:
+		Console.print_line("* Victory!")
+	else:
+		Console.print_line("* Defeat")

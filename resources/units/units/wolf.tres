@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UnitRes" load_steps=7 format=3 uid="uid://bipa5g4xglunp"]
+
+[ext_resource type="Script" uid="uid://btu6s2dkuilpu" path="res://scripts/resources/units/unit_res.gd" id="1_7lw6w"]
+[ext_resource type="Script" uid="uid://b1pdjtytsqqqv" path="res://scripts/resources/units/passive_res.gd" id="1_rpmbs"]
+[ext_resource type="Resource" uid="uid://bhdqf2nq4fhrl" path="res://resources/units/passives/shell_smash.tres" id="2_vkbuw"]
+[ext_resource type="Resource" uid="uid://y4qf14x1yf6x" path="res://resources/units/passives/sharp_fangs.tres" id="2_yd88c"]
+[ext_resource type="Script" uid="uid://bq81dohj7lbqw" path="res://scripts/resources/units/special_res.gd" id="4_yd88c"]
+[ext_resource type="Resource" uid="uid://b6o1hyl06p104" path="res://resources/units/specials/howl.tres" id="5_swm65"]
+
+[resource]
+script = ExtResource("1_7lw6w")
+name_id = "Wolf"
+base_hp = 4
+base_mp = 1
+base_atk = 2
+base_spd = 1
+passives = Array[ExtResource("1_rpmbs")]([ExtResource("2_vkbuw"), ExtResource("2_yd88c")])
+specials = Array[ExtResource("4_yd88c")]([ExtResource("5_swm65")])
+metadata/_custom_type_script = "uid://btu6s2dkuilpu"

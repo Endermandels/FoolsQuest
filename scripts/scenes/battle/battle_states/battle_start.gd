@@ -1,17 +1,8 @@
 extends State
 
-# TODO: Get initialized units from Location Selection choice
-#region # TODO: DELETE
-const PLAYER = preload("res://resources/units/player.tres")
-const WOLF = preload("res://resources/units/wolf.tres")
-const SNAKE = preload("res://resources/units/snake.tres")
-const DRAGON = preload("res://resources/units/dragon.tres")
-const BEAR = preload("res://resources/units/bear.tres")
-const TURTLE = preload("res://resources/units/turtle.tres")
-const FALCON = preload("res://resources/units/falcon.tres")
-const PORCUPINE = preload("res://resources/units/porcupine.tres")
-const DEER = preload("res://resources/units/deer.tres")
-#endregion
+# Tutorial battle
+const PLAYER = preload("res://resources/units/units/player.tres")
+const SQUIRREL = preload("res://resources/units/units/squirrel.tres")
 
 const VOWELS = ["a", "e", "i", "o", "u"]
 
@@ -23,19 +14,30 @@ func step(data: BattleStateData) -> State:
 	
 	print("* Step Battle Start")
 
-	#region # TODO: CHANGE
-	var player: UnitRun = UnitRun.new(PLAYER.duplicate_deep(), true)
-	var enemy: UnitRun = UnitRun.new(DEER.duplicate_deep())
-	data.units.append(player)
-	data.units.append(enemy)
-	#endregion
+	var meta: BattleSetupRes = get_tree().get_meta(BattleSetupRes.meta_id)
+	var player: UnitRun
+	var opponent: UnitRun
+
+	if meta == null:
+		# Initialize Tutorial Battle
+		player = UnitRun.new(PLAYER.duplicate_deep(), true)
+		opponent = UnitRun.new(SQUIRREL.duplicate_deep())
+		data.units.append(player)
+		data.units.append(opponent)
+	else:
+		# Initialize Location units
+		player = meta.player
+		opponent = meta.opponent
+		data.units.append(meta.player)
+		data.units.append(meta.opponent)
+		get_tree().remove_meta(BattleSetupRes.meta_id)
 	
 	data.units.sort_custom(func (x: UnitRun, y: UnitRun): return x.spd > y.spd) # Sort by SPD
 
-	Console.print_line("* [%s] encountered a%s [%s] [%s]" % [player, "n" if enemy.ai.name_id[0].to_lower() in VOWELS else "", enemy.ai, enemy])
+	Console.print_line("* [%s] encountered a%s [%s] [%s]" % [player, "n" if opponent.ai.name_id[0].to_lower() in VOWELS else "", opponent.ai, opponent])
 
 	for i in range(data.units.size()):
-		if data.trigger_passives(data.units[i], null, Enums.PassiveType.BATTLE_START_SELF):
+		if data.trigger_passives(data.units[i], null, Constants.PassiveType.BATTLE_START_SELF):
 			state = battle_end
 			break
 

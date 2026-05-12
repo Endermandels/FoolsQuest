@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="SpecialRes" load_steps=7 format=3 uid="uid://c64317p4mml2x"]
+
+[ext_resource type="Script" uid="uid://c0wbcrlg6ht3b" path="res://scripts/resources/units/effect_res.gd" id="1_wnecr"]
+[ext_resource type="Script" uid="uid://bly3vgt1aneef" path="res://scripts/resources/units/effects/dmg_res.gd" id="2_5sapf"]
+[ext_resource type="Script" uid="uid://bq81dohj7lbqw" path="res://scripts/resources/units/special_res.gd" id="2_ytcpi"]
+[ext_resource type="Script" uid="uid://kco57uacsunt" path="res://scripts/resources/units/effects/burn_res.gd" id="3_633qg"]
+
+[sub_resource type="Resource" id="Resource_uoebx"]
+script = ExtResource("2_5sapf")
+dmg = 2
+metadata/_custom_type_script = "uid://bly3vgt1aneef"
+
+[sub_resource type="Resource" id="Resource_ltpjl"]
+script = ExtResource("3_633qg")
+duration = 2
+accuracy_percent = 85
+metadata/_custom_type_script = "uid://kco57uacsunt"
+
+[resource]
+script = ExtResource("2_ytcpi")
+name_id = "Flame Breath"
+mp_cost = 3
+effects = Array[ExtResource("1_wnecr")]([SubResource("Resource_uoebx"), SubResource("Resource_ltpjl")])
+metadata/_custom_type_script = "uid://bq81dohj7lbqw"

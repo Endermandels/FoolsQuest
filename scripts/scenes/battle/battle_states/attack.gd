@@ -9,10 +9,10 @@ func step(data: BattleStateData) -> State:
 	var defender: UnitRun = data.units[1 - data.turn_idx]
 
 	print("* Step Attack")
-	if data.trigger_passives(cur_unit, defender, Enums.PassiveType.PRE_ATTACK):
+	if data.trigger_passives(cur_unit, defender, Constants.PassiveType.PRE_ATTACK):
 		state = battle_end
 	
-	elif data.trigger_passives(defender, cur_unit, Enums.PassiveType.PRE_DEFENSE):
+	elif data.trigger_passives(defender, cur_unit, Constants.PassiveType.PRE_DEFENSE):
 		state = battle_end
 	
 	else:
@@ -27,7 +27,7 @@ func step(data: BattleStateData) -> State:
 			var dmg_res: DMGRes = DMGRes.new()
 			dmg_res.is_pure = cur_unit.attack_is_pure
 			dmg_res.dmg = cur_unit.atk
-			dmg_res.targeting = Enums.EffectTargeting.OPPONENT
+			dmg_res.targeting = Constants.EffectTargeting.OPPONENT
 			dmg_res.always_accurate = true
 			var dmg_run: DMGRun = EffectRun.from_resource(dmg_res)
 			
@@ -40,7 +40,7 @@ func step(data: BattleStateData) -> State:
 				cur_unit.attack_is_pure = false
 
 				# Defense passives trigger regardless of a failed attack on the player's part
-				if data.trigger_passives(defender, cur_unit, Enums.PassiveType.POST_DEFENSE):
+				if data.trigger_passives(defender, cur_unit, Constants.PassiveType.POST_DEFENSE):
 					state = battle_end
 				elif dmg_successful:
 					# Gain MP
@@ -51,7 +51,7 @@ func step(data: BattleStateData) -> State:
 						Console.print_line("* [%s] restored 1 MP" % cur_unit)
 					
 					# Offensive passives trigger only on successful attack
-					if data.trigger_passives(cur_unit, defender, Enums.PassiveType.POST_ATTACK):
+					if data.trigger_passives(cur_unit, defender, Constants.PassiveType.POST_ATTACK):
 						state = battle_end
 		else:
 			if cur_unit.is_blind:

@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="Fools Quest"
-run/main_scene="uid://cbaswt7yp3kvn"
+run/main_scene="uid://q08qti5wvyrc"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
+Constants="*res://scripts/globals/constants.gd"
 Console="*res://scenes/components/console.tscn"
-Enums="*res://scripts/globals/enums.gd"
 Helper="*res://scripts/globals/helper.gd"
 
 [debug]
