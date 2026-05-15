@@ -1,13 +1,6 @@
 extends RefCounted
 class_name UnitRun
 
-const AI_RESOURCES = [
-	preload("res://resources/units/ai/aggressive.tres"),
-	preload("res://resources/units/ai/cautious.tres"),
-	preload("res://resources/units/ai/mischievous.tres"),
-	preload("res://resources/units/ai/feral.tres"),
-]
-
 var name_id: String
 var is_player: bool = false
 var is_alive: bool = false
@@ -95,11 +88,10 @@ var blindness_resistance_turns_left: int = 0:
 		blindness_resistance_turns_left = max(val, 0)
 		resists_blindness = blindness_resistance_turns_left > 0
 
-func _init(res: UnitRes, is_player: bool = false) -> void:
+func _init(res: UnitRes, is_player: bool = false, ai: AIRes = null) -> void:
 	self.name_id = res.name_id
 	self.is_player = is_player
-	if not is_player:
-		self.ai = AI_RESOURCES.pick_random()
+	self.ai = ai
 
 	# Base Stats
 	self.base_hp = res.base_hp

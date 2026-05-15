@@ -53,13 +53,13 @@ func step(data: BattleStateData) -> State:
 
 		if choosing_attack_or_special:
 			# Attack or Special?
-			if Inputs.inputs[Inputs.InputType.LEFT] or Inputs.inputs[Inputs.InputType.RIGHT]:
-				Inputs.clear_inputs()
+			if InputHandler.inputs[InputHandler.InputType.LEFT] or InputHandler.inputs[InputHandler.InputType.RIGHT]:
+				InputHandler.clear_inputs()
 				attack_selected = not attack_selected
 				Console.print_line("* Currently selecting [%s]" % ("Attack" if attack_selected else "Special"))
 			
-			elif Inputs.inputs[Inputs.InputType.CONFIRM]:
-				Inputs.clear_inputs()
+			elif InputHandler.inputs[InputHandler.InputType.CONFIRM]:
+				InputHandler.clear_inputs()
 
 				if attack_selected:
 					state = attack
@@ -71,23 +71,23 @@ func step(data: BattleStateData) -> State:
 
 		else:
 			# Which Special?
-			if Inputs.inputs[Inputs.InputType.BACK]:
-				Inputs.clear_inputs()
+			if InputHandler.inputs[InputHandler.InputType.BACK]:
+				InputHandler.clear_inputs()
 				choosing_attack_or_special = true
 				_print_action_prompt()
 			
-			elif Inputs.inputs[Inputs.InputType.LEFT]:
-				Inputs.clear_inputs()
+			elif InputHandler.inputs[InputHandler.InputType.LEFT]:
+				InputHandler.clear_inputs()
 				data.selected_special_idx = Helper.wrap(data.selected_special_idx - 1, cur_unit.specials.size())
 				Console.print_line("* Currently selecting [%s]" % cur_unit.specials[data.selected_special_idx])
 			
-			elif Inputs.inputs[Inputs.InputType.RIGHT]:
-				Inputs.clear_inputs()
+			elif InputHandler.inputs[InputHandler.InputType.RIGHT]:
+				InputHandler.clear_inputs()
 				data.selected_special_idx = Helper.wrap(data.selected_special_idx + 1, cur_unit.specials.size())
 				Console.print_line("* Currently selecting [%s]" % cur_unit.specials[data.selected_special_idx])
 			
-			elif Inputs.inputs[Inputs.InputType.CONFIRM]:
-				Inputs.clear_inputs()
+			elif InputHandler.inputs[InputHandler.InputType.CONFIRM]:
+				InputHandler.clear_inputs()
 				if _valid_special(cur_unit, cur_unit.specials[data.selected_special_idx]):
 					state = special
 				else:
@@ -113,10 +113,10 @@ func step(data: BattleStateData) -> State:
 func enter(data: BattleStateData) -> void:
 	print("* Entered Action Input")
 	if data.units[data.turn_idx].is_player:
-		Inputs.allow_inputs = true
-		Inputs.clear_inputs()
+		InputHandler.allow_inputs = true
+		InputHandler.clear_inputs()
 		_print_action_prompt()
 
 func exit(_data: BattleStateData) -> void:
-	Inputs.allow_inputs = false
+	InputHandler.allow_inputs = false
 	choosing_attack_or_special = true # Should always choose between Attack or Special first

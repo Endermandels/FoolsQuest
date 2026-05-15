@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ResourceHandlerRes" load_steps=5 format=3 uid="uid://c4mqc3jed88pv"]
+
+[ext_resource type="Resource" uid="uid://4uycvfhipb2h" path="res://resources/battle_logic.tres" id="1_8k3y7"]
+[ext_resource type="Script" uid="uid://drm2i663h3wjj" path="res://scripts/globals/resources/resource_handler_res.gd" id="1_r1wep"]
+[ext_resource type="Resource" uid="uid://b5tnm7nb28rqb" path="res://resources/units/units/player.tres" id="2_7qhin"]
+[ext_resource type="Resource" uid="uid://djuppfwm6jvp3" path="res://resources/units/units/squirrel.tres" id="4_1ajif"]
+
+[resource]
+script = ExtResource("1_r1wep")
+battle_scene = "res://scenes/battle.tscn"
+location_scene = "res://scenes/location.tscn"
+ai_res_dir = "res://resources/units/ai"
+location_res_dir = "res://resources/locations/locations"
+battle_logic_res = ExtResource("1_8k3y7")
+player = ExtResource("2_7qhin")
+squirrel = ExtResource("4_1ajif")
+metadata/_custom_type_script = "uid://drm2i663h3wjj"

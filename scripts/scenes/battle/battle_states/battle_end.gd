@@ -1,7 +1,5 @@
 extends State
 
-@export_file_path("*.tscn") var location_scene: String
-
 var is_victory: bool = false
 
 func step(data: BattleStateData) -> State:
@@ -9,7 +7,7 @@ func step(data: BattleStateData) -> State:
 		var meta: LocationSetupRes = LocationSetupRes.new()
 		meta.player = data.get_player()
 		get_tree().set_meta(LocationSetupRes.meta_id, meta)
-		get_tree().change_scene_to_file(location_scene)
+		get_tree().change_scene_to_file(ResourceHandler.location_scene)
 
 	return null
 

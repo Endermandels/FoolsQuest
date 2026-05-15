@@ -10,8 +10,8 @@ func _init(res: LocationRes) -> void:
 	self.description = res.description
 	self.animal_groups = res.animal_groups
 
-func _pick_random_animal(group: AnimalGroupRes) -> UnitRun:
-	var res: UnitRun = null
+func _pick_random_animal(group: AnimalGroupRes) -> UnitRes:
+	var res: UnitRes = null
 	var total_weight: int = 0
 	var cum_weight: int = 0
 	var rnd: int
@@ -26,13 +26,13 @@ func _pick_random_animal(group: AnimalGroupRes) -> UnitRun:
 	for a: AnimalRes in group.animals:
 		cum_weight += a.weight
 		if rnd <= cum_weight:
-			res = UnitRun.new(a.res)
+			res = a.res
 			break
 
 	return res
 
-func get_animal() -> UnitRun:
-	var res: UnitRun = null
+func get_animal() -> UnitRes:
+	var res: UnitRes = null
 
 	# Choose a random animal group
 	var group: AnimalGroupRes = animal_groups.pick_random()

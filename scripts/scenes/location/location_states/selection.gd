@@ -1,40 +1,36 @@
 extends State
 
-const LOCATIONS: Array[LocationRes] = [
-	preload("res://resources/locations/locations/field.tres"),
-]
-
-@export_file_path("*.tscn") var battle_scene: String = ""
-
 var selected_location_idx: int = 0
 
 func _print_location_prompt() -> void:
 	Console.print_line("> Choose a Location:", Color.ORANGE)
-	for i in range(LOCATIONS.size()):
-		Console.print_line("%d. %s" % [i + 1, LOCATIONS[i]], Color.ORANGE)
-	Console.print_line("* Currently selecting [%s]" % LOCATIONS[selected_location_idx])
+	for i in range(ResourceHandler.location_resources.size()):
+		Console.print_line("%d. %s" % [i + 1, ResourceHandler.location_resources[i]], Color.ORANGE)
+	Console.print_line("* Currently selecting [%s]" % ResourceHandler.location_resources[selected_location_idx])
 
 func step(data: LocationStateData) -> State:
 	var state: State = null
 
-	if Inputs.inputs[Inputs.InputType.CONFIRM]:
-		Inputs.clear_inputs()
-		Inputs.allow_inputs = false
-
+	if InputHandler.inputs[InputHandler.InputType.CONFIRM]:
+		InputHandler.clear_inputs()
+		InputHandler.allow_inputs = false
+		
+		var opponent_res = LocationRun.new(ResourceHandler.location_resources[selected_location_idx]).get_animal()
 		var meta: BattleSetupRes = BattleSetupRes.new()
+
 		meta.player = data.player
-		meta.opponent = LocationRun.new(LOCATIONS[selected_location_idx]).get_animal()
+		meta.opponent = UnitRun.new(opponent_res, false, ResourceHandler.ai_resources.pick_random())
 		
 		get_tree().set_meta(BattleSetupRes.meta_id, meta)
-		get_tree().change_scene_to_file(battle_scene)
-	elif Inputs.inputs[Inputs.InputType.LEFT]:
-		Inputs.clear_inputs()
-		selected_location_idx = Helper.wrap(selected_location_idx - 1, LOCATIONS.size())
-		Console.print_line("* Currently selecting [%s]" % LOCATIONS[selected_location_idx])
-	elif Inputs.inputs[Inputs.InputType.RIGHT]:
-		Inputs.clear_inputs()
-		selected_location_idx = Helper.wrap(selected_location_idx + 1, LOCATIONS.size())
-		Console.print_line("* Currently selecting [%s]" % LOCATIONS[selected_location_idx])
+		get_tree().change_scene_to_file(ResourceHandler.battle_scene)
+	elif InputHandler.inputs[InputHandler.InputType.LEFT]:
+		InputHandler.clear_inputs()
+		selected_location_idx = Helper.wrap(selected_location_idx - 1, ResourceHandler.location_resources.size())
+		Console.print_line("* Currently selecting [%s]" % ResourceHandler.location_resources[selected_location_idx])
+	elif InputHandler.inputs[InputHandler.InputType.RIGHT]:
+		InputHandler.clear_inputs()
+		selected_location_idx = Helper.wrap(selected_location_idx + 1, ResourceHandler.location_resources.size())
+		Console.print_line("* Currently selecting [%s]" % ResourceHandler.location_resources[selected_location_idx])
 
 	return state
 
@@ -50,4 +46,4 @@ func enter(data: LocationStateData) -> void:
 	get_tree().remove_meta(LocationSetupRes.meta_id)
 	_print_location_prompt()
 
-	Inputs.allow_inputs = true
+	InputHandler.allow_inputs = true

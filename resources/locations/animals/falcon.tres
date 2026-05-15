@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AnimalRes" load_steps=3 format=3 uid="uid://dge4fxhbhs4gn"]
+
+[ext_resource type="Resource" uid="uid://chjhyu3qcq16b" path="res://resources/units/units/falcon.tres" id="1_pg7cn"]
+[ext_resource type="Script" uid="uid://d2frln8q7y827" path="res://scripts/resources/locations/animal_res.gd" id="1_xtvag"]
+
+[resource]
+script = ExtResource("1_xtvag")
+res = ExtResource("1_pg7cn")
+metadata/_custom_type_script = "uid://d2frln8q7y827"

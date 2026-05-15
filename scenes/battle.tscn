@@ -27,13 +27,15 @@ auto_step_timer = NodePath("AutoStepTimer")
 script = ExtResource("3_66ngm")
 cur_state = NodePath("BattleStart")
 
-[node name="BattleStart" type="Node" parent="BattleHandler/BattleStateMachine" node_paths=PackedStringArray("turn_start_first")]
+[node name="BattleStart" type="Node" parent="BattleHandler/BattleStateMachine" node_paths=PackedStringArray("turn_start_first", "battle_end")]
 script = ExtResource("3_p1qf1")
 turn_start_first = NodePath("../TurnStartFirst")
+battle_end = NodePath("../BattleEnd")
 
-[node name="TurnStartFirst" type="Node" parent="BattleHandler/BattleStateMachine" node_paths=PackedStringArray("turn_start_burn")]
+[node name="TurnStartFirst" type="Node" parent="BattleHandler/BattleStateMachine" node_paths=PackedStringArray("turn_start_burn", "battle_end")]
 script = ExtResource("5_22uqi")
 turn_start_burn = NodePath("../TurnStartBurn")
+battle_end = NodePath("../BattleEnd")
 
 [node name="TurnStartBurn" type="Node" parent="BattleHandler/BattleStateMachine" node_paths=PackedStringArray("turn_end_bleed", "action_input", "battle_end")]
 script = ExtResource("4_a12nh")

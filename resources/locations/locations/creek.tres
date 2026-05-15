@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="LocationRes" load_steps=6 format=3 uid="uid://b0ekketfrmxo8"]
+
+[ext_resource type="Script" uid="uid://d32i44acdmosc" path="res://scripts/resources/locations/animal_group_res.gd" id="1_hfn05"]
+[ext_resource type="Resource" uid="uid://b8ml80rnv02a" path="res://resources/locations/animal_groups/hp.tres" id="2_304bo"]
+[ext_resource type="Script" uid="uid://br305mx32ot4w" path="res://scripts/resources/locations/location_res.gd" id="2_qtw4v"]
+[ext_resource type="Resource" uid="uid://bqc234i3brisw" path="res://resources/locations/animal_groups/atk.tres" id="3_m3rnq"]
+[ext_resource type="Resource" uid="uid://du3i6rsmt4aaj" path="res://resources/locations/animal_groups/def.tres" id="4_6e5du"]
+
+[resource]
+script = ExtResource("2_qtw4v")
+name_id = "Creek"
+animal_groups = Array[ExtResource("1_hfn05")]([ExtResource("2_304bo"), ExtResource("3_m3rnq"), ExtResource("4_6e5du")])
+metadata/_custom_type_script = "uid://br305mx32ot4w"

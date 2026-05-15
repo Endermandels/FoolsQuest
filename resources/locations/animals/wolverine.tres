@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AnimalRes" load_steps=3 format=3 uid="uid://bxnt1ohk868pr"]
+
+[ext_resource type="Resource" uid="uid://jm0jc6mha7" path="res://resources/units/units/wolverine.tres" id="1_pg3n3"]
+[ext_resource type="Script" uid="uid://d2frln8q7y827" path="res://scripts/resources/locations/animal_res.gd" id="1_spcp1"]
+
+[resource]
+script = ExtResource("1_spcp1")
+res = ExtResource("1_pg3n3")
+metadata/_custom_type_script = "uid://d2frln8q7y827"

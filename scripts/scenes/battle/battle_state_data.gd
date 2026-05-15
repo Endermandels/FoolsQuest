@@ -1,11 +1,8 @@
 extends StateData
 class_name BattleStateData
 
-#region Preloads
-const battle_logic_res: BattleLogicRes = preload("res://resources/battle_logic.tres")
-#endregion
-
 #region Variables
+var battle_logic_res: BattleLogicRes
 var units: Array[UnitRun] = []
 var turns: int = 0
 var turn_idx: int = 0
@@ -13,6 +10,9 @@ var selected_special_idx: int = 0
 #endregion
 
 #region Functions
+func _init(battle_logic_res: BattleLogicRes):
+	self.battle_logic_res = battle_logic_res
+
 func next_turn() -> void:
 	turns += 1
 	turn_idx += 1

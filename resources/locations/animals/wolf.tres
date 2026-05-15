@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AnimalRes" load_steps=3 format=3 uid="uid://da62u4bqp01u4"]
+
+[ext_resource type="Script" uid="uid://d2frln8q7y827" path="res://scripts/resources/locations/animal_res.gd" id="1_5knga"]
+[ext_resource type="Resource" uid="uid://bipa5g4xglunp" path="res://resources/units/units/wolf.tres" id="1_agt7d"]
+
+[resource]
+script = ExtResource("1_5knga")
+res = ExtResource("1_agt7d")
+metadata/_custom_type_script = "uid://d2frln8q7y827"

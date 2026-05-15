@@ -30,3 +30,5 @@ enum StatusEffect {
 	BLIND,
 	STUN,
 }
+
+const VOWELS = ["a", "e", "i", "o", "u"]

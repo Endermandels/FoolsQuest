@@ -37,10 +37,10 @@ func _process(_delta: float) -> void:
 		elif curcmd in COMMANDS.step:
 			battle_handler.step()
 		elif curcmd in COMMANDS.left:
-			battle_handler.input_signal(Inputs.InputType.LEFT)
+			battle_handler.input_signal(InputHandler.InputType.LEFT)
 		elif curcmd in COMMANDS.right:
-			battle_handler.input_signal(Inputs.InputType.RIGHT)
+			battle_handler.input_signal(InputHandler.InputType.RIGHT)
 		elif curcmd in COMMANDS.confirm:
-			battle_handler.input_signal(Inputs.InputType.CONFIRM)
+			battle_handler.input_signal(InputHandler.InputType.CONFIRM)
 		elif curcmd in COMMANDS.back:
-			battle_handler.input_signal(Inputs.InputType.BACK)
+			battle_handler.input_signal(InputHandler.InputType.BACK)

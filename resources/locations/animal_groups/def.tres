@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AnimalGroupRes" load_steps=5 format=3 uid="uid://du3i6rsmt4aaj"]
+
+[ext_resource type="Script" uid="uid://d2frln8q7y827" path="res://scripts/resources/locations/animal_res.gd" id="1_7a7rp"]
+[ext_resource type="Script" uid="uid://d32i44acdmosc" path="res://scripts/resources/locations/animal_group_res.gd" id="2_3i74v"]
+[ext_resource type="Resource" uid="uid://bmch3xb0ls5lr" path="res://resources/locations/animals/porcupine.tres" id="2_yl8dk"]
+[ext_resource type="Resource" uid="uid://c17e0bp4gjk3n" path="res://resources/locations/animals/turtle.tres" id="3_61ahl"]
+
+[resource]
+script = ExtResource("2_3i74v")
+stat_type = 3
+animals = Array[ExtResource("1_7a7rp")]([ExtResource("2_yl8dk"), ExtResource("3_61ahl")])
+metadata/_custom_type_script = "uid://d32i44acdmosc"

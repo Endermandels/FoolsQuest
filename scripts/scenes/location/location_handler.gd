@@ -6,7 +6,7 @@ class_name LocationHandler
 func _ready() -> void:
 	state_machine.init(LocationStateData.new())
 
-func input_signal(type: Inputs.InputType) -> void:
-	if Inputs.allow_inputs:
-		Inputs.inputs[type] = true
+func input_signal(type: InputHandler.InputType) -> void:
+	if InputHandler.allow_inputs:
+		InputHandler.inputs[type] = true
 	state_machine.step()

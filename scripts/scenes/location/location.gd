@@ -28,10 +28,10 @@ func _process(_delta: float) -> void:
 		elif curcmd in COMMANDS.clear:
 			Console.clear()
 		elif curcmd in COMMANDS.left:
-			location_handler.input_signal(Inputs.InputType.LEFT)
+			location_handler.input_signal(InputHandler.InputType.LEFT)
 		elif curcmd in COMMANDS.right:
-			location_handler.input_signal(Inputs.InputType.RIGHT)
+			location_handler.input_signal(InputHandler.InputType.RIGHT)
 		elif curcmd in COMMANDS.confirm:
-			location_handler.input_signal(Inputs.InputType.CONFIRM)
+			location_handler.input_signal(InputHandler.InputType.CONFIRM)
 		elif curcmd in COMMANDS.back:
-			location_handler.input_signal(Inputs.InputType.BACK)
+			location_handler.input_signal(InputHandler.InputType.BACK)

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AnimalRes" load_steps=3 format=3 uid="uid://bmch3xb0ls5lr"]
+
+[ext_resource type="Resource" uid="uid://c8712u18p6k8k" path="res://resources/units/units/porcupine.tres" id="1_4iaqu"]
+[ext_resource type="Script" uid="uid://d2frln8q7y827" path="res://scripts/resources/locations/animal_res.gd" id="2_fyfn1"]
+
+[resource]
+script = ExtResource("2_fyfn1")
+res = ExtResource("1_4iaqu")
+metadata/_custom_type_script = "uid://d2frln8q7y827"

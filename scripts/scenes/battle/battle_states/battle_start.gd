@@ -1,11 +1,5 @@
 extends State
 
-# Tutorial battle
-const PLAYER = preload("res://resources/units/units/player.tres")
-const SQUIRREL = preload("res://resources/units/units/squirrel.tres")
-
-const VOWELS = ["a", "e", "i", "o", "u"]
-
 @export var turn_start_first: State
 @export var battle_end: State
 
@@ -19,8 +13,8 @@ func step(data: BattleStateData) -> State:
 
 	if not get_tree().has_meta(BattleSetupRes.meta_id):
 		# Initialize Tutorial Battle
-		player = UnitRun.new(PLAYER.duplicate_deep(), true)
-		opponent = UnitRun.new(SQUIRREL.duplicate_deep())
+		player = UnitRun.new(ResourceHandler.player, true)
+		opponent = UnitRun.new(ResourceHandler.squirrel, false, ResourceHandler.ai_resources.pick_random())
 		data.units.append(player)
 		data.units.append(opponent)
 	else:
@@ -34,7 +28,8 @@ func step(data: BattleStateData) -> State:
 	
 	data.units.sort_custom(func (x: UnitRun, y: UnitRun): return x.spd > y.spd) # Sort by SPD
 
-	Console.print_line("* [%s] encountered a%s [%s] [%s]" % [player, "n" if opponent.ai.name_id[0].to_lower() in VOWELS else "", opponent.ai, opponent])
+	Console.print_line("* [%s] encountered a%s [%s] [%s]" % 
+		[player, "n" if opponent.ai.name_id[0].to_lower() in Constants.VOWELS else "", opponent.ai, opponent])
 
 	for i in range(data.units.size()):
 		if data.trigger_passives(data.units[i], null, Constants.PassiveType.BATTLE_START_SELF):
