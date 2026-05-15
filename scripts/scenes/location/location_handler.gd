@@ -9,3 +9,4 @@ func _ready() -> void:
 func input_signal(type: Inputs.InputType) -> void:
 	if Inputs.allow_inputs:
 		Inputs.inputs[type] = true
+	state_machine.step()

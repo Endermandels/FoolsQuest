@@ -19,3 +19,4 @@ cur_state = NodePath("Selection")
 
 [node name="Selection" type="Node" parent="LocationHandler/LocationStateMachine"]
 script = ExtResource("4_v7tse")
+battle_scene = "res://scenes/battle.tscn"

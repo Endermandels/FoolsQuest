@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AnimalGroupRes" load_steps=4 format=3 uid="uid://b8ml80rnv02a"]
+
+[ext_resource type="Script" uid="uid://d2frln8q7y827" path="res://scripts/resources/locations/animal_res.gd" id="1_pdti0"]
+[ext_resource type="Script" uid="uid://d32i44acdmosc" path="res://scripts/resources/locations/animal_group_res.gd" id="2_0s274"]
+[ext_resource type="Resource" uid="uid://xdo3y8jbtntd" path="res://resources/locations/animals/bear.tres" id="2_2bl81"]
+
+[resource]
+script = ExtResource("2_0s274")
+animals = Array[ExtResource("1_pdti0")]([ExtResource("2_2bl81")])
+metadata/_custom_type_script = "uid://d32i44acdmosc"

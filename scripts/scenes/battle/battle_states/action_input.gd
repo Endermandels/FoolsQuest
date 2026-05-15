@@ -78,16 +78,12 @@ func step(data: BattleStateData) -> State:
 			
 			elif Inputs.inputs[Inputs.InputType.LEFT]:
 				Inputs.clear_inputs()
-				data.selected_special_idx -= 1
-				if data.selected_special_idx < 0:
-					data.selected_special_idx = cur_unit.specials.size() - 1
+				data.selected_special_idx = Helper.wrap(data.selected_special_idx - 1, cur_unit.specials.size())
 				Console.print_line("* Currently selecting [%s]" % cur_unit.specials[data.selected_special_idx])
 			
 			elif Inputs.inputs[Inputs.InputType.RIGHT]:
 				Inputs.clear_inputs()
-				data.selected_special_idx += 1
-				if data.selected_special_idx > cur_unit.specials.size() - 1:
-					data.selected_special_idx = 0
+				data.selected_special_idx = Helper.wrap(data.selected_special_idx + 1, cur_unit.specials.size())
 				Console.print_line("* Currently selecting [%s]" % cur_unit.specials[data.selected_special_idx])
 			
 			elif Inputs.inputs[Inputs.InputType.CONFIRM]:

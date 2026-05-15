@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AnimalRes" load_steps=3 format=3 uid="uid://xdo3y8jbtntd"]
+
+[ext_resource type="Resource" uid="uid://clvxn2e0mjpla" path="res://resources/units/units/bear.tres" id="1_6hbqg"]
+[ext_resource type="Script" uid="uid://d2frln8q7y827" path="res://scripts/resources/locations/animal_res.gd" id="1_k3b7g"]
+
+[resource]
+script = ExtResource("1_k3b7g")
+res = ExtResource("1_6hbqg")
+metadata/_custom_type_script = "uid://d2frln8q7y827"
