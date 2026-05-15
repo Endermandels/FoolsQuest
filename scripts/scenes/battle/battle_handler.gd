@@ -16,6 +16,11 @@ func input_signal(type: InputHandler.InputType) -> void:
 func step() -> void:
 	battle_state_machine.step()
 
+func stats() -> void:
+	var player: UnitRun = battle_state_machine.data.get_player()
+	Console.print_line("* [%s] (HP %d|MP %d|ATK %d|DEF %d|SPD %d)" % 
+		[player, player.hp, player.mp, player.atk, player.def, player.spd])
+
 ## If wait_time is specified, start the auto_step_timer at the specified wait_time.  Otherwise, toggle auto_step_timer.
 func auto(wait_time: float = 0) -> void:
 	if wait_time > 0 and wait_time != auto_step_timer.wait_time:

@@ -9,6 +9,7 @@ const COMMANDS = {
 	"confirm": ["confirm", "c"],
 	"back": ["back", "b"],
 	"auto": ["auto", "a"],
+	"stats": ["stats", "t"],
 	"clear": ["clear"]
 }
 
@@ -36,6 +37,8 @@ func _process(_delta: float) -> void:
 				battle_handler.auto()
 		elif curcmd in COMMANDS.step:
 			battle_handler.step()
+		elif curcmd in COMMANDS.stats:
+			battle_handler.stats()
 		elif curcmd in COMMANDS.left:
 			battle_handler.input_signal(InputHandler.InputType.LEFT)
 		elif curcmd in COMMANDS.right:

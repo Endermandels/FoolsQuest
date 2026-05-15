@@ -7,6 +7,7 @@ const COMMANDS = {
 	"right": ["right", "r"],
 	"confirm": ["confirm", "c"],
 	"back": ["back", "b"],
+	"stats": ["stats", "t"],
 	"clear": ["clear"]
 }
 
@@ -27,6 +28,8 @@ func _process(_delta: float) -> void:
 			get_tree().quit()
 		elif curcmd in COMMANDS.clear:
 			Console.clear()
+		elif curcmd in COMMANDS.stats:
+			location_handler.stats()
 		elif curcmd in COMMANDS.left:
 			location_handler.input_signal(InputHandler.InputType.LEFT)
 		elif curcmd in COMMANDS.right:
