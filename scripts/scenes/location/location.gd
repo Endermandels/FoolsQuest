@@ -3,16 +3,14 @@ class_name Location
 
 const COMMANDS = {
 	"quit": ["quit", "exit"],
-	"step": ["step", "s"],
 	"left": ["left", "l"],
 	"right": ["right", "r"],
 	"confirm": ["confirm", "c"],
-	"back": ["back", "b" ],
-	"auto": ["auto", "a"],
+	"back": ["back", "b"],
 	"clear": ["clear"]
 }
 
-@export var battle_handler: BattleHandler
+@export var location_handler: LocationHandler
 
 func _process(_delta: float) -> void:
 	var cmd_prms: PackedStringArray = []
@@ -29,18 +27,11 @@ func _process(_delta: float) -> void:
 			get_tree().quit()
 		elif curcmd in COMMANDS.clear:
 			Console.clear()
-		elif curcmd in COMMANDS.auto:
-			if cmd_prms.size() > 1:
-				battle_handler.auto(float(cmd_prms[1]))
-			else:
-				battle_handler.auto()
-		elif curcmd in COMMANDS.step:
-			battle_handler.step()
 		elif curcmd in COMMANDS.left:
-			battle_handler.input_signal(BattleInputData.InputType.LEFT)
+			location_handler.input_signal(Inputs.InputType.LEFT)
 		elif curcmd in COMMANDS.right:
-			battle_handler.input_signal(BattleInputData.InputType.RIGHT)
+			location_handler.input_signal(Inputs.InputType.RIGHT)
 		elif curcmd in COMMANDS.confirm:
-			battle_handler.input_signal(BattleInputData.InputType.CONFIRM)
+			location_handler.input_signal(Inputs.InputType.CONFIRM)
 		elif curcmd in COMMANDS.back:
-			battle_handler.input_signal(BattleInputData.InputType.BACK)
+			location_handler.input_signal(Inputs.InputType.BACK)

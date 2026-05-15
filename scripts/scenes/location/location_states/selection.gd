@@ -8,7 +8,9 @@ func step(data: LocationStateData) -> State:
 func enter(data: LocationStateData) -> void:
 	Console.print_line("# Location Selection #", Color.GREEN)
 	
-	var meta = get_tree().get_meta("location_data")
+	var meta: LocationSetupRes = get_tree().get_meta("location_data")
 
-	assert(meta != null)
+	assert(meta != null and meta.player != null)
 
+	data.player = meta.player
+	print(data.player)

@@ -10,13 +10,9 @@ var units: Array[UnitRun] = []
 var turns: int = 0
 var turn_idx: int = 0
 var selected_special_idx: int = 0
-var input_data: BattleInputData
 #endregion
 
 #region Functions
-func _init(input_data: BattleInputData) -> void:
-	self.input_data = input_data
-
 func next_turn() -> void:
 	turns += 1
 	turn_idx += 1
@@ -24,7 +20,7 @@ func next_turn() -> void:
 		turn_idx = 0
 
 func has_death_occurred() -> bool:
-	return units.any(func (x: UnitRun): return not x.is_alive)
+	return units.any(func(x: UnitRun): return not x.is_alive)
 
 ## Returns whether a death has occurred.
 func trigger_passives(source: UnitRun, opponent: UnitRun, ptype: Constants.PassiveType) -> bool:
@@ -36,12 +32,12 @@ func trigger_passives(source: UnitRun, opponent: UnitRun, ptype: Constants.Passi
 			for e_res: EffectRes in p.effects:
 				var e_run = EffectRun.from_resource(e_res)
 
-				if (ptype == Constants.PassiveType.PRE_ATTACK or 
-						ptype == Constants.PassiveType.POST_ATTACK or 
-						ptype == Constants.PassiveType.PRE_DEFENSE or 
+				if (ptype == Constants.PassiveType.PRE_ATTACK or
+						ptype == Constants.PassiveType.POST_ATTACK or
+						ptype == Constants.PassiveType.PRE_DEFENSE or
 						ptype == Constants.PassiveType.POST_DEFENSE):
 					e_run.apply(source, opponent)
-				elif (ptype == Constants.PassiveType.TURN_START_SELF or 
+				elif (ptype == Constants.PassiveType.TURN_START_SELF or
 						ptype == Constants.PassiveType.BATTLE_START_SELF):
 					e_run.apply(source, source)
 				else:

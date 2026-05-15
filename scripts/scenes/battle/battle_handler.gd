@@ -4,16 +4,13 @@ class_name BattleHandler
 @export var battle_state_machine: StateMachine
 @export var auto_step_timer: Timer
 
-var input_data: BattleInputData
-
 func _ready() -> void:
-	input_data = BattleInputData.new()
-	battle_state_machine.data = BattleStateData.new(input_data)
+	battle_state_machine.init(BattleStateData.new())
 	auto_step_timer.timeout.connect(step)
 
-func input_signal(type: BattleInputData.InputType) -> void:
-	if input_data.allow_inputs:
-		input_data.inputs[type] = true
+func input_signal(type: Inputs.InputType) -> void:
+	if Inputs.allow_inputs:
+		Inputs.inputs[type] = true
 	step()
 
 func step() -> void:

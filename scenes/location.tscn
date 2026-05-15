@@ -3,17 +3,19 @@
 [ext_resource type="Script" uid="uid://corlbhdv38sey" path="res://scripts/scenes/location/location.gd" id="1_j6npq"]
 [ext_resource type="Script" uid="uid://xndgis11n08s" path="res://scripts/scenes/location/location_handler.gd" id="2_nnb31"]
 [ext_resource type="Script" uid="uid://dujl485xclh1b" path="res://scripts/components/state_machine.gd" id="3_nnb31"]
-[ext_resource type="Script" uid="uid://bxrxq558l4l22" path="res://scripts/scenes/location/location_states/location_start.gd" id="4_v7tse"]
+[ext_resource type="Script" uid="uid://bxrxq558l4l22" path="res://scripts/scenes/location/location_states/selection.gd" id="4_v7tse"]
 
-[node name="Location" type="Node2D"]
+[node name="Location" type="Node2D" node_paths=PackedStringArray("location_handler")]
 script = ExtResource("1_j6npq")
+location_handler = NodePath("LocationHandler")
 
-[node name="LocationHandler" type="Node" parent="."]
+[node name="LocationHandler" type="Node" parent="." node_paths=PackedStringArray("state_machine")]
 script = ExtResource("2_nnb31")
+state_machine = NodePath("LocationStateMachine")
 
 [node name="LocationStateMachine" type="Node" parent="LocationHandler" node_paths=PackedStringArray("cur_state")]
 script = ExtResource("3_nnb31")
-cur_state = NodePath("LocationStart")
+cur_state = NodePath("Selection")
 
-[node name="LocationStart" type="Node" parent="LocationHandler/LocationStateMachine"]
+[node name="Selection" type="Node" parent="LocationHandler/LocationStateMachine"]
 script = ExtResource("4_v7tse")

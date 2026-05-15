@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Constants="*res://scripts/globals/constants.gd"
+Inputs="*res://scripts/globals/inputs.gd"
 Console="*res://scenes/components/console.tscn"
 Helper="*res://scripts/globals/helper.gd"
 

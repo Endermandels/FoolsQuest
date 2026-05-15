@@ -1,11 +1,11 @@
-extends RefCounted
-class_name BattleInputData
+extends Node
+# Global
 
 enum InputType {
-	LEFT	= 0,
-	RIGHT	= 1,
-	CONFIRM	= 2,
-	BACK	= 3,
+	LEFT = 0,
+	RIGHT = 1,
+	CONFIRM = 2,
+	BACK = 3,
 }
 
 ## Determines whether new inputs are allowed in the current game state
