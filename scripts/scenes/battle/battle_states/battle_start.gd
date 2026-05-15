@@ -13,12 +13,11 @@ func step(data: BattleStateData) -> State:
 	var state = turn_start_first
 	
 	print("* Step Battle Start")
-
-	var meta: BattleSetupRes = get_tree().get_meta(BattleSetupRes.meta_id)
+	
 	var player: UnitRun
 	var opponent: UnitRun
 
-	if meta == null:
+	if not get_tree().has_meta(BattleSetupRes.meta_id):
 		# Initialize Tutorial Battle
 		player = UnitRun.new(PLAYER.duplicate_deep(), true)
 		opponent = UnitRun.new(SQUIRREL.duplicate_deep())
@@ -26,6 +25,7 @@ func step(data: BattleStateData) -> State:
 		data.units.append(opponent)
 	else:
 		# Initialize Location units
+		var meta: BattleSetupRes = get_tree().get_meta(BattleSetupRes.meta_id)
 		player = meta.player
 		opponent = meta.opponent
 		data.units.append(meta.player)
