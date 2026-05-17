@@ -19,13 +19,28 @@ var battle_logic_res: BattleLogicRes
 var player: UnitRes
 var squirrel: UnitRes
 
+func _get_resources_from_dir(dir_path: String) -> Array[Resource]:
+	var res: Array[Resource] = []
+
+	var dir := DirAccess.open(dir_path)
+	if dir != null:
+		dir.list_dir_begin()
+		var file := dir.get_next()
+		while file != "":
+			if file.ends_with(".tres"):
+				res.append(load(dir_path.path_join(file)))
+			file = dir.get_next()
+		dir.list_dir_end()
+
+	return res
+
 func _ready() -> void:
-	var raw = Helper.get_resources_from_dir(RESOURCE_HANDLER_RES.ai_res_dir)
+	var raw = _get_resources_from_dir(RESOURCE_HANDLER_RES.ai_res_dir)
 	for r in raw:
 		if r is AIRes:
 			ai_resources.append(r)
 	
-	raw = Helper.get_resources_from_dir(RESOURCE_HANDLER_RES.location_res_dir)
+	raw = _get_resources_from_dir(RESOURCE_HANDLER_RES.location_res_dir)
 	for r in raw:
 		if r is LocationRes:
 			location_resources.append(r)

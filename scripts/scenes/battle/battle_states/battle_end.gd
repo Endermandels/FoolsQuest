@@ -4,7 +4,7 @@ extends State
 
 var is_victory: bool = false
 
-func step(data: BattleStateData) -> State:
+func step(_data: BattleStateData) -> State:
 	var state: State = null
 
 	# TODO: Transition to Defeat Scene on loss
