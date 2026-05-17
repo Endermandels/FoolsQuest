@@ -10,6 +10,7 @@ func step(_data: BattleStateData) -> State:
 	# TODO: Transition to Defeat Scene on loss
 
 	if is_victory:
+		MetaData.battles_fought += 1
 		state = loot
 
 	return state

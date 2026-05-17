@@ -3,6 +3,24 @@ extends State
 @export var turn_start_first: State
 @export var battle_end: State
 
+func _increase_stats(unit: UnitRun) -> void:
+	var hp_increase: int = randi_range(unit.loot.hp, unit.loot.hp_hi)
+	var mp_increase: int = randi_range(unit.loot.mp, unit.loot.mp_hi)
+	var atk_increase: int = randi_range(unit.loot.atk, unit.loot.atk_hi)
+	var def_increase: int = randi_range(unit.loot.def, unit.loot.def_hi)
+	var spd_increase: int = randi_range(unit.loot.spd, unit.loot.spd_hi)
+
+	unit.base_hp += hp_increase
+	unit.hp += hp_increase
+	unit.base_mp += mp_increase
+	unit.mp += mp_increase
+	unit.base_atk += atk_increase
+	unit.atk += atk_increase
+	unit.base_def += def_increase
+	unit.def += def_increase
+	unit.base_spd += spd_increase
+	unit.spd += spd_increase
+
 func step(data: BattleStateData) -> State:
 	var state = turn_start_first
 	
@@ -25,6 +43,12 @@ func step(data: BattleStateData) -> State:
 		data.units.append(meta.player)
 		data.units.append(meta.opponent)
 		get_tree().remove_meta(BattleSetupRes.meta_id)
+	
+	# Increase opponent's stats
+	for i in range(ResourceHandler.battle_logic_res.n_battles_to_scale, MetaData.battles_fought, ResourceHandler.battle_logic_res.n_battles_to_scale):
+		# Increase twice to compensate for missing out on three battles
+		_increase_stats(opponent)
+		_increase_stats(opponent)
 	
 	data.units.sort_custom(func (x: UnitRun, y: UnitRun): return x.spd > y.spd) # Sort by SPD
 

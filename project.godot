@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Constants="*res://scripts/globals/constants.gd"
 Console="*res://scenes/components/console.tscn"
 InputHandler="*res://scripts/globals/input_handler.gd"
+MetaData="*res://scripts/globals/meta_data.gd"
 Helper="*res://scripts/globals/helper.gd"
 ResourceHandler="*res://scripts/globals/resource_handler.gd"
 
