@@ -14,7 +14,7 @@ metadata/_custom_type_script = "uid://uww3xqxw83g1"
 
 [resource]
 script = ExtResource("2_528h6")
-name_id = "Echolocation"
 type = 5
 effects = Array[ExtResource("1_866in")]([SubResource("Resource_oh3hc")])
+name_id = "Echolocation"
 metadata/_custom_type_script = "uid://b1pdjtytsqqqv"

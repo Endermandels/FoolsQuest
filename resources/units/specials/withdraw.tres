@@ -13,6 +13,6 @@ metadata/_custom_type_script = "uid://irsbsf5elqey"
 
 [resource]
 script = ExtResource("2_6ppmw")
-name_id = "Withdraw"
 effects = Array[ExtResource("1_wwl5d")]([SubResource("Resource_580n1")])
+name_id = "Withdraw"
 metadata/_custom_type_script = "uid://bq81dohj7lbqw"

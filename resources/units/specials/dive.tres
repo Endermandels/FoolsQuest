@@ -14,6 +14,6 @@ metadata/_custom_type_script = "uid://cta3hianecr0a"
 
 [resource]
 script = ExtResource("2_cmo3t")
-name_id = "Dive"
 effects = Array[ExtResource("1_sf105")]([SubResource("Resource_pwmpq")])
+name_id = "Dive"
 metadata/_custom_type_script = "uid://bq81dohj7lbqw"

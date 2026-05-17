@@ -26,6 +26,10 @@ func enter(data: BattleStateData) -> void:
 	# Reset Temporary Passives
 	player.temp_passives.clear()
 
+	# Reset Ability states
+	for s: SpecialRun in player.specials:
+		s.reset_state()
+
 	# Report Win/Loss
 	is_victory = player.is_alive
 	if is_victory:

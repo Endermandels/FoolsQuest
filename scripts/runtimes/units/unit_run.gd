@@ -13,8 +13,8 @@ var ai: AIRes
 var loot: LootRes
 
 # Abilities
-var passives: Array[PassiveRes]
-var temp_passives: Array[PassiveRes]
+var passives: Array[PassiveRun]
+var temp_passives: Array[PassiveRun]
 var specials: Array[SpecialRun]
 
 # Base Stats
@@ -100,6 +100,7 @@ func _init(res: UnitRes, is_player: bool = false, ai: AIRes = null) -> void:
 		self.ai = ai
 		self.loot = res.loot
 		assert(self.loot != null)
+		assert(self.ai != null)
 
 	# Base Stats
 	self.base_hp = res.base_hp
@@ -116,7 +117,9 @@ func _init(res: UnitRes, is_player: bool = false, ai: AIRes = null) -> void:
 	self.spd = base_spd
 
 	# Abilities
-	self.passives = res.passives.duplicate_deep()
+	for p_res: PassiveRes in res.passives:
+		var p_run: PassiveRun = PassiveRun.new(p_res)
+		self.passives.append(p_run)
 
 	for s_res: SpecialRes in res.specials:
 		var s_run: SpecialRun = SpecialRun.new(s_res)

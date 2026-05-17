@@ -18,7 +18,7 @@ metadata/_custom_type_script = "uid://kco57uacsunt"
 
 [resource]
 script = ExtResource("2_ytcpi")
-name_id = "Flame Breath"
 mp_cost = 3
 effects = Array[ExtResource("1_wnecr")]([SubResource("Resource_uoebx"), SubResource("Resource_ltpjl")])
+name_id = "Flame Breath"
 metadata/_custom_type_script = "uid://bq81dohj7lbqw"

@@ -22,7 +22,7 @@ metadata/_custom_type_script = "uid://irsbsf5elqey"
 
 [resource]
 script = ExtResource("2_nm51y")
-name_id = "Howl"
 once_per_battle = true
 effects = Array[ExtResource("1_at3m6")]([SubResource("Resource_4kngl"), SubResource("Resource_1nv5q")])
+name_id = "Howl"
 metadata/_custom_type_script = "uid://bq81dohj7lbqw"

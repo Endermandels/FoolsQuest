@@ -11,6 +11,6 @@ metadata/_custom_type_script = "uid://dxt106tkohnic"
 
 [resource]
 script = ExtResource("2_niuec")
-name_id = "Sharp Fangs"
 effects = Array[ExtResource("1_n118b")]([SubResource("Resource_3e2wg")])
+name_id = "Sharp Fangs"
 metadata/_custom_type_script = "uid://b1pdjtytsqqqv"

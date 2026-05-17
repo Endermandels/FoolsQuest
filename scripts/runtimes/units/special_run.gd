@@ -1,8 +1,7 @@
-extends RefCounted
+extends AbilityRun
 class_name SpecialRun
 
 # Resource Attributes
-var name_id: String
 var once_per_battle: bool
 var mp_cost: int
 var effects: Array[EffectRes]
@@ -18,3 +17,6 @@ func _init(res: SpecialRes) -> void:
 
 func _to_string() -> String:
 	return name_id
+
+func reset_state() -> void:
+	used = false

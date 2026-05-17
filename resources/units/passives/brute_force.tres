@@ -11,6 +11,6 @@ metadata/_custom_type_script = "uid://dluhb2gvc4gif"
 
 [resource]
 script = ExtResource("2_gqbsu")
-name_id = "Brute Force"
 effects = Array[ExtResource("1_1giby")]([SubResource("Resource_m1kem")])
+name_id = "Brute Force"
 metadata/_custom_type_script = "uid://b1pdjtytsqqqv"

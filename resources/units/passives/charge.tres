@@ -12,7 +12,7 @@ metadata/_custom_type_script = "uid://dluhb2gvc4gif"
 
 [resource]
 script = ExtResource("2_criyg")
-name_id = "Charge"
 type = 0
 effects = Array[ExtResource("1_a2c6a")]([SubResource("Resource_kq6en")])
+name_id = "Charge"
 metadata/_custom_type_script = "uid://b1pdjtytsqqqv"

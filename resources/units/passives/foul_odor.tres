@@ -13,7 +13,7 @@ metadata/_custom_type_script = "uid://bryxtb4tgoe40"
 
 [resource]
 script = ExtResource("2_ct4iq")
-name_id = "Foul Odor"
 type = 1
 effects = Array[ExtResource("1_kcwm1")]([SubResource("Resource_dxf1c")])
+name_id = "Foul Odor"
 metadata/_custom_type_script = "uid://b1pdjtytsqqqv"

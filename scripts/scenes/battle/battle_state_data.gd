@@ -25,9 +25,9 @@ func has_death_occurred() -> bool:
 ## Returns whether a death has occurred.
 func trigger_passives(source: UnitRun, opponent: UnitRun, ptype: Constants.PassiveType) -> bool:
 	var has_death_occurred: bool = false
-	var all_passives: Array[PassiveRes] = source.passives + source.temp_passives
+	var all_passives: Array[PassiveRun] = source.passives + source.temp_passives
 
-	for p: PassiveRes in all_passives:
+	for p: PassiveRun in all_passives:
 		if p.type == ptype:
 			for e_res: EffectRes in p.effects:
 				var e_run = EffectRun.from_resource(e_res)

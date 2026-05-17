@@ -1,8 +1,7 @@
 @tool
-extends Resource
+extends AbilityRes
 class_name PassiveRes
 
-@export_placeholder("Sharp Fangs") var name_id: String = ""
 @export var type: Constants.PassiveType = Constants.PassiveType.POST_ATTACK ## When this passive triggers during an attack
 @export var effects: Array[EffectRes] = [] ## This passive's effects
 
