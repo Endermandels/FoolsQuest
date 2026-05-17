@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="LocationRes" load_steps=5 format=3 uid="uid://duc4rtlsoxbxw"]
+[gd_resource type="Resource" script_class="LocationRes" load_steps=7 format=3 uid="uid://duc4rtlsoxbxw"]
 
-[ext_resource type="Script" uid="uid://d32i44acdmosc" path="res://scripts/resources/locations/animal_group_res.gd" id="1_5x5hn"]
-[ext_resource type="Resource" uid="uid://du3i6rsmt4aaj" path="res://resources/locations/animal_groups/def.tres" id="2_kus0d"]
+[ext_resource type="Script" uid="uid://d2frln8q7y827" path="res://scripts/resources/locations/animal_res.gd" id="1_riufu"]
+[ext_resource type="Resource" uid="uid://lpvguyk8llh3" path="res://resources/locations/animals/bat.tres" id="2_fmwdx"]
 [ext_resource type="Script" uid="uid://br305mx32ot4w" path="res://scripts/resources/locations/location_res.gd" id="2_l3rdo"]
-[ext_resource type="Resource" uid="uid://clmiko8uaxf6f" path="res://resources/locations/animal_groups/mp.tres" id="3_xc0th"]
+[ext_resource type="Resource" uid="uid://bmch3xb0ls5lr" path="res://resources/locations/animals/porcupine.tres" id="3_ky7ia"]
+[ext_resource type="Resource" uid="uid://b54cho3da3f8" path="res://resources/locations/animals/snake.tres" id="4_7kd67"]
+[ext_resource type="Resource" uid="uid://c17e0bp4gjk3n" path="res://resources/locations/animals/turtle.tres" id="5_i3frr"]
 
 [resource]
 script = ExtResource("2_l3rdo")
 name_id = "Swamp"
-animal_groups = Array[ExtResource("1_5x5hn")]([ExtResource("2_kus0d"), ExtResource("3_xc0th")])
+animals = Array[ExtResource("1_riufu")]([ExtResource("2_fmwdx"), ExtResource("3_ky7ia"), ExtResource("4_7kd67"), ExtResource("5_i3frr")])
 metadata/_custom_type_script = "uid://br305mx32ot4w"

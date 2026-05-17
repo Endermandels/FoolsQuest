@@ -6,4 +6,5 @@
 [resource]
 script = ExtResource("1_xtvag")
 res = ExtResource("1_pg7cn")
+weight = 5
 metadata/_custom_type_script = "uid://d2frln8q7y827"

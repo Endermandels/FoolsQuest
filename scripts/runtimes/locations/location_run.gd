@@ -3,27 +3,27 @@ class_name LocationRun
 
 var name_id: String
 var description: String # TODO: Make use of this variable
-var animal_groups: Array[AnimalGroupRes]
+var animals: Array[AnimalRes]
 
 func _init(res: LocationRes) -> void:
 	self.name_id = res.name_id
 	self.description = res.description
-	self.animal_groups = res.animal_groups
+	self.animals = res.animals.duplicate_deep()
 
-func _pick_random_animal(group: AnimalGroupRes) -> UnitRes:
+func _pick_random_animal(animals: Array[AnimalRes]) -> UnitRes:
 	var res: UnitRes = null
 	var total_weight: int = 0
 	var cum_weight: int = 0
 	var rnd: int
 
-	for a: AnimalRes in group.animals:
+	for a: AnimalRes in animals:
 		total_weight += a.weight
 	
 	assert(total_weight > 0)
 
 	rnd = randi_range(1, total_weight)
 
-	for a: AnimalRes in group.animals:
+	for a: AnimalRes in animals:
 		cum_weight += a.weight
 		if rnd <= cum_weight:
 			res = a.res
@@ -34,10 +34,7 @@ func _pick_random_animal(group: AnimalGroupRes) -> UnitRes:
 func get_animal() -> UnitRes:
 	var res: UnitRes = null
 
-	# Choose a random animal group
-	var group: AnimalGroupRes = animal_groups.pick_random()
-
-	# Choose a weighted random animal from the group
-	res = _pick_random_animal(group)
+	# Choose a weighted random animal
+	res = _pick_random_animal(animals)
 
 	return res

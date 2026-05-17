@@ -4,7 +4,7 @@ class_name LocationRes
 
 @export_placeholder("Swamp") var name_id: String = ""
 @export var description: String = "" # TODO: Make use of this variable
-@export var animal_groups: Array[AnimalGroupRes] = []
+@export var animals: Array[AnimalRes] = []
 
 func _to_string() -> String:
 	return name_id

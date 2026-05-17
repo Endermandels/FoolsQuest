@@ -1,13 +1,16 @@
-[gd_resource type="Resource" script_class="LocationRes" load_steps=6 format=3 uid="uid://b0ekketfrmxo8"]
+[gd_resource type="Resource" script_class="LocationRes" load_steps=9 format=3 uid="uid://b0ekketfrmxo8"]
 
-[ext_resource type="Script" uid="uid://d32i44acdmosc" path="res://scripts/resources/locations/animal_group_res.gd" id="1_hfn05"]
-[ext_resource type="Resource" uid="uid://b8ml80rnv02a" path="res://resources/locations/animal_groups/hp.tres" id="2_304bo"]
+[ext_resource type="Script" uid="uid://d2frln8q7y827" path="res://scripts/resources/locations/animal_res.gd" id="1_3natm"]
+[ext_resource type="Resource" uid="uid://xdo3y8jbtntd" path="res://resources/locations/animals/bear.tres" id="2_i6mai"]
 [ext_resource type="Script" uid="uid://br305mx32ot4w" path="res://scripts/resources/locations/location_res.gd" id="2_qtw4v"]
-[ext_resource type="Resource" uid="uid://bqc234i3brisw" path="res://resources/locations/animal_groups/atk.tres" id="3_m3rnq"]
-[ext_resource type="Resource" uid="uid://du3i6rsmt4aaj" path="res://resources/locations/animal_groups/def.tres" id="4_6e5du"]
+[ext_resource type="Resource" uid="uid://baw56yyvije5" path="res://resources/locations/animals/boar.tres" id="3_4tva1"]
+[ext_resource type="Resource" uid="uid://bmch3xb0ls5lr" path="res://resources/locations/animals/porcupine.tres" id="4_iicuw"]
+[ext_resource type="Resource" uid="uid://c17e0bp4gjk3n" path="res://resources/locations/animals/turtle.tres" id="5_nssyy"]
+[ext_resource type="Resource" uid="uid://da62u4bqp01u4" path="res://resources/locations/animals/wolf.tres" id="6_mf2at"]
+[ext_resource type="Resource" uid="uid://bxnt1ohk868pr" path="res://resources/locations/animals/wolverine.tres" id="7_2ih2m"]
 
 [resource]
 script = ExtResource("2_qtw4v")
 name_id = "Creek"
-animal_groups = Array[ExtResource("1_hfn05")]([ExtResource("2_304bo"), ExtResource("3_m3rnq"), ExtResource("4_6e5du")])
+animals = Array[ExtResource("1_3natm")]([ExtResource("2_i6mai"), ExtResource("3_4tva1"), ExtResource("4_iicuw"), ExtResource("5_nssyy"), ExtResource("6_mf2at"), ExtResource("7_2ih2m")])
 metadata/_custom_type_script = "uid://br305mx32ot4w"

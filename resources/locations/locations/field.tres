@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="LocationRes" load_steps=5 format=3 uid="uid://y3fbbsn2wytv"]
+[gd_resource type="Resource" script_class="LocationRes" load_steps=7 format=3 uid="uid://y3fbbsn2wytv"]
 
-[ext_resource type="Script" uid="uid://d32i44acdmosc" path="res://scripts/resources/locations/animal_group_res.gd" id="1_l7h8j"]
-[ext_resource type="Resource" uid="uid://endver3cn81p" path="res://resources/locations/animal_groups/spd.tres" id="2_1arki"]
-[ext_resource type="Resource" uid="uid://bqc234i3brisw" path="res://resources/locations/animal_groups/atk.tres" id="3_0udy5"]
+[ext_resource type="Script" uid="uid://d2frln8q7y827" path="res://scripts/resources/locations/animal_res.gd" id="1_0udy5"]
+[ext_resource type="Resource" uid="uid://dqom3d4yhp47" path="res://resources/locations/animals/deer.tres" id="2_xo8nm"]
+[ext_resource type="Resource" uid="uid://dge4fxhbhs4gn" path="res://resources/locations/animals/falcon.tres" id="3_3pge7"]
 [ext_resource type="Script" uid="uid://br305mx32ot4w" path="res://scripts/resources/locations/location_res.gd" id="3_vq4kr"]
+[ext_resource type="Resource" uid="uid://da62u4bqp01u4" path="res://resources/locations/animals/wolf.tres" id="4_tfud8"]
+[ext_resource type="Resource" uid="uid://bxnt1ohk868pr" path="res://resources/locations/animals/wolverine.tres" id="5_bd2j3"]
 
 [resource]
 script = ExtResource("3_vq4kr")
 name_id = "Field"
-animal_groups = Array[ExtResource("1_l7h8j")]([ExtResource("2_1arki"), ExtResource("3_0udy5")])
+animals = Array[ExtResource("1_0udy5")]([ExtResource("2_xo8nm"), ExtResource("3_3pge7"), ExtResource("4_tfud8"), ExtResource("5_bd2j3")])
 metadata/_custom_type_script = "uid://br305mx32ot4w"

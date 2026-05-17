@@ -18,7 +18,7 @@ func _apply(_source: UnitRun, target: UnitRun) -> bool:
 	if not is_pure:
 		hp_lost -= target.def
 	
-	hp_lost = max(hp_lost, 0)
+	hp_lost = clampi(hp_lost, 0, target.hp)
 	
 	if hp_lost > 0:
 		target.hp -= hp_lost
