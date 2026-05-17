@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="UnitRes" load_steps=7 format=3 uid="uid://o8xhn5vrj8t7"]
+[gd_resource type="Resource" script_class="UnitRes" load_steps=9 format=3 uid="uid://o8xhn5vrj8t7"]
 
+[ext_resource type="Script" uid="uid://bp8bl6apkie3q" path="res://scripts/resources/units/loot_res.gd" id="1_hft8c"]
 [ext_resource type="Script" uid="uid://b1pdjtytsqqqv" path="res://scripts/resources/units/passive_res.gd" id="1_yvnu3"]
 [ext_resource type="Script" uid="uid://btu6s2dkuilpu" path="res://scripts/resources/units/unit_res.gd" id="2_5el80"]
 [ext_resource type="Resource" uid="uid://dc4sonyklwefi" path="res://resources/units/passives/echolocation.tres" id="2_51sdh"]
@@ -7,9 +8,20 @@
 [ext_resource type="Resource" uid="uid://cxhc2el0r3sng" path="res://resources/units/passives/life_steal.tres" id="3_ltdao"]
 [ext_resource type="Resource" uid="uid://b6rv03qgsp5wo" path="res://resources/units/specials/shriek.tres" id="6_31qir"]
 
+[sub_resource type="Resource" id="Resource_m1yut"]
+script = ExtResource("1_hft8c")
+mp_loot_type = 1
+mp = 1
+mp_hi = 2
+spd_loot_type = 2
+spd = 1
+spd_hi = 3
+metadata/_custom_type_script = "uid://bp8bl6apkie3q"
+
 [resource]
 script = ExtResource("2_5el80")
 name_id = "Bat"
+loot = SubResource("Resource_m1yut")
 base_hp = 2
 base_mp = 2
 base_atk = 1

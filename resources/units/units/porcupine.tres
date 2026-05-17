@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="UnitRes" load_steps=7 format=3 uid="uid://c8712u18p6k8k"]
+[gd_resource type="Resource" script_class="UnitRes" load_steps=9 format=3 uid="uid://c8712u18p6k8k"]
 
+[ext_resource type="Script" uid="uid://bp8bl6apkie3q" path="res://scripts/resources/units/loot_res.gd" id="1_5tniq"]
 [ext_resource type="Script" uid="uid://b1pdjtytsqqqv" path="res://scripts/resources/units/passive_res.gd" id="1_8tgm2"]
 [ext_resource type="Resource" uid="uid://bi15ulqno1tw1" path="res://resources/units/passives/sharp_quills.tres" id="2_68p2q"]
 [ext_resource type="Script" uid="uid://btu6s2dkuilpu" path="res://scripts/resources/units/unit_res.gd" id="2_d7s88"]
@@ -7,9 +8,20 @@
 [ext_resource type="Resource" uid="uid://c8tmccgij1j6f" path="res://resources/units/passives/foul_odor.tres" id="3_wkw66"]
 [ext_resource type="Resource" uid="uid://dymge6eww3r5i" path="res://resources/units/specials/quill_growth.tres" id="6_6glkq"]
 
+[sub_resource type="Resource" id="Resource_dqbwc"]
+script = ExtResource("1_5tniq")
+hp_loot_type = 2
+hp = 1
+hp_hi = 3
+def_loot_type = 1
+def = 1
+def_hi = 1
+metadata/_custom_type_script = "uid://bp8bl6apkie3q"
+
 [resource]
 script = ExtResource("2_d7s88")
 name_id = "Porcupine"
+loot = SubResource("Resource_dqbwc")
 base_hp = 5
 base_mp = 2
 base_atk = 1

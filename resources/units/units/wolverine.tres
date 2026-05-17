@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="UnitRes" load_steps=9 format=3 uid="uid://jm0jc6mha7"]
+[gd_resource type="Resource" script_class="UnitRes" load_steps=11 format=3 uid="uid://jm0jc6mha7"]
 
+[ext_resource type="Script" uid="uid://bp8bl6apkie3q" path="res://scripts/resources/units/loot_res.gd" id="1_ud0tl"]
 [ext_resource type="Script" uid="uid://b1pdjtytsqqqv" path="res://scripts/resources/units/passive_res.gd" id="1_xlobb"]
 [ext_resource type="Resource" uid="uid://y4qf14x1yf6x" path="res://resources/units/passives/sharp_fangs.tres" id="2_3g8ru"]
 [ext_resource type="Script" uid="uid://btu6s2dkuilpu" path="res://scripts/resources/units/unit_res.gd" id="2_cre2f"]
@@ -9,9 +10,20 @@
 [ext_resource type="Resource" uid="uid://cgm6sm7v80s33" path="res://resources/units/passives/desperation.tres" id="5_b7p8h"]
 [ext_resource type="Resource" uid="uid://c8tmccgij1j6f" path="res://resources/units/passives/foul_odor.tres" id="6_de5gi"]
 
+[sub_resource type="Resource" id="Resource_mdl88"]
+script = ExtResource("1_ud0tl")
+atk_loot_type = 2
+atk = 1
+atk_hi = 3
+def_loot_type = 1
+def = 1
+def_hi = 1
+metadata/_custom_type_script = "uid://bp8bl6apkie3q"
+
 [resource]
 script = ExtResource("2_cre2f")
 name_id = "Wolverine"
+loot = SubResource("Resource_mdl88")
 base_hp = 3
 base_mp = 1
 base_atk = 2

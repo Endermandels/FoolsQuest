@@ -20,5 +20,6 @@ metadata/_custom_type_script = "uid://bryxtb4tgoe40"
 [resource]
 script = ExtResource("2_pyk2e")
 name_id = "Shriek"
+mp_cost = 2
 effects = Array[ExtResource("1_np2er")]([SubResource("Resource_mp0lp"), SubResource("Resource_711p4")])
 metadata/_custom_type_script = "uid://bq81dohj7lbqw"

@@ -3,6 +3,7 @@ extends Resource
 class_name UnitRes
 
 @export_placeholder("Wolf") var name_id: String = ""
+@export var loot: LootRes
 @export_group("Stats")
 @export_range(1, 100) var base_hp: int = 10
 @export_range(0, 20) var base_mp: int = 0

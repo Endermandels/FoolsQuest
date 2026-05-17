@@ -5,9 +5,12 @@ var name_id: String
 var is_player: bool = false
 var is_alive: bool = false
 var is_near_death: bool = false
-var ai: AIRes
 var first_turn_action: bool = true
 var attack_is_pure: bool = false
+
+# NPC specific
+var ai: AIRes
+var loot: LootRes
 
 # Abilities
 var passives: Array[PassiveRes]
@@ -91,7 +94,12 @@ var blindness_resistance_turns_left: int = 0:
 func _init(res: UnitRes, is_player: bool = false, ai: AIRes = null) -> void:
 	self.name_id = res.name_id
 	self.is_player = is_player
-	self.ai = ai
+
+	# NPC specific
+	if not is_player:
+		self.ai = ai
+		self.loot = res.loot
+		assert(self.loot != null)
 
 	# Base Stats
 	self.base_hp = res.base_hp

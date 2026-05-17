@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="UnitRes" load_steps=9 format=3 uid="uid://bxpdr13q0h756"]
+[gd_resource type="Resource" script_class="UnitRes" load_steps=11 format=3 uid="uid://bxpdr13q0h756"]
 
+[ext_resource type="Script" uid="uid://bp8bl6apkie3q" path="res://scripts/resources/units/loot_res.gd" id="1_m4fuy"]
 [ext_resource type="Script" uid="uid://b1pdjtytsqqqv" path="res://scripts/resources/units/passive_res.gd" id="1_oqbk3"]
 [ext_resource type="Script" uid="uid://btu6s2dkuilpu" path="res://scripts/resources/units/unit_res.gd" id="2_e71d4"]
 [ext_resource type="Resource" uid="uid://bhepds6rc5fio" path="res://resources/units/passives/venomous_fangs.tres" id="2_swe7g"]
@@ -9,9 +10,26 @@
 [ext_resource type="Resource" uid="uid://cjpbrn3r7njre" path="res://resources/units/specials/venom_spit.tres" id="7_i1qv5"]
 [ext_resource type="Resource" uid="uid://ch1p36ce11pd" path="res://resources/units/specials/roar.tres" id="8_8165m"]
 
+[sub_resource type="Resource" id="Resource_c8sn7"]
+script = ExtResource("1_m4fuy")
+hp_loot_type = 2
+hp = 5
+hp_hi = 8
+mp_loot_type = 2
+mp = 2
+mp_hi = 5
+atk_loot_type = 2
+atk = 3
+atk_hi = 5
+def_loot_type = 2
+def = 1
+def_hi = 3
+metadata/_custom_type_script = "uid://bp8bl6apkie3q"
+
 [resource]
 script = ExtResource("2_e71d4")
 name_id = "Dragon"
+loot = SubResource("Resource_c8sn7")
 base_hp = 15
 base_mp = 7
 base_atk = 3

@@ -8,6 +8,27 @@ func _print_location_prompt() -> void:
 		Console.print_line("%d. %s" % [i + 1, ResourceHandler.location_resources[i]], Color.ORANGE)
 	Console.print_line("* Currently selecting [%s]" % ResourceHandler.location_resources[selected_location_idx])
 
+func _pick_random_animal(animals: Array[AnimalRes]) -> UnitRes:
+	var res: UnitRes = null
+	var total_weight: int = 0
+	var cum_weight: int = 0
+	var rnd: int
+
+	for a: AnimalRes in animals:
+		total_weight += a.weight
+	
+	assert(total_weight > 0)
+
+	rnd = randi_range(1, total_weight)
+
+	for a: AnimalRes in animals:
+		cum_weight += a.weight
+		if rnd <= cum_weight:
+			res = a.res
+			break
+
+	return res
+
 func step(data: LocationStateData) -> State:
 	var state: State = null
 
@@ -15,7 +36,8 @@ func step(data: LocationStateData) -> State:
 		InputHandler.clear_inputs()
 		InputHandler.allow_inputs = false
 		
-		var opponent_res = LocationRun.new(ResourceHandler.location_resources[selected_location_idx]).get_animal()
+		var location_res := ResourceHandler.location_resources[selected_location_idx]
+		var opponent_res := _pick_random_animal(location_res.animals)
 		var meta: BattleSetupRes = BattleSetupRes.new()
 
 		meta.player = data.player

@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="UnitRes" load_steps=8 format=3 uid="uid://beeld3va0q3xf"]
+[gd_resource type="Resource" script_class="UnitRes" load_steps=10 format=3 uid="uid://beeld3va0q3xf"]
 
+[ext_resource type="Script" uid="uid://bp8bl6apkie3q" path="res://scripts/resources/units/loot_res.gd" id="1_aa0jk"]
 [ext_resource type="Script" uid="uid://b1pdjtytsqqqv" path="res://scripts/resources/units/passive_res.gd" id="1_ntcv2"]
 [ext_resource type="Script" uid="uid://btu6s2dkuilpu" path="res://scripts/resources/units/unit_res.gd" id="2_1vbe2"]
 [ext_resource type="Resource" uid="uid://qpc5gs6p4bu8" path="res://resources/units/passives/charge.tres" id="2_sjn7i"]
@@ -8,9 +9,20 @@
 [ext_resource type="Resource" uid="uid://b808g3p010bhc" path="res://resources/units/passives/startle.tres" id="4_noekt"]
 [ext_resource type="Resource" uid="uid://jqhqpj5vv14e" path="res://resources/units/specials/sprint.tres" id="7_vn2ad"]
 
+[sub_resource type="Resource" id="Resource_226lq"]
+script = ExtResource("1_aa0jk")
+hp_loot_type = 1
+hp = 1
+hp_hi = 1
+spd_loot_type = 2
+spd = 1
+spd_hi = 3
+metadata/_custom_type_script = "uid://bp8bl6apkie3q"
+
 [resource]
 script = ExtResource("2_1vbe2")
 name_id = "Deer"
+loot = SubResource("Resource_226lq")
 base_hp = 5
 base_mp = 2
 base_atk = 1

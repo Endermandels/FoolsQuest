@@ -1,14 +1,26 @@
-[gd_resource type="Resource" script_class="UnitRes" load_steps=6 format=3 uid="uid://chjhyu3qcq16b"]
+[gd_resource type="Resource" script_class="UnitRes" load_steps=8 format=3 uid="uid://chjhyu3qcq16b"]
 
 [ext_resource type="Script" uid="uid://b1pdjtytsqqqv" path="res://scripts/resources/units/passive_res.gd" id="1_870bf"]
+[ext_resource type="Script" uid="uid://bp8bl6apkie3q" path="res://scripts/resources/units/loot_res.gd" id="1_wk1e6"]
 [ext_resource type="Script" uid="uid://btu6s2dkuilpu" path="res://scripts/resources/units/unit_res.gd" id="2_7dus0"]
 [ext_resource type="Resource" uid="uid://y4qf14x1yf6x" path="res://resources/units/passives/sharp_fangs.tres" id="2_snsod"]
 [ext_resource type="Script" uid="uid://bq81dohj7lbqw" path="res://scripts/resources/units/special_res.gd" id="3_snsod"]
 [ext_resource type="Resource" uid="uid://bsfe4v1ltlqap" path="res://resources/units/specials/dive.tres" id="5_snsod"]
 
+[sub_resource type="Resource" id="Resource_45gdk"]
+script = ExtResource("1_wk1e6")
+atk_loot_type = 1
+atk = 1
+atk_hi = 1
+spd_loot_type = 2
+spd = 2
+spd_hi = 4
+metadata/_custom_type_script = "uid://bp8bl6apkie3q"
+
 [resource]
 script = ExtResource("2_7dus0")
 name_id = "Falcon"
+loot = SubResource("Resource_45gdk")
 base_hp = 2
 base_mp = 1
 base_atk = 2

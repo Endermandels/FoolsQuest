@@ -1,15 +1,27 @@
-[gd_resource type="Resource" script_class="UnitRes" load_steps=7 format=3 uid="uid://bipa5g4xglunp"]
+[gd_resource type="Resource" script_class="UnitRes" load_steps=9 format=3 uid="uid://bipa5g4xglunp"]
 
 [ext_resource type="Script" uid="uid://btu6s2dkuilpu" path="res://scripts/resources/units/unit_res.gd" id="1_7lw6w"]
+[ext_resource type="Script" uid="uid://bp8bl6apkie3q" path="res://scripts/resources/units/loot_res.gd" id="1_eonds"]
 [ext_resource type="Script" uid="uid://b1pdjtytsqqqv" path="res://scripts/resources/units/passive_res.gd" id="1_rpmbs"]
 [ext_resource type="Resource" uid="uid://bhdqf2nq4fhrl" path="res://resources/units/passives/shell_smash.tres" id="2_vkbuw"]
 [ext_resource type="Resource" uid="uid://y4qf14x1yf6x" path="res://resources/units/passives/sharp_fangs.tres" id="2_yd88c"]
 [ext_resource type="Script" uid="uid://bq81dohj7lbqw" path="res://scripts/resources/units/special_res.gd" id="4_yd88c"]
 [ext_resource type="Resource" uid="uid://b6o1hyl06p104" path="res://resources/units/specials/howl.tres" id="5_swm65"]
 
+[sub_resource type="Resource" id="Resource_w5712"]
+script = ExtResource("1_eonds")
+atk_loot_type = 2
+atk = 2
+atk_hi = 4
+spd_loot_type = 1
+spd = 1
+spd_hi = 1
+metadata/_custom_type_script = "uid://bp8bl6apkie3q"
+
 [resource]
 script = ExtResource("1_7lw6w")
 name_id = "Wolf"
+loot = SubResource("Resource_w5712")
 base_hp = 4
 base_mp = 1
 base_atk = 2

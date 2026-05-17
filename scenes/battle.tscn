@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://q08qti5wvyrc"]
+[gd_scene load_steps=15 format=3 uid="uid://q08qti5wvyrc"]
 
 [ext_resource type="Script" uid="uid://c24wy4prp7eyo" path="res://scripts/scenes/battle/battle.gd" id="1_dn72j"]
 [ext_resource type="Script" uid="uid://dixbtf3xhn414" path="res://scripts/scenes/battle/battle_handler.gd" id="2_6vh42"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://dbhqdaatq436d" path="res://scripts/scenes/battle/battle_states/turn_end_poison.gd" id="10_66ngm"]
 [ext_resource type="Script" uid="uid://ddw7phufv7exq" path="res://scripts/scenes/battle/battle_states/battle_end.gd" id="11_66ngm"]
 [ext_resource type="Script" uid="uid://dwv388rccughb" path="res://scripts/scenes/battle/battle_states/turn_end_last.gd" id="12_6ni85"]
+[ext_resource type="Script" uid="uid://84tsl5vvj7uk" path="res://scripts/scenes/battle/battle_states/loot.gd" id="14_6ni85"]
 
 [node name="Battle" type="Node2D" node_paths=PackedStringArray("battle_handler")]
 script = ExtResource("1_dn72j")
@@ -72,9 +73,12 @@ battle_end = NodePath("../BattleEnd")
 script = ExtResource("12_6ni85")
 turn_start_first = NodePath("../TurnStartFirst")
 
-[node name="BattleEnd" type="Node" parent="BattleHandler/BattleStateMachine"]
+[node name="BattleEnd" type="Node" parent="BattleHandler/BattleStateMachine" node_paths=PackedStringArray("loot")]
 script = ExtResource("11_66ngm")
-location_scene = "res://scenes/location.tscn"
+loot = NodePath("../Loot")
+
+[node name="Loot" type="Node" parent="BattleHandler/BattleStateMachine"]
+script = ExtResource("14_6ni85")
 
 [node name="AutoStepTimer" type="Timer" parent="BattleHandler"]
 wait_time = 0.4

@@ -1,15 +1,18 @@
 extends State
 
+@export var loot: State
+
 var is_victory: bool = false
 
 func step(data: BattleStateData) -> State:
-	if is_victory:
-		var meta: LocationSetupRes = LocationSetupRes.new()
-		meta.player = data.get_player()
-		get_tree().set_meta(LocationSetupRes.meta_id, meta)
-		get_tree().change_scene_to_file(ResourceHandler.location_scene)
+	var state: State = null
 
-	return null
+	# TODO: Transition to Defeat Scene on loss
+
+	if is_victory:
+		state = loot
+
+	return state
 
 func enter(data: BattleStateData) -> void:
 	Console.print_line("# Battle End #", Color.GREEN)

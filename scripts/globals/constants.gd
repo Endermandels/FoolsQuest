@@ -31,4 +31,10 @@ enum StatusEffect {
 	STUN,
 }
 
+enum LootType {
+	NO_CHANGE,
+	STATIC,
+	RANDOM,
+}
+
 const VOWELS = ["a", "e", "i", "o", "u"]

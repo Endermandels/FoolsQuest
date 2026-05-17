@@ -57,4 +57,13 @@ func get_player() -> UnitRun:
 			res = u
 
 	return res
+	
+func get_opponent() -> UnitRun:
+	var res: UnitRun = null
+
+	for u in units:
+		if not u.is_player:
+			res = u
+
+	return res
 #endregion

@@ -1,14 +1,26 @@
-[gd_resource type="Resource" script_class="UnitRes" load_steps=6 format=3 uid="uid://bld6gvxhqitap"]
+[gd_resource type="Resource" script_class="UnitRes" load_steps=8 format=3 uid="uid://bld6gvxhqitap"]
 
 [ext_resource type="Script" uid="uid://b1pdjtytsqqqv" path="res://scripts/resources/units/passive_res.gd" id="1_ar0jr"]
+[ext_resource type="Script" uid="uid://bp8bl6apkie3q" path="res://scripts/resources/units/loot_res.gd" id="1_mbwav"]
 [ext_resource type="Resource" uid="uid://d041lhq0qbbdr" path="res://resources/units/passives/steadfast.tres" id="2_2jcq5"]
 [ext_resource type="Script" uid="uid://btu6s2dkuilpu" path="res://scripts/resources/units/unit_res.gd" id="2_5u32e"]
 [ext_resource type="Script" uid="uid://bq81dohj7lbqw" path="res://scripts/resources/units/special_res.gd" id="3_2jcq5"]
 [ext_resource type="Resource" uid="uid://cxdmvhf7a6mix" path="res://resources/units/specials/withdraw.tres" id="5_2jcq5"]
 
+[sub_resource type="Resource" id="Resource_cjtfe"]
+script = ExtResource("1_mbwav")
+hp_loot_type = 1
+hp = 1
+hp_hi = 1
+def_loot_type = 2
+def = 2
+def_hi = 4
+metadata/_custom_type_script = "uid://bp8bl6apkie3q"
+
 [resource]
 script = ExtResource("2_5u32e")
 name_id = "Turtle"
+loot = SubResource("Resource_cjtfe")
 base_hp = 3
 base_mp = 1
 base_atk = 1

@@ -1,12 +1,21 @@
-[gd_resource type="Resource" script_class="UnitRes" load_steps=4 format=3 uid="uid://djuppfwm6jvp3"]
+[gd_resource type="Resource" script_class="UnitRes" load_steps=6 format=3 uid="uid://djuppfwm6jvp3"]
 
+[ext_resource type="Script" uid="uid://bp8bl6apkie3q" path="res://scripts/resources/units/loot_res.gd" id="1_2jl42"]
 [ext_resource type="Script" uid="uid://b1pdjtytsqqqv" path="res://scripts/resources/units/passive_res.gd" id="1_lkd3a"]
 [ext_resource type="Script" uid="uid://btu6s2dkuilpu" path="res://scripts/resources/units/unit_res.gd" id="2_2jl42"]
 [ext_resource type="Script" uid="uid://bq81dohj7lbqw" path="res://scripts/resources/units/special_res.gd" id="3_eradm"]
 
+[sub_resource type="Resource" id="Resource_eradm"]
+script = ExtResource("1_2jl42")
+hp_loot_type = 1
+hp = 1
+hp_hi = 1
+metadata/_custom_type_script = "uid://bp8bl6apkie3q"
+
 [resource]
 script = ExtResource("2_2jl42")
 name_id = "Squirrel"
+loot = SubResource("Resource_eradm")
 base_hp = 2
 base_atk = 1
 metadata/_custom_type_script = "uid://btu6s2dkuilpu"
