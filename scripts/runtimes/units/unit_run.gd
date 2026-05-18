@@ -5,8 +5,9 @@ var name_id: String
 var is_player: bool = false
 var is_alive: bool = false
 var is_near_death: bool = false
-var first_turn_action: bool = true
+
 var attack_is_pure: bool = false
+var first_turn_action: bool = true
 
 # NPC specific
 var ai: AIRes
@@ -127,3 +128,7 @@ func _init(res: UnitRes, is_player: bool = false, ai: AIRes = null) -> void:
 
 func _to_string() -> String:
 	return name_id
+
+func reset_state() -> void:
+	attack_is_pure = false
+	first_turn_action = true

@@ -19,15 +19,12 @@ func enter(data: BattleStateData) -> void:
 	Console.print_line("# Battle End #", Color.GREEN)
 	var player: UnitRun = data.get_player()
 
-	# Reset ATK, DEF and SPD
+	# Reset Player
 	player.atk = player.base_atk
 	player.def = player.base_def
 	player.spd = player.base_spd
-
-	# Reset Temporary Passives
 	player.temp_passives.clear()
-
-	# Reset Ability states
+	player.reset_state()
 	for s: SpecialRun in player.specials:
 		s.reset_state()
 
