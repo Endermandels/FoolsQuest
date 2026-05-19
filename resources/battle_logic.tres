@@ -27,6 +27,7 @@ metadata/_custom_type_script = "uid://bly3vgt1aneef"
 
 [resource]
 script = ExtResource("1_l2dwh")
+n_battles_to_dragon = 10
 evasion_miss_chance_scale = 5
 burn_dmg_res = SubResource("Resource_s87ep")
 poison_dmg_res = SubResource("Resource_jlbsd")

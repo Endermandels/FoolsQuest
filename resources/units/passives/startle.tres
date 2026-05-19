@@ -14,7 +14,7 @@ metadata/_custom_type_script = "uid://irsbsf5elqey"
 
 [resource]
 script = ExtResource("2_ujsus")
-name_id = "Startle"
 type = 3
 effects = Array[ExtResource("1_bmghs")]([SubResource("Resource_u872c")])
+name_id = "Startle"
 metadata/_custom_type_script = "uid://b1pdjtytsqqqv"

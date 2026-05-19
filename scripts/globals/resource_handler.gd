@@ -18,6 +18,7 @@ var location_resources: Array[LocationRes]
 var battle_logic_res: BattleLogicRes
 var player: UnitRes
 var squirrel: UnitRes
+var dragon_location: LocationRes
 
 func _get_resources_from_dir(dir_path: String) -> Array[Resource]:
 	var res: Array[Resource] = []
@@ -50,3 +51,4 @@ func _ready() -> void:
 	self.battle_logic_res = RESOURCE_HANDLER_RES.battle_logic_res
 	self.player = RESOURCE_HANDLER_RES.player
 	self.squirrel = RESOURCE_HANDLER_RES.squirrel
+	self.dragon_location = RESOURCE_HANDLER_RES.dragon_location

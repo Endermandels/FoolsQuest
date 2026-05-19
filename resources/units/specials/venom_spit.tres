@@ -17,7 +17,7 @@ metadata/_custom_type_script = "uid://cr3p1bey1nyld"
 
 [resource]
 script = ExtResource("4_eek3d")
-name_id = "Venom Spit"
 mp_cost = 2
 effects = Array[ExtResource("1_b7kqj")]([SubResource("Resource_hb3wm"), SubResource("Resource_nkd1l")])
+name_id = "Venom Spit"
 metadata/_custom_type_script = "uid://bq81dohj7lbqw"

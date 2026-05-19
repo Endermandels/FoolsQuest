@@ -3,6 +3,7 @@ extends Resource
 class_name BattleLogicRes
 
 @export_range(1, 10) var n_battles_to_scale: int = 3 ## Number of battles until the next scaling of opponent stats
+@export_range(0, 30) var n_battles_to_dragon: int = 9 ## Number of battles until the dragon fight 
 @export_range(0, 100) var evasion_miss_chance_scale: int = 10 ## Every point of SPD increases evasion by this percentage
 @export_range(0, 100) var evasion_miss_chance_max: int = 70 ## Maximum percent chance of evading
 @export_group("Status Effects")

@@ -43,7 +43,12 @@ func step(data: BattleStateData) -> State:
 		data.units.append(meta.player)
 		data.units.append(meta.opponent)
 		get_tree().remove_meta(BattleSetupRes.meta_id)
-	
+
+	# Dragon initial phase
+	if opponent is DragonRun:
+		Console.print_line("! [%s] %s" % [opponent, opponent.phases[opponent.phase + 1].phase_enter_description], Color.MAGENTA)
+		opponent.new_phase(data.get_player())
+
 	# Increase opponent's stats
 	for i in range(ResourceHandler.battle_logic_res.n_battles_to_scale, MetaData.battles_fought, ResourceHandler.battle_logic_res.n_battles_to_scale):
 		# Increase twice to compensate for missing out on three battles

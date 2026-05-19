@@ -13,6 +13,6 @@ metadata/_custom_type_script = "uid://irsbsf5elqey"
 
 [resource]
 script = ExtResource("2_qwh3v")
-name_id = "Sprint"
 effects = Array[ExtResource("1_77k3n")]([SubResource("Resource_h334x")])
+name_id = "Sprint"
 metadata/_custom_type_script = "uid://bq81dohj7lbqw"

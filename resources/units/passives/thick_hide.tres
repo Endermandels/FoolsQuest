@@ -14,7 +14,7 @@ metadata/_custom_type_script = "uid://uww3xqxw83g1"
 
 [resource]
 script = ExtResource("2_5ihau")
-name_id = "Thick Hide"
 type = 5
 effects = Array[ExtResource("1_k3n2v")]([SubResource("Resource_ax1wv")])
+name_id = "Thick Hide"
 metadata/_custom_type_script = "uid://b1pdjtytsqqqv"

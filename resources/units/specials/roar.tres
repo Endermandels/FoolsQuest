@@ -18,7 +18,7 @@ metadata/_custom_type_script = "uid://dluhb2gvc4gif"
 
 [resource]
 script = ExtResource("2_b6ugq")
-name_id = "Roar"
 once_per_battle = true
 effects = Array[ExtResource("1_0vnx1")]([SubResource("Resource_0qxgk"), SubResource("Resource_1br8k")])
+name_id = "Roar"
 metadata/_custom_type_script = "uid://bq81dohj7lbqw"

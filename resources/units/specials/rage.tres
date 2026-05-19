@@ -28,6 +28,6 @@ metadata/_custom_type_script = "uid://bly3vgt1aneef"
 
 [resource]
 script = ExtResource("2_d4xj0")
-name_id = "Rage"
 effects = Array[ExtResource("1_ar3du")]([SubResource("Resource_tayx2"), SubResource("Resource_fhfe0"), SubResource("Resource_j8kpu")])
+name_id = "Rage"
 metadata/_custom_type_script = "uid://bq81dohj7lbqw"

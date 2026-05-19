@@ -9,6 +9,13 @@ func step(data: BattleStateData) -> State:
 
 	print("* Step Turn Start First")
 
+	# Dragon phase shifting
+	if cur_unit is DragonRun:
+		if cur_unit.phase + 1 < cur_unit.phases.size():
+			if float(cur_unit.hp) / float(cur_unit.base_hp) <= float(cur_unit.phases[cur_unit.phase + 1].hp_percent_trigger) / 100.0:
+				Console.print_line("! [%s] %s" % [cur_unit, cur_unit.phases[cur_unit.phase + 1].phase_enter_description], Color.MAGENTA)
+				cur_unit.new_phase(data.get_player())
+
 	if data.trigger_passives(cur_unit, null, Constants.PassiveType.TURN_START_SELF):
 		state = battle_end
 	else:

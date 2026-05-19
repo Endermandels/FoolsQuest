@@ -17,7 +17,8 @@ func step(data: BattleStateData) -> State:
 	
 	else:
 		# Evasion
-		var miss: bool = Helper.rnd_succeeded(min(defender.spd * data.battle_logic_res.evasion_miss_chance_scale, data.battle_logic_res.evasion_miss_chance_max))
+		var spd_diff: int = max(defender.spd - cur_unit.spd, 0) # Defender evasion is relative to attacker SPD
+		var miss: bool = Helper.rnd_succeeded(min(spd_diff * data.battle_logic_res.evasion_miss_chance_scale, data.battle_logic_res.evasion_miss_chance_max))
 
 		# Blindness
 		if not miss and cur_unit.is_blind:

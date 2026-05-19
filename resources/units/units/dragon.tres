@@ -1,14 +1,28 @@
-[gd_resource type="Resource" script_class="UnitRes" load_steps=11 format=3 uid="uid://bxpdr13q0h756"]
+[gd_resource type="Resource" script_class="DragonRes" load_steps=30 format=3 uid="uid://bxpdr13q0h756"]
 
 [ext_resource type="Script" uid="uid://bp8bl6apkie3q" path="res://scripts/resources/units/loot_res.gd" id="1_m4fuy"]
 [ext_resource type="Script" uid="uid://b1pdjtytsqqqv" path="res://scripts/resources/units/passive_res.gd" id="1_oqbk3"]
-[ext_resource type="Script" uid="uid://btu6s2dkuilpu" path="res://scripts/resources/units/unit_res.gd" id="2_e71d4"]
 [ext_resource type="Resource" uid="uid://bhepds6rc5fio" path="res://resources/units/passives/venomous_fangs.tres" id="2_swe7g"]
+[ext_resource type="Script" uid="uid://c3ld771heu8g8" path="res://scripts/resources/units/bosses/dragon_phase_res.gd" id="3_s6uoi"]
 [ext_resource type="Resource" uid="uid://y4qf14x1yf6x" path="res://resources/units/passives/sharp_fangs.tres" id="3_t7uur"]
 [ext_resource type="Script" uid="uid://bq81dohj7lbqw" path="res://scripts/resources/units/special_res.gd" id="3_yeuaj"]
+[ext_resource type="Script" uid="uid://hbwu13lbfqas" path="res://scripts/resources/units/bosses/dragon_res.gd" id="4_l6a4p"]
+[ext_resource type="Script" uid="uid://dhsffrd18ws8p" path="res://scripts/resources/units/ai_res.gd" id="4_oh6nt"]
 [ext_resource type="Resource" uid="uid://c64317p4mml2x" path="res://resources/units/specials/flame_breath.tres" id="4_y25qw"]
+[ext_resource type="Resource" uid="uid://crysga205xsue" path="res://resources/units/ai/cautious.tres" id="5_fo2pm"]
+[ext_resource type="Resource" uid="uid://b5w7xsm7uaov1" path="res://resources/units/ai/mischievous.tres" id="6_1878r"]
+[ext_resource type="Resource" uid="uid://d041lhq0qbbdr" path="res://resources/units/passives/steadfast.tres" id="7_geru3"]
 [ext_resource type="Resource" uid="uid://cjpbrn3r7njre" path="res://resources/units/specials/venom_spit.tres" id="7_i1qv5"]
 [ext_resource type="Resource" uid="uid://ch1p36ce11pd" path="res://resources/units/specials/roar.tres" id="8_8165m"]
+[ext_resource type="Resource" uid="uid://bbj62kivh62te" path="res://resources/units/passives/thick_hide.tres" id="8_jmjoo"]
+[ext_resource type="Script" uid="uid://c0wbcrlg6ht3b" path="res://scripts/resources/units/effect_res.gd" id="14_egrv5"]
+[ext_resource type="Resource" uid="uid://caepeaodytkry" path="res://resources/units/ai/aggressive.tres" id="15_i2jrp"]
+[ext_resource type="Resource" uid="uid://ich6y0x7rwo2" path="res://resources/units/ai/feral.tres" id="16_t3w32"]
+[ext_resource type="Resource" uid="uid://bfqlpqcdva043" path="res://resources/units/passives/brute_force.tres" id="17_q6ti2"]
+[ext_resource type="Resource" uid="uid://bhdqf2nq4fhrl" path="res://resources/units/passives/shell_smash.tres" id="19_c3j56"]
+[ext_resource type="Resource" uid="uid://bi6770u74epi3" path="res://resources/units/specials/rage.tres" id="20_5bj6w"]
+[ext_resource type="Script" uid="uid://irsbsf5elqey" path="res://scripts/resources/units/effects/stat_up_res.gd" id="21_eoh1u"]
+[ext_resource type="Script" uid="uid://bryxtb4tgoe40" path="res://scripts/resources/units/effects/stat_down_res.gd" id="22_qwnm5"]
 
 [sub_resource type="Resource" id="Resource_c8sn7"]
 script = ExtResource("1_m4fuy")
@@ -26,8 +40,51 @@ def = 1
 def_hi = 3
 metadata/_custom_type_script = "uid://bp8bl6apkie3q"
 
+[sub_resource type="Resource" id="Resource_cpxb2"]
+script = ExtResource("3_s6uoi")
+phase_enter_description = "glared with venomous delight"
+ais = Array[ExtResource("4_oh6nt")]([ExtResource("5_fo2pm"), ExtResource("6_1878r")])
+specials = Array[ExtResource("3_yeuaj")]([ExtResource("4_y25qw"), ExtResource("8_8165m"), ExtResource("7_i1qv5")])
+passives = Array[ExtResource("1_oqbk3")]([ExtResource("7_geru3"), ExtResource("8_jmjoo"), ExtResource("2_swe7g")])
+metadata/_custom_type_script = "uid://c3ld771heu8g8"
+
+[sub_resource type="Resource" id="Resource_ay7sn"]
+script = ExtResource("21_eoh1u")
+stat_type = 2
+amount = 3
+targeting = 0
+always_accurate = true
+metadata/_custom_type_script = "uid://irsbsf5elqey"
+
+[sub_resource type="Resource" id="Resource_allj6"]
+script = ExtResource("21_eoh1u")
+stat_type = 4
+amount = 3
+targeting = 0
+always_accurate = true
+metadata/_custom_type_script = "uid://irsbsf5elqey"
+
+[sub_resource type="Resource" id="Resource_0ypqw"]
+script = ExtResource("22_qwnm5")
+stat_type = 3
+amount = 99
+targeting = 0
+always_accurate = true
+metadata/_custom_type_script = "uid://bryxtb4tgoe40"
+
+[sub_resource type="Resource" id="Resource_2gdj8"]
+script = ExtResource("3_s6uoi")
+hp_percent_trigger = 50
+phase_enter_description = "charged forward recklessly"
+ais = Array[ExtResource("4_oh6nt")]([ExtResource("15_i2jrp"), ExtResource("16_t3w32")])
+specials = Array[ExtResource("3_yeuaj")]([ExtResource("4_y25qw"), ExtResource("20_5bj6w")])
+passives = Array[ExtResource("1_oqbk3")]([ExtResource("17_q6ti2"), ExtResource("3_t7uur"), ExtResource("19_c3j56"), ExtResource("2_swe7g")])
+transition_effects = Array[ExtResource("14_egrv5")]([SubResource("Resource_ay7sn"), SubResource("Resource_allj6"), SubResource("Resource_0ypqw")])
+metadata/_custom_type_script = "uid://c3ld771heu8g8"
+
 [resource]
-script = ExtResource("2_e71d4")
+script = ExtResource("4_l6a4p")
+phases = Array[ExtResource("3_s6uoi")]([SubResource("Resource_cpxb2"), SubResource("Resource_2gdj8")])
 name_id = "Dragon"
 loot = SubResource("Resource_c8sn7")
 base_hp = 15
@@ -35,6 +92,4 @@ base_mp = 7
 base_atk = 3
 base_def = 3
 base_spd = 1
-passives = Array[ExtResource("1_oqbk3")]([ExtResource("2_swe7g"), ExtResource("3_t7uur")])
-specials = Array[ExtResource("3_yeuaj")]([ExtResource("4_y25qw"), ExtResource("7_i1qv5"), ExtResource("8_8165m")])
 metadata/_custom_type_script = "uid://btu6s2dkuilpu"
