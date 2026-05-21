@@ -7,7 +7,7 @@ func init(_res: PureAttackRes) -> void:
 func _apply(_source: UnitRun, target: UnitRun) -> bool:
 	var res: bool = false
 
-	assert(target.is_alive)
+	if not target.is_alive: return res
 
 	if not target.attack_is_pure:
 		target.attack_is_pure = true

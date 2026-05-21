@@ -9,7 +9,7 @@ func init(res: CleanseRes) -> void:
 func _apply(_source: UnitRun, target: UnitRun) -> bool:
 	var res: bool = false
 
-	assert(target.is_alive)
+	if not target.is_alive: return res
 
 	if type == Constants.StatusEffect.POISON:
 		if target.is_poisoned:

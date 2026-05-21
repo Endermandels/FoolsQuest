@@ -35,25 +35,27 @@ func step(data: BattleStateData) -> State:
 		opponent = UnitRun.new(ResourceHandler.squirrel, false, ResourceHandler.ai_resources.pick_random())
 		data.units.append(player)
 		data.units.append(opponent)
+		MetaData.player = player # Initialize player reference in MetaData
 	else:
 		# Initialize Location units
+		player = MetaData.player
+
 		var meta: BattleSetupRes = get_tree().get_meta(BattleSetupRes.meta_id)
-		player = meta.player
 		opponent = meta.opponent
-		data.units.append(meta.player)
-		data.units.append(meta.opponent)
+		data.units.append(player)
+		data.units.append(opponent)
 		get_tree().remove_meta(BattleSetupRes.meta_id)
 
-	# Dragon initial phase
 	if opponent is DragonRun:
-		Console.print_line("! [%s] %s" % [opponent, opponent.phases[opponent.phase + 1].phase_enter_description], Color.MAGENTA)
-		opponent.new_phase(data.get_player())
-
-	# Increase opponent's stats
-	for i in range(ResourceHandler.battle_logic_res.n_battles_to_scale, MetaData.battles_fought, ResourceHandler.battle_logic_res.n_battles_to_scale):
-		# Increase twice to compensate for missing out on three battles
-		_increase_stats(opponent)
-		_increase_stats(opponent)
+		# Dragon initial phase
+		Console.print_line("! [%s] %s" % [opponent, opponent.phases[opponent.phase + 1].phase_enter_description], Color.MEDIUM_VIOLET_RED)
+		opponent.new_phase(player)
+	else:
+		# Increase opponent's stats
+		for i in range(ResourceHandler.battle_logic_res.n_battles_to_scale, MetaData.battles_fought, ResourceHandler.battle_logic_res.n_battles_to_scale):
+			# Increase twice to compensate for missing out on three battles
+			_increase_stats(opponent)
+			_increase_stats(opponent)
 	
 	data.units.sort_custom(func (x: UnitRun, y: UnitRun): return x.spd > y.spd) # Sort by SPD
 
@@ -61,11 +63,12 @@ func step(data: BattleStateData) -> State:
 		[player, "n" if opponent.ai.name_id[0].to_lower() in Constants.VOWELS else "", opponent.ai, opponent])
 
 	for i in range(data.units.size()):
-		if data.trigger_passives(data.units[i], null, Constants.PassiveType.BATTLE_START_SELF):
-			state = battle_end
-			break
+		data.trigger_passives(data.units[i], null, Constants.PassiveType.BATTLE_START_SELF)
+
+	if data.has_death_occurred():
+		state = battle_end
 
 	return state
 
 func enter(_data: BattleStateData) -> void:
-	Console.print_line("# Battle Start #", Color.GREEN)
+	Console.print_line("# Battle Start #", Color.LIME_GREEN)

@@ -13,10 +13,12 @@ func step(data: BattleStateData) -> State:
 	if cur_unit is DragonRun:
 		if cur_unit.phase + 1 < cur_unit.phases.size():
 			if float(cur_unit.hp) / float(cur_unit.base_hp) <= float(cur_unit.phases[cur_unit.phase + 1].hp_percent_trigger) / 100.0:
-				Console.print_line("! [%s] %s" % [cur_unit, cur_unit.phases[cur_unit.phase + 1].phase_enter_description], Color.MAGENTA)
-				cur_unit.new_phase(data.get_player())
+				Console.print_line("! [%s] %s" % [cur_unit, cur_unit.phases[cur_unit.phase + 1].phase_enter_description], Color.MEDIUM_VIOLET_RED)
+				cur_unit.new_phase(MetaData.player)
 
-	if data.trigger_passives(cur_unit, null, Constants.PassiveType.TURN_START_SELF):
+	data.trigger_passives(cur_unit, null, Constants.PassiveType.TURN_START_SELF)
+
+	if data.has_death_occurred():
 		state = battle_end
 	else:
 		if cur_unit.resists_poison and cur_unit.poison_resistance_turns_left == 1:
@@ -45,4 +47,4 @@ func step(data: BattleStateData) -> State:
 func enter(data: BattleStateData) -> void:
 	var cur_unit: UnitRun = data.units[data.turn_idx]
 
-	Console.print_line("# [%s] Turn Start #" % cur_unit, Color.GREEN)
+	Console.print_line("# [%s] Turn Start #" % cur_unit, Color.LIME_GREEN)

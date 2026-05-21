@@ -4,9 +4,9 @@ var locations: Array[LocationRes]
 var selected_location_idx: int = 0
 
 func _print_location_prompt() -> void:
-	Console.print_line("> Choose a Location:", Color.ORANGE)
+	Console.print_line("> Choose a Location:", Color.LIGHT_CORAL)
 	for i in range(locations.size()):
-		Console.print_line("%d. %s" % [i + 1, locations[i]], Color.ORANGE)
+		Console.print_line("%d. %s" % [i + 1, locations[i]], Color.LIGHT_CORAL)
 	Console.print_line("* Currently selecting [%s]" % locations[selected_location_idx])
 
 func _pick_random_animal(animals: Array[AnimalRes]) -> UnitRes:
@@ -30,7 +30,7 @@ func _pick_random_animal(animals: Array[AnimalRes]) -> UnitRes:
 
 	return res
 
-func step(data: LocationStateData) -> State:
+func step(_data: LocationStateData) -> State:
 	var state: State = null
 
 	if InputHandler.inputs[InputHandler.InputType.CONFIRM]:
@@ -41,7 +41,6 @@ func step(data: LocationStateData) -> State:
 		var opponent_res := _pick_random_animal(location_res.animals)
 		var meta: BattleSetupRes = BattleSetupRes.new()
 
-		meta.player = data.player
 		if opponent_res is DragonRes:
 			meta.opponent = DragonRun.new(opponent_res) 
 		else:
@@ -60,17 +59,9 @@ func step(data: LocationStateData) -> State:
 
 	return state
 
-func enter(data: LocationStateData) -> void:
-	Console.print_line("# Location Selection #", Color.GREEN)
+func enter(_data: LocationStateData) -> void:
+	Console.print_line("# Location Selection #", Color.LIME_GREEN)
 	
-	var meta: LocationSetupRes = get_tree().get_meta("location_data")
-
-	assert(meta != null and meta.player != null)
-	
-	data.player = meta.player
-	
-	get_tree().remove_meta(LocationSetupRes.meta_id)
-
 	if MetaData.battles_fought >= ResourceHandler.battle_logic_res.n_battles_to_dragon:
 		locations = [ResourceHandler.dragon_location]
 	else:

@@ -52,4 +52,4 @@ func step(data: BattleStateData) -> State:
 func enter(data: BattleStateData) -> void:
 	var cur_unit: UnitRun = data.units[data.turn_idx]
 
-	Console.print_line("# [%s] Special #" % cur_unit, Color.GREEN)
+	Console.print_line("# [%s] Special #" % cur_unit, Color.LIME_GREEN)

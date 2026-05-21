@@ -10,6 +10,7 @@
 script = ExtResource("1_r1wep")
 battle_scene = "res://scenes/battle.tscn"
 location_scene = "res://scenes/location.tscn"
+victory_scene = "res://scenes/victory.tscn"
 ai_res_dir = "res://resources/units/ai"
 location_res_dir = "res://resources/locations/locations"
 dragon_location = ExtResource("2_1ajif")

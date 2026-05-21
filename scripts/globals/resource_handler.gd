@@ -9,6 +9,7 @@ const RESOURCE_HANDLER_RES := preload("res://resources/resource_handler.tres")
 # Scenes
 var battle_scene: String
 var location_scene: String
+var victory_scene: String
 
 # Directories
 var ai_resources: Array[AIRes]
@@ -48,6 +49,7 @@ func _ready() -> void:
 
 	self.battle_scene = RESOURCE_HANDLER_RES.battle_scene
 	self.location_scene = RESOURCE_HANDLER_RES.location_scene
+	self.victory_scene = RESOURCE_HANDLER_RES.victory_scene
 	self.battle_logic_res = RESOURCE_HANDLER_RES.battle_logic_res
 	self.player = RESOURCE_HANDLER_RES.player
 	self.squirrel = RESOURCE_HANDLER_RES.squirrel

@@ -17,9 +17,9 @@ func step() -> void:
 	battle_state_machine.step()
 
 func stats() -> void:
-	var player: UnitRun = battle_state_machine.data.get_player()
-	Console.print_line("* [%s] (HP %d|MP %d|ATK %d|DEF %d|SPD %d)" % 
-		[player, player.hp, player.mp, player.atk, player.def, player.spd])
+	var player: UnitRun = MetaData.player
+	Console.print_line("* [%s] (HP %d/%d|MP %d/%d|ATK %d|DEF %d|SPD %d)" % 
+		[player, player.hp, player.base_hp, player.mp, player.base_mp, player.atk, player.def, player.spd])
 
 ## If wait_time is specified, start the auto_step_timer at the specified wait_time.  Otherwise, toggle auto_step_timer.
 func auto(wait_time: float = 0) -> void:

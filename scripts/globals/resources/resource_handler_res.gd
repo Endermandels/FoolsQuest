@@ -4,6 +4,7 @@ class_name ResourceHandlerRes
 @export_group("Scenes")
 @export_file_path("*.tscn") var battle_scene: String = ""
 @export_file_path("*.tscn") var location_scene: String = ""
+@export_file_path("*.tscn") var victory_scene: String = ""
 @export_group("Directories")
 @export_dir var ai_res_dir: String = ""
 @export_dir var location_res_dir: String = ""

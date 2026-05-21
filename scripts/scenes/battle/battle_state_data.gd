@@ -22,41 +22,31 @@ func next_turn() -> void:
 func has_death_occurred() -> bool:
 	return units.any(func(x: UnitRun): return not x.is_alive)
 
-## Returns whether a death has occurred.
+## Returns whether the passive had any effect.
 func trigger_passives(source: UnitRun, opponent: UnitRun, ptype: Constants.PassiveType) -> bool:
-	var has_death_occurred: bool = false
+	var successful: bool = false
 	var all_passives: Array[PassiveRun] = source.passives + source.temp_passives
 
 	for p: PassiveRun in all_passives:
 		if p.type == ptype:
 			for e_res: EffectRes in p.effects:
 				var e_run = EffectRun.from_resource(e_res)
+				var temp := false
 
 				if (ptype == Constants.PassiveType.PRE_ATTACK or
 						ptype == Constants.PassiveType.POST_ATTACK or
 						ptype == Constants.PassiveType.PRE_DEFENSE or
 						ptype == Constants.PassiveType.POST_DEFENSE):
-					e_run.apply(source, opponent)
+					temp = e_run.apply(source, opponent)
 				elif (ptype == Constants.PassiveType.TURN_START_SELF or
 						ptype == Constants.PassiveType.BATTLE_START_SELF):
-					e_run.apply(source, source)
+					temp = e_run.apply(source, source)
 				else:
 					push_error("! Unknown passive type: '%s'" % ptype)
 
-				if has_death_occurred():
-					has_death_occurred = true
-					break
+				successful = successful or temp or e_run is DMGRun # DMGRun always inflicts damage but only reports success if it damages over the DEF threshold
 
-	return has_death_occurred
-
-func get_player() -> UnitRun:
-	var res: UnitRun = null
-
-	for u in units:
-		if u.is_player:
-			res = u
-
-	return res
+	return successful
 	
 func get_opponent() -> UnitRun:
 	var res: UnitRun = null

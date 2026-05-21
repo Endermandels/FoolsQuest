@@ -11,7 +11,7 @@ func init(res: ResistanceRes) -> void:
 func _apply(_source: UnitRun, target: UnitRun) -> bool:
 	var res: bool = false
 
-	assert(target.is_alive)
+	if not target.is_alive: return res
 
 	if type == Constants.StatusEffect.POISON:
 		target.poison_resistance_turns_left += duration

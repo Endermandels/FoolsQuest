@@ -8,17 +8,17 @@ var choosing_attack_or_special: bool = true
 var player_special_idx_save: int = 0 ## Save the player's selected special for player's convenience
 
 func _print_action_prompt() -> void:
-	Console.print_line("> Choose an Action:", Color.ORANGE)
-	Console.print_line("1. Attack", Color.ORANGE)
-	Console.print_line("2. Special", Color.ORANGE)
+	Console.print_line("> Choose an Action:", Color.LIGHT_CORAL)
+	Console.print_line("1. Attack", Color.LIGHT_CORAL)
+	Console.print_line("2. Special", Color.LIGHT_CORAL)
 	Console.print_line("* Currently selecting [%s]" % ("Attack" if attack_selected else "Special"))
 
 func _print_special_prompt(cur_unit: UnitRun, data: BattleStateData) -> void:
-	Console.print_line("> Choose a Special:", Color.ORANGE)
+	Console.print_line("> Choose a Special:", Color.LIGHT_CORAL)
 	for i in range(cur_unit.specials.size()):
 		var special: SpecialRun = cur_unit.specials[i]
 		var valid_special: bool = _valid_special(cur_unit, cur_unit.specials[i])
-		Console.print_line("%d. %s (%d/%d MP)" % [i + 1, special, cur_unit.mp, special.mp_cost], Color.ORANGE if valid_special else Color.RED)
+		Console.print_line("%d. %s (%d/%d MP)" % [i + 1, special, cur_unit.mp, special.mp_cost], Color.LIGHT_CORAL if valid_special else Color.RED)
 	Console.print_line("* Currently selecting [%s]" % cur_unit.specials[data.selected_special_idx])
 
 func _valid_special(cur_unit: UnitRun, special: SpecialRun) -> bool:

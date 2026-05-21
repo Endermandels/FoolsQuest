@@ -9,7 +9,7 @@ func init(res: BlindRes) -> void:
 func _apply(_source: UnitRun, target: UnitRun) -> bool:
 	var res: bool = false
 
-	assert(target.is_alive)
+	if not target.is_alive: return res
 
 	if not target.resists_blindness:
 		# Can't blind an already blind unit

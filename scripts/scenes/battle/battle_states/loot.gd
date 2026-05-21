@@ -5,14 +5,14 @@ var choosing_ability: bool = false
 var selected_ability_idx: int = 0
 
 func _print_ability_selection_prompt() -> void:
-	Console.print_line("> Choose an Ability:", Color.ORANGE)
+	Console.print_line("> Choose an Ability:", Color.LIGHT_CORAL)
 	for i in range(valid_abilities.size()):
-		Console.print_line("%d. %s" % [i + 1, valid_abilities[i]], Color.ORANGE)
+		Console.print_line("%d. %s" % [i + 1, valid_abilities[i]], Color.LIGHT_CORAL)
 	Console.print_line("* Currently selecting [%s]" % valid_abilities[selected_ability_idx])
 
-func step(data: BattleStateData) -> State:
+func step(_data: BattleStateData) -> State:
 	var state: State = null
-	var player := data.get_player()
+	var player := MetaData.player
 
 	# Select ability
 	if choosing_ability:
@@ -39,14 +39,14 @@ func step(data: BattleStateData) -> State:
 			selected_ability_idx = Helper.wrap(selected_ability_idx + 1, valid_abilities.size())
 			Console.print_line("* Currently selecting [%s]" % valid_abilities[selected_ability_idx])
 
-	# Transition to Location Scene
+	# Transition to Location Scene or Win Scene, depending if the player defeated the Dragon or not
 	else:
 		InputHandler.allow_inputs = false
 
-		var meta: LocationSetupRes = LocationSetupRes.new()
-		meta.player = data.get_player()
-		get_tree().set_meta(LocationSetupRes.meta_id, meta)
-		get_tree().change_scene_to_file(ResourceHandler.location_scene)
+		if MetaData.battles_fought > ResourceHandler.battle_logic_res.n_battles_to_dragon:
+			get_tree().change_scene_to_file(ResourceHandler.victory_scene)
+		else:
+			get_tree().change_scene_to_file(ResourceHandler.location_scene)
 
 	return state
 
@@ -54,9 +54,9 @@ func _is_valid_ability(a: AbilityRun, player: UnitRun) -> bool:
 	return (not player.passives.any(func (x): return x.name_id == a.name_id)) and (not player.specials.any(func (x): return x.name_id == a.name_id))
 
 func enter(data: BattleStateData) -> void:
-	Console.print_line("# Loot #", Color.GREEN)
+	Console.print_line("# Loot #", Color.LIME_GREEN)
 
-	var player := data.get_player()
+	var player := MetaData.player
 	var opponent := data.get_opponent()
 
 	# Increase player stats

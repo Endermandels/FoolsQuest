@@ -9,7 +9,7 @@ func init(res: GainPassiveRes) -> void:
 func _apply(_source: UnitRun, target: UnitRun) -> bool:
 	var res: bool = false
 	
-	assert(target.is_alive)
+	if not target.is_alive: return res
 
 	target.temp_passives.append(PassiveRun.new(passive))
 	Console.print_line("* [%s] gained [%s]" % [target, passive])

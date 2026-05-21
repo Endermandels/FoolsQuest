@@ -13,7 +13,7 @@ func init(res: ConvertStatsRes) -> void:
 func _apply(_source: UnitRun, target: UnitRun) -> bool:
 	var res: bool = false
 
-	assert(target.is_alive)
+	if not target.is_alive: return res
 	
 	var from_stat_str: String = Constants.StatType.find_key(from_stat).to_lower()
 	var to_stat_str: String = Constants.StatType.find_key(to_stat).to_lower()

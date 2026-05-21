@@ -15,9 +15,9 @@ func step(_data: BattleStateData) -> State:
 
 	return state
 
-func enter(data: BattleStateData) -> void:
-	Console.print_line("# Battle End #", Color.GREEN)
-	var player: UnitRun = data.get_player()
+func enter(_data: BattleStateData) -> void:
+	Console.print_line("# Battle End #", Color.LIME_GREEN)
+	var player: UnitRun = MetaData.player
 
 	# Reset Player
 	player.atk = player.base_atk

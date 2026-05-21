@@ -11,7 +11,7 @@ func init(res: StatUpRes) -> void:
 func _apply(_source: UnitRun, target: UnitRun) -> bool:
 	var res: bool = false
 
-	assert(target.is_alive)
+	if not target.is_alive: return res
 
 	var stat_str: String = Constants.StatType.find_key(stat_type).to_lower()
 
