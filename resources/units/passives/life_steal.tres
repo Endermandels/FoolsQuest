@@ -7,7 +7,7 @@
 [sub_resource type="Resource" id="Resource_jgilh"]
 script = ExtResource("2_puy8k")
 targeting = 0
-always_accurate = true
+accuracy_percent = 50
 metadata/_custom_type_script = "uid://irsbsf5elqey"
 
 [resource]

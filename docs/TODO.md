@@ -2,13 +2,15 @@
 - [ ] README project description first draft (after game is finished)
 - [ ] Implement [0009](milestones/0009%20-%20Publish.md)
 - [ ] Implement [0008](milestones/0008%20-%20Balance.md)
+- [ ] Alter stat increases to be more spread out, not focused on only what the animal provides as loot (get ideas from Claude)
+- [ ] Limit player to X passives
 - [ ] Implement [0007](milestones/0007%20-%20SFX.md)
-- [ ] Implement [0006](milestones/0006%20-%20Visuals.md)
 
 # CURRENT
-- [ ] Implement [0005](milestones/0005%20-%20Boss.md)
+- [ ] Implement [0006](milestones/0006%20-%20Visuals.md)
 
 # CLOSED
+- [x] Implement [0005](milestones/0005%20-%20Boss.md)
 - [x] Implement [0004](milestones/0004%20-%20Loop.md)
 - [x] Implement [0003](milestones/0003%20-%20Battle.md)
 - [x] Add chance exports to effects
